@@ -12,15 +12,15 @@ protocol TopicListPresenterInterface {
     func fetchData(buddyId: Int)
 }
 
-protocol TopicListViewInterface {
+protocol TopicListViewInterface: class {
     func showTitle(title: String)
     func updateTopics(topics: [TopicListItemDisplayData])
 }
 
 class TopicListPresenter: TopicListPresenterInterface {
     // MARK: Injected properties
-    var dataStore: GlobalDataStore?
-    var userInterface: TopicListViewInterface?
+    var dataStore: GlobalDataStore!
+    weak var userInterface: TopicListViewInterface?
     
     // MARK: Properties
     var buddyId: Int!
@@ -32,7 +32,7 @@ class TopicListPresenter: TopicListPresenterInterface {
     }
     
     func obtainTitle() {
-        dataStore?.buddiesStore.fetchBuddy(buddyId, completionHandler: { (buddy, error) in
+        dataStore.buddiesStore.fetchBuddy(buddyId, completionHandler: { (buddy, error) in
             if let buddy = buddy {
                 self.generateTitle(buddy)
             }
@@ -40,7 +40,7 @@ class TopicListPresenter: TopicListPresenterInterface {
     }
     
     func obtainTopics() {
-        dataStore?.topicsStore.fetchTopicsForBuddy(buddyId, completionHandler: { (topics, error) in
+        dataStore.topicsStore.fetchTopicsForBuddy(buddyId, completionHandler: { (topics, error) in
             if let topics = topics {
                 self.generateDisplayData(topics)
             }

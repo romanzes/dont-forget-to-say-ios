@@ -12,8 +12,8 @@ var BuddyTableCellIdentifier = "BuddyTableCell"
 
 class BuddyListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, BuddyListViewInterface {
     // MARK: Injected properties
-    var router: Router?
-    var presenter: BuddyListPresenterInterface?
+    var router: Router!
+    var presenter: BuddyListPresenterInterface!
     
     // MARK: Properties
     var displayData: [BuddyListItemDisplayData]?
@@ -21,9 +21,7 @@ class BuddyListViewController: UIViewController, UITableViewDataSource, UITableV
     // MARK: Outlets
     @IBOutlet weak var buddiesTableView: UITableView!
     
-    init(router: Router?, presenter: BuddyListPresenterInterface?) {
-        self.router = router
-        self.presenter = presenter
+    init() {
         super.init(nibName: "BuddyListViewController", bundle: NSBundle.mainBundle())
     }
     
@@ -45,7 +43,7 @@ class BuddyListViewController: UIViewController, UITableViewDataSource, UITableV
     }
     
     override func viewDidAppear(animated: Bool) {
-        presenter?.obtainBuddies()
+        presenter.obtainBuddies()
     }
     
     func updateBuddies(buddies: [BuddyListItemDisplayData]) {
@@ -77,7 +75,7 @@ class BuddyListViewController: UIViewController, UITableViewDataSource, UITableV
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         if let buddyId = displayData?[indexPath.row].id {
-            router?.showTopicListFromViewController(self, buddyId: buddyId)
+            router.showTopicListFromViewController(self, buddyId: buddyId)
         }
     }
 }

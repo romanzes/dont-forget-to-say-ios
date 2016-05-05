@@ -12,14 +12,14 @@ protocol BuddyListPresenterInterface {
     func obtainBuddies()
 }
 
-protocol BuddyListViewInterface {
+protocol BuddyListViewInterface: class {
     func updateBuddies(buddies: [BuddyListItemDisplayData])
 }
 
 class BuddyListPresenter: BuddyListPresenterInterface {
     // MARK: Injected properties
-    var dataStore: GlobalDataStore?
-    var userInterface: BuddyListViewInterface?
+    var dataStore: GlobalDataStore!
+    weak var userInterface: BuddyListViewInterface?
     
     func obtainBuddies() {
         var fetchedBuddies: [Buddy]?
@@ -30,9 +30,9 @@ class BuddyListPresenter: BuddyListPresenterInterface {
         }
         let onBuddiesFetched = { (buddies: [Buddy]?, error: CrudStoreError?) in
             fetchedBuddies = buddies
-            self.dataStore?.topicsStore.fetchRelations(onRelationsFetched)
+            self.dataStore.topicsStore.fetchRelations(onRelationsFetched)
         }
-        dataStore?.buddiesStore.fetchBuddies(onBuddiesFetched)
+        dataStore.buddiesStore.fetchBuddies(onBuddiesFetched)
     }
     
     func generateDisplayData(buddies: [Buddy], relations: [TopicRelation]) {

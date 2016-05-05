@@ -12,7 +12,7 @@ var TopicTableCellIdentifier = "TopicTableCell"
 
 class TopicListViewController: UIViewController, UITableViewDataSource, TopicListViewInterface {
     // MARK: Injected properties
-    var presenter: TopicListPresenterInterface?
+    var presenter: TopicListPresenterInterface!
     
     // MARK: Properties
     var buddyId: Int!
@@ -21,8 +21,7 @@ class TopicListViewController: UIViewController, UITableViewDataSource, TopicLis
     // MARK: Outlets
     @IBOutlet weak var topicsTableView: UITableView!
     
-    init(presenter: TopicListPresenterInterface?) {
-        self.presenter = presenter
+    init() {
         super.init(nibName: "TopicListViewController", bundle: NSBundle.mainBundle())
     }
     
@@ -42,7 +41,7 @@ class TopicListViewController: UIViewController, UITableViewDataSource, TopicLis
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        presenter?.fetchData(buddyId)
+        presenter.fetchData(buddyId)
     }
     
     func showTitle(title: String) {
