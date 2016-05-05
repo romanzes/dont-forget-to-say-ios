@@ -8,3 +8,6 @@
 
 /* Buddy list screen title */
 "Buddies" = "Друзья";
+
+/* Topic list screen title */
+"Topics for %@" = "Темы для %@";

@@ -22,4 +22,15 @@ class BuddiesMemStore: BuddiesStoreProtocol {
     func fetchBuddies(completionHandler: (buddies: [Buddy], error: CrudStoreError?) -> Void) {
         completionHandler(buddies: buddies, error: nil)
     }
+    
+    func fetchBuddy(id: Int, completionHandler: (buddy: Buddy?, error: CrudStoreError?) -> Void) {
+        let buddy = buddies.filter { (buddy: Buddy) -> Bool in
+            return buddy.id == id
+            }.first
+        if let _ = buddy {
+            completionHandler(buddy: buddy, error: nil)
+        } else {
+            completionHandler(buddy: nil, error: CrudStoreError.CannotFetch("Cannot fetch buddy with id \(id)"))
+        }
+    }
 }

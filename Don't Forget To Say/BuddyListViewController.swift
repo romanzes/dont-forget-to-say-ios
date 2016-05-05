@@ -10,8 +10,9 @@ import UIKit
 
 var BuddyTableCellIdentifier = "BuddyTableCell"
 
-class BuddyListViewController: UIViewController, UITableViewDataSource, BuddyListViewInterface {
+class BuddyListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, BuddyListViewInterface {
     // MARK: Injected properties
+    var router: Router?
     var presenter: BuddyListPresenterInterface?
     
     // MARK: Properties
@@ -20,7 +21,8 @@ class BuddyListViewController: UIViewController, UITableViewDataSource, BuddyLis
     // MARK: Outlets
     @IBOutlet weak var buddiesTableView: UITableView!
     
-    init(presenter: BuddyListPresenterInterface?) {
+    init(router: Router?, presenter: BuddyListPresenterInterface?) {
+        self.router = router
         self.presenter = presenter
         super.init(nibName: "BuddyListViewController", bundle: NSBundle.mainBundle())
     }
@@ -38,6 +40,7 @@ class BuddyListViewController: UIViewController, UITableViewDataSource, BuddyLis
         navigationItem.title = NSLocalizedString("Buddies", comment: "Buddy list screen title")
         
         buddiesTableView.dataSource = self
+        buddiesTableView.delegate = self
         buddiesTableView.registerNib(UINib(nibName: BuddyTableCellIdentifier, bundle: nil), forCellReuseIdentifier: BuddyTableCellIdentifier)
     }
     
@@ -45,7 +48,7 @@ class BuddyListViewController: UIViewController, UITableViewDataSource, BuddyLis
         presenter?.obtainBuddies()
     }
     
-    func obtainedBuddies(buddies: [BuddyListItemDisplayData]) {
+    func updateBuddies(buddies: [BuddyListItemDisplayData]) {
         displayData = buddies
         reloadEntries()
     }
@@ -70,5 +73,11 @@ class BuddyListViewController: UIViewController, UITableViewDataSource, BuddyLis
         }
         
         return cell
+    }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        if let buddyId = displayData?[indexPath.row].id {
+            router?.showTopicListFromViewController(self, buddyId: buddyId)
+        }
     }
 }

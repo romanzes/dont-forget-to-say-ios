@@ -23,6 +23,12 @@
 		07796CA31CD8CE5900CD6FDA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 07796CA21CD8CE5900CD6FDA /* Assets.xcassets */; };
 		07796CA61CD8CE5900CD6FDA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 07796CA41CD8CE5900CD6FDA /* LaunchScreen.storyboard */; };
 		079F19761CDB440900D2AE2E /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 079F19781CDB440900D2AE2E /* Localizable.strings */; };
+		079F197F1CDB56FD00D2AE2E /* TopicTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079F197D1CDB56FD00D2AE2E /* TopicTableCell.swift */; };
+		079F19801CDB56FD00D2AE2E /* TopicTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 079F197E1CDB56FD00D2AE2E /* TopicTableCell.xib */; };
+		079F19831CDB573F00D2AE2E /* TopicListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079F19811CDB573F00D2AE2E /* TopicListViewController.swift */; };
+		079F19841CDB573F00D2AE2E /* TopicListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 079F19821CDB573F00D2AE2E /* TopicListViewController.xib */; };
+		079F19861CDB58F200D2AE2E /* TopicListItemDisplayData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079F19851CDB58F200D2AE2E /* TopicListItemDisplayData.swift */; };
+		079F19881CDB596100D2AE2E /* TopicListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079F19871CDB596100D2AE2E /* TopicListPresenter.swift */; };
 		07AF68491CDA02230082A68A /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07AF68481CDA02230082A68A /* Router.swift */; };
 		A696A73453BB37069C88A8D4 /* Pods_Dont_Forget_To_Say.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B083263A613CCFAC1491EFB /* Pods_Dont_Forget_To_Say.framework */; };
 /* End PBXBuildFile section */
@@ -48,6 +54,12 @@
 		07796CA71CD8CE5900CD6FDA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		079F19771CDB440900D2AE2E /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		079F19791CDB442800D2AE2E /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
+		079F197D1CDB56FD00D2AE2E /* TopicTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopicTableCell.swift; sourceTree = "<group>"; };
+		079F197E1CDB56FD00D2AE2E /* TopicTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TopicTableCell.xib; sourceTree = "<group>"; };
+		079F19811CDB573F00D2AE2E /* TopicListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopicListViewController.swift; sourceTree = "<group>"; };
+		079F19821CDB573F00D2AE2E /* TopicListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TopicListViewController.xib; sourceTree = "<group>"; };
+		079F19851CDB58F200D2AE2E /* TopicListItemDisplayData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopicListItemDisplayData.swift; sourceTree = "<group>"; };
+		079F19871CDB596100D2AE2E /* TopicListPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopicListPresenter.swift; sourceTree = "<group>"; };
 		07AF68481CDA02230082A68A /* Router.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		3B083263A613CCFAC1491EFB /* Pods_Dont_Forget_To_Say.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Dont_Forget_To_Say.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D83AD0985B1E8B15187665E /* Pods-Dont Forget To Say.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dont Forget To Say.release.xcconfig"; path = "Pods/Target Support Files/Pods-Dont Forget To Say/Pods-Dont Forget To Say.release.xcconfig"; sourceTree = "<group>"; };
@@ -71,6 +83,7 @@
 			isa = PBXGroup;
 			children = (
 				075B0AD51CD8E10D00464EBC /* BuddyList */,
+				079F197A1CDB562500D2AE2E /* TopicList */,
 			);
 			name = Scenes;
 			sourceTree = "<group>";
@@ -175,6 +188,35 @@
 			path = "Don't Forget To Say";
 			sourceTree = "<group>";
 		};
+		079F197A1CDB562500D2AE2E /* TopicList */ = {
+			isa = PBXGroup;
+			children = (
+				079F197C1CDB565000D2AE2E /* Presenter */,
+				079F197B1CDB564800D2AE2E /* View */,
+			);
+			name = TopicList;
+			sourceTree = "<group>";
+		};
+		079F197B1CDB564800D2AE2E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				079F19811CDB573F00D2AE2E /* TopicListViewController.swift */,
+				079F19821CDB573F00D2AE2E /* TopicListViewController.xib */,
+				079F197D1CDB56FD00D2AE2E /* TopicTableCell.swift */,
+				079F197E1CDB56FD00D2AE2E /* TopicTableCell.xib */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		079F197C1CDB565000D2AE2E /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				079F19871CDB596100D2AE2E /* TopicListPresenter.swift */,
+				079F19851CDB58F200D2AE2E /* TopicListItemDisplayData.swift */,
+			);
+			name = Presenter;
+			sourceTree = "<group>";
+		};
 		C95B42C782346CDA62D7F874 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -255,7 +297,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				079F19801CDB56FD00D2AE2E /* TopicTableCell.xib in Resources */,
 				079F19761CDB440900D2AE2E /* Localizable.strings in Resources */,
+				079F19841CDB573F00D2AE2E /* TopicListViewController.xib in Resources */,
 				07796CA61CD8CE5900CD6FDA /* LaunchScreen.storyboard in Resources */,
 				07796CA31CD8CE5900CD6FDA /* Assets.xcassets in Resources */,
 				075B0AD31CD8E10100464EBC /* BuddyListViewController.xib in Resources */,
@@ -318,13 +362,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				079F197F1CDB56FD00D2AE2E /* TopicTableCell.swift in Sources */,
 				07612FC61CDA2F6E009E1600 /* BuddyTableCell.swift in Sources */,
 				07612FBD1CDA1D5A009E1600 /* BuddiesMemStore.swift in Sources */,
 				07612FC11CDA24B7009E1600 /* BuddyDisplayData.swift in Sources */,
 				07796C9C1CD8CE5900CD6FDA /* AppDelegate.swift in Sources */,
+				079F19861CDB58F200D2AE2E /* TopicListItemDisplayData.swift in Sources */,
+				079F19881CDB596100D2AE2E /* TopicListPresenter.swift in Sources */,
 				075B0ADF1CD8EDFB00464EBC /* BuddyListPresenter.swift in Sources */,
 				07612FB81CDA1D07009E1600 /* GlobalDataStore.swift in Sources */,
 				075B0ADC1CD8E51000464EBC /* Topic.swift in Sources */,
+				079F19831CDB573F00D2AE2E /* TopicListViewController.swift in Sources */,
 				07612FBA1CDA1D1B009E1600 /* CrudStoreError.swift in Sources */,
 				07AF68491CDA02230082A68A /* Router.swift in Sources */,
 				075B0ADA1CD8E4F700464EBC /* Buddy.swift in Sources */,

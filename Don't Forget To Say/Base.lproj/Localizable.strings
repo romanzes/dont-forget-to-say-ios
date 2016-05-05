@@ -8,3 +8,6 @@
 
 /* Buddy list screen title */
 "Buddies" = "Buddies";
+
+/* Topic list screen title */
+"Topics for %@" = "Topics for %@";

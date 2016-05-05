@@ -13,7 +13,7 @@ protocol BuddyListPresenterInterface {
 }
 
 protocol BuddyListViewInterface {
-    func obtainedBuddies(buddies: [BuddyListItemDisplayData])
+    func updateBuddies(buddies: [BuddyListItemDisplayData])
 }
 
 class BuddyListPresenter: BuddyListPresenterInterface {
@@ -42,6 +42,6 @@ class BuddyListPresenter: BuddyListPresenterInterface {
             }).count
             return BuddyListItemDisplayData(id: buddy.id, name: buddy.name, topicCount: topicCount)
         }
-        userInterface?.obtainedBuddies(displayData)
+        userInterface?.updateBuddies(displayData)
     }
 }

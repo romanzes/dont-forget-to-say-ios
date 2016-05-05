@@ -20,7 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         
         c.register(BuddyListViewInterface.self) { r in
-            BuddyListViewController(presenter: r.resolve(BuddyListPresenterInterface.self))
+            BuddyListViewController(router: r.resolve(Router.self), presenter: r.resolve(BuddyListPresenterInterface.self))
         }
         c.register(BuddyListPresenterInterface.self) { r in BuddyListPresenter() }
         .initCompleted() { r, c in
@@ -28,13 +28,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             presenter.userInterface = r.resolve(BuddyListViewInterface.self)
             presenter.dataStore = r.resolve(GlobalDataStore.self)
         }
+        
+        c.register(TopicListViewInterface.self) { r in
+            TopicListViewController(presenter: r.resolve(TopicListPresenterInterface.self))
+        }
+        c.register(TopicListPresenterInterface.self) { r in TopicListPresenter() }
+            .initCompleted() { r, c in
+                let presenter = c as! TopicListPresenter
+                presenter.userInterface = r.resolve(TopicListViewInterface.self)
+                presenter.dataStore = r.resolve(GlobalDataStore.self)
+        }
     }
     
     var window: UIWindow?
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         window = UIWindow(frame: UIScreen.mainScreen().bounds)
-        container.resolve(Router.self)?.presentMainController(window!)
+        container.resolve(Router.self)?.presentMainControllerFromWindow(window!)
         return true
     }
 }
