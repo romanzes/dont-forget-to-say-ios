@@ -45,12 +45,19 @@ class AddTopicViewController: UIViewController, THContactPickerDelegate, UITable
         navigationItem.title = NSLocalizedString("Add topic (title)", comment: "Add topic screen title")
         edgesForExtendedLayout = UIRectEdge.None
         
+        let cancelButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Cancel, target: self, action: #selector(self.cancel))
+        self.navigationItem.leftBarButtonItem = cancelButton
+        
         buddyPicker.delegate = self
         
         buddiesTableView.delegate = self
         buddiesTableView.dataSource = self
         buddiesTableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: BuddySuggestTableCellIdentifier)
         buddiesTableView.reloadData()
+    }
+    
+    func cancel() {
+        dismissViewControllerAnimated(true, completion: nil)
     }
     
     func updateContacts(contacts: [ContactListItemDisplayData]?) {
