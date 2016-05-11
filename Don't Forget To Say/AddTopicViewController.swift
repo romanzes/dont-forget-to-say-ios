@@ -17,6 +17,7 @@ class AddTopicViewController: UIViewController, THContactPickerDelegate, UITable
     
     // MARK: Properties
     var contacts: [ContactListItemDisplayData]?
+    var selectedContacts = Set<ContactListItemDisplayData>()
     
     // MARK: Outlets
     @IBOutlet weak var topicTextField: UITextField!
@@ -48,6 +49,8 @@ class AddTopicViewController: UIViewController, THContactPickerDelegate, UITable
         
         let cancelButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Cancel, target: self, action: #selector(self.cancel))
         self.navigationItem.leftBarButtonItem = cancelButton
+        let saveButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Save, target: self, action: #selector(self.save))
+        self.navigationItem.rightBarButtonItem = saveButton
         
         topicTextField.placeholder = NSLocalizedString("What do you want to say?", comment: "Topic text placeholder")
         
@@ -70,9 +73,19 @@ class AddTopicViewController: UIViewController, THContactPickerDelegate, UITable
         dismissViewControllerAnimated(true, completion: nil)
     }
     
+    func save() {
+        if let text = topicTextField.text {
+            presenter.saveTopicWithText(text, contacts: selectedContacts)
+        }
+    }
+    
     func updateContacts(contacts: [ContactListItemDisplayData]?) {
         self.contacts = contacts
         buddiesTableView.reloadData()
+    }
+    
+    func savedTopic() {
+        dismissViewControllerAnimated(true, completion: nil)
     }
     
     func contactPicker(contactPicker: THContactPickerView!, textFieldDidChange textField: UITextField!) {
@@ -81,6 +94,7 @@ class AddTopicViewController: UIViewController, THContactPickerDelegate, UITable
     
     func contactPicker(contactPicker: THContactPickerView!, didSelectContact contact: AnyObject!) {
         contactPicker.removeContact(contact)
+        selectedContacts.remove(contact as! ContactListItemDisplayData)
     }
     
     func contactPickerDidResize(contactPicker: THContactPickerView!) {
@@ -108,6 +122,7 @@ class AddTopicViewController: UIViewController, THContactPickerDelegate, UITable
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         if let contact = contacts?[indexPath.row] {
             buddyPicker.addContact(contact, withName: contact.name)
+            selectedContacts.insert(contact)
         }
     }
 }

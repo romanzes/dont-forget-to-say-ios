@@ -15,10 +15,10 @@ class BuddiesMemStore: BuddiesStoreProtocol {
         Buddy(id: 1, name: "Roman Petrenko"),
         Buddy(id: 2, name: "Andrei Senchuk"),
         Buddy(id: 3, name: "Гурбангулы Мяликулиевич Бердымухаммедов"),
-        Buddy(id: 3, name: "Yuliya Charkasava"),
-        Buddy(id: 3, name: "Mikhail Aksionchyk"),
-        Buddy(id: 3, name: "Vladimir Putin"),
-        Buddy(id: 3, name: "Barack Obama")
+        Buddy(id: 4, name: "Yuliya Charkasava"),
+        Buddy(id: 5, name: "Mikhail Aksionchyk"),
+        Buddy(id: 6, name: "Vladimir Putin"),
+        Buddy(id: 7, name: "Barack Obama")
     ]
     
     // MARK: - CRUD operations - Optional error

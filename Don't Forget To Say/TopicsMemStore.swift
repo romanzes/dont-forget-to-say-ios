@@ -11,6 +11,9 @@ import Foundation
 class TopicsMemStore: TopicsStoreProtocol {
     // MARK: - Data
     
+    private var freeTopicId = 4
+    private var freeRelationId = 5
+    
     private var topics = [
         Topic(id: 1, text: "VIPER is bad"),
         Topic(id: 2, text: "MVP is better"),
@@ -41,5 +44,19 @@ class TopicsMemStore: TopicsStoreProtocol {
             return self.topics[index!]
         }
         completionHandler(topics: topics, error: nil)
+    }
+    
+    func addTopic(text: String, completionHandler: (topic: Topic?, error: CrudStoreError?) -> Void) {
+        let newTopic = Topic(id: freeTopicId, text: text)
+        topics += [newTopic]
+        freeTopicId += 1
+        completionHandler(topic: newTopic, error: nil)
+    }
+    
+    func addRelation(buddyId: Int, topicId: Int, completionHandler: (relation: TopicRelation?, error: CrudStoreError?) -> Void) {
+        let newRelation = TopicRelation(id: freeRelationId, topicId: topicId, buddyId: buddyId)
+        relations += [newRelation]
+        freeRelationId += 1
+        completionHandler(relation: newRelation, error: nil)
     }
 }

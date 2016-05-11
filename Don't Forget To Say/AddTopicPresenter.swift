@@ -10,10 +10,12 @@ import Foundation
 
 protocol AddTopicPresenterInterface {
     func filterContacts(predicate: String?)
+    func saveTopicWithText(text: String, contacts: Set<ContactListItemDisplayData>)
 }
 
 protocol AddTopicViewInterface: class {
     func updateContacts(contacts: [ContactListItemDisplayData]?)
+    func savedTopic()
 }
 
 class AddTopicPresenter: AddTopicPresenterInterface {
@@ -27,7 +29,9 @@ class AddTopicPresenter: AddTopicPresenterInterface {
         dataStore.buddiesStore.fetchBuddies { (buddies, error) in
             if let buddies = buddies {
                 self.contacts = buddies.map({ (buddy) -> ContactListItemDisplayData in
-                    ContactListItemDisplayData(name: buddy.name)
+                    let result = ContactListItemDisplayData(name: buddy.name)
+                    result.buddyId = buddy.id
+                    return result
                 })
                 completionHandler()
             }
@@ -49,6 +53,31 @@ class AddTopicPresenter: AddTopicPresenterInterface {
             obtainContacts(onObtain)
         } else {
             onObtain()
+        }
+    }
+    
+    func saveTopicWithText(text: String, contacts: Set<ContactListItemDisplayData>) {
+        dataStore.topicsStore.addTopic(text) { (topic, error) in
+            if let topicId = topic?.id {
+                var buddyIds = Set<Int>()
+                contacts.forEach({ (contact) in
+                    if let buddyId = contact.buddyId {
+                        buddyIds.insert(buddyId)
+                    }
+                })
+                self.addNextRelation(topicId, buddyIds: &buddyIds)
+            }
+        }
+    }
+    
+    private func addNextRelation(topicId: Int, inout buddyIds: Set<Int>) {
+        if let buddyId = buddyIds.first {
+            self.dataStore.topicsStore.addRelation(buddyId, topicId: topicId, completionHandler: { (topic, error) in
+                buddyIds.removeFirst()
+                self.addNextRelation(topicId, buddyIds: &buddyIds)
+            })
+        } else {
+            userInterface?.savedTopic()
         }
     }
 }
