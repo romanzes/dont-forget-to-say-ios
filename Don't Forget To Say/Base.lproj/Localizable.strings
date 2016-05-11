@@ -9,5 +9,11 @@
 /* Buddy list screen title */
 "Buddies" = "Buddies";
 
+/* Add topic button text */
+"Add topic (button)" = "Add topic";
+
 /* Topic list screen title */
 "Topics for %@" = "Topics for %@";
+
+/* Add topic screen title */
+"Add topic (title)" = "Add topic";

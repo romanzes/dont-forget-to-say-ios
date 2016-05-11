@@ -1,10 +1,13 @@
 PODS:
   - Swinject (1.1.1)
+  - THContactPicker (2.0)
 
 DEPENDENCIES:
   - Swinject (~> 1.1.0)
+  - THContactPicker (~> 2.0)
 
 SPEC CHECKSUMS:
   Swinject: 8c1b46e49c604f8c5c1f45f92ef314d3736bbef4
+  THContactPicker: 4345c81a407af534e5f618d495e8fb422a911c10
 
 COCOAPODS: 0.39.0

@@ -20,6 +20,7 @@ class BuddyListViewController: UIViewController, UITableViewDataSource, UITableV
     
     // MARK: Outlets
     @IBOutlet weak var buddiesTableView: UITableView!
+    @IBOutlet weak var addTopicButton: UIButton!
     
     init() {
         super.init(nibName: "BuddyListViewController", bundle: NSBundle.mainBundle())
@@ -40,6 +41,9 @@ class BuddyListViewController: UIViewController, UITableViewDataSource, UITableV
         buddiesTableView.dataSource = self
         buddiesTableView.delegate = self
         buddiesTableView.registerNib(UINib(nibName: BuddyTableCellIdentifier, bundle: nil), forCellReuseIdentifier: BuddyTableCellIdentifier)
+        
+        addTopicButton.setTitle(NSLocalizedString("Add topic (button)", comment: "Add topic button text"), forState: UIControlState.Normal)
+        addTopicButton.addTarget(self, action: #selector(self.addTopicClicked), forControlEvents: UIControlEvents.TouchUpInside)
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -53,6 +57,10 @@ class BuddyListViewController: UIViewController, UITableViewDataSource, UITableV
     
     func reloadEntries() {
         buddiesTableView.reloadData()
+    }
+    
+    func addTopicClicked() {
+        router.presentAddTopicFromViewController(self)
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

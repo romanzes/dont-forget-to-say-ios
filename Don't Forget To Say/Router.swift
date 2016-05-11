@@ -23,4 +23,10 @@ struct Router {
         topicListViewController.buddyId = buddyId
         viewController.navigationController?.pushViewController(topicListViewController, animated: true)
     }
+    
+    func presentAddTopicFromViewController(viewController: UIViewController) {
+        let addTopicViewController = container.resolve(AddTopicViewInterface) as! AddTopicViewController
+        let navigationController = UINavigationController(rootViewController: addTopicViewController)
+        viewController.presentViewController(navigationController, animated: true, completion: nil)
+    }
 }

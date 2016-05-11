@@ -29,7 +29,11 @@
 		079F19841CDB573F00D2AE2E /* TopicListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 079F19821CDB573F00D2AE2E /* TopicListViewController.xib */; };
 		079F19861CDB58F200D2AE2E /* TopicListItemDisplayData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079F19851CDB58F200D2AE2E /* TopicListItemDisplayData.swift */; };
 		079F19881CDB596100D2AE2E /* TopicListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079F19871CDB596100D2AE2E /* TopicListPresenter.swift */; };
+		079F198E1CDB90D400D2AE2E /* AddTopicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079F198C1CDB90D400D2AE2E /* AddTopicViewController.swift */; };
+		079F198F1CDB90D400D2AE2E /* AddTopicViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 079F198D1CDB90D400D2AE2E /* AddTopicViewController.xib */; };
+		079F19911CDB91A300D2AE2E /* AddTopicPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079F19901CDB91A300D2AE2E /* AddTopicPresenter.swift */; };
 		07AF68491CDA02230082A68A /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07AF68481CDA02230082A68A /* Router.swift */; };
+		07BA09DE1CDCE8F100E075B5 /* ContactListItemDisplayData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BA09DD1CDCE8F100E075B5 /* ContactListItemDisplayData.swift */; };
 		A696A73453BB37069C88A8D4 /* Pods_Dont_Forget_To_Say.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B083263A613CCFAC1491EFB /* Pods_Dont_Forget_To_Say.framework */; };
 /* End PBXBuildFile section */
 
@@ -60,7 +64,11 @@
 		079F19821CDB573F00D2AE2E /* TopicListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TopicListViewController.xib; sourceTree = "<group>"; };
 		079F19851CDB58F200D2AE2E /* TopicListItemDisplayData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopicListItemDisplayData.swift; sourceTree = "<group>"; };
 		079F19871CDB596100D2AE2E /* TopicListPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopicListPresenter.swift; sourceTree = "<group>"; };
+		079F198C1CDB90D400D2AE2E /* AddTopicViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTopicViewController.swift; sourceTree = "<group>"; };
+		079F198D1CDB90D400D2AE2E /* AddTopicViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddTopicViewController.xib; sourceTree = "<group>"; };
+		079F19901CDB91A300D2AE2E /* AddTopicPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTopicPresenter.swift; sourceTree = "<group>"; };
 		07AF68481CDA02230082A68A /* Router.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		07BA09DD1CDCE8F100E075B5 /* ContactListItemDisplayData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactListItemDisplayData.swift; sourceTree = "<group>"; };
 		3B083263A613CCFAC1491EFB /* Pods_Dont_Forget_To_Say.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Dont_Forget_To_Say.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D83AD0985B1E8B15187665E /* Pods-Dont Forget To Say.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dont Forget To Say.release.xcconfig"; path = "Pods/Target Support Files/Pods-Dont Forget To Say/Pods-Dont Forget To Say.release.xcconfig"; sourceTree = "<group>"; };
 		62E66115C2B6CC6CF40AD647 /* Pods-Don't Forget To Say.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Don't Forget To Say.release.xcconfig"; path = "Pods/Target Support Files/Pods-Don't Forget To Say/Pods-Don't Forget To Say.release.xcconfig"; sourceTree = "<group>"; };
@@ -84,6 +92,7 @@
 			children = (
 				075B0AD51CD8E10D00464EBC /* BuddyList */,
 				079F197A1CDB562500D2AE2E /* TopicList */,
+				079F19891CDB901D00D2AE2E /* AddTopic */,
 			);
 			name = Scenes;
 			sourceTree = "<group>";
@@ -217,6 +226,33 @@
 			name = Presenter;
 			sourceTree = "<group>";
 		};
+		079F19891CDB901D00D2AE2E /* AddTopic */ = {
+			isa = PBXGroup;
+			children = (
+				079F198B1CDB903400D2AE2E /* Presenter */,
+				079F198A1CDB902F00D2AE2E /* View */,
+			);
+			name = AddTopic;
+			sourceTree = "<group>";
+		};
+		079F198A1CDB902F00D2AE2E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				079F198C1CDB90D400D2AE2E /* AddTopicViewController.swift */,
+				079F198D1CDB90D400D2AE2E /* AddTopicViewController.xib */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		079F198B1CDB903400D2AE2E /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				079F19901CDB91A300D2AE2E /* AddTopicPresenter.swift */,
+				07BA09DD1CDCE8F100E075B5 /* ContactListItemDisplayData.swift */,
+			);
+			name = Presenter;
+			sourceTree = "<group>";
+		};
 		C95B42C782346CDA62D7F874 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -299,6 +335,7 @@
 			files = (
 				079F19801CDB56FD00D2AE2E /* TopicTableCell.xib in Resources */,
 				079F19761CDB440900D2AE2E /* Localizable.strings in Resources */,
+				079F198F1CDB90D400D2AE2E /* AddTopicViewController.xib in Resources */,
 				079F19841CDB573F00D2AE2E /* TopicListViewController.xib in Resources */,
 				07796CA61CD8CE5900CD6FDA /* LaunchScreen.storyboard in Resources */,
 				07796CA31CD8CE5900CD6FDA /* Assets.xcassets in Resources */,
@@ -362,7 +399,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				079F19911CDB91A300D2AE2E /* AddTopicPresenter.swift in Sources */,
 				079F197F1CDB56FD00D2AE2E /* TopicTableCell.swift in Sources */,
+				079F198E1CDB90D400D2AE2E /* AddTopicViewController.swift in Sources */,
 				07612FC61CDA2F6E009E1600 /* BuddyTableCell.swift in Sources */,
 				07612FBD1CDA1D5A009E1600 /* BuddiesMemStore.swift in Sources */,
 				07612FC11CDA24B7009E1600 /* BuddyDisplayData.swift in Sources */,
@@ -370,6 +409,7 @@
 				079F19861CDB58F200D2AE2E /* TopicListItemDisplayData.swift in Sources */,
 				079F19881CDB596100D2AE2E /* TopicListPresenter.swift in Sources */,
 				075B0ADF1CD8EDFB00464EBC /* BuddyListPresenter.swift in Sources */,
+				07BA09DE1CDCE8F100E075B5 /* ContactListItemDisplayData.swift in Sources */,
 				07612FB81CDA1D07009E1600 /* GlobalDataStore.swift in Sources */,
 				075B0ADC1CD8E51000464EBC /* Topic.swift in Sources */,
 				079F19831CDB573F00D2AE2E /* TopicListViewController.swift in Sources */,

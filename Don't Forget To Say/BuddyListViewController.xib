@@ -5,9 +5,10 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BuddyListViewController" customModule="Don_t_Forget_To_Say" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BuddyListViewController" customModule="Dont_Forget_To_Say" customModuleProvider="target">
             <connections>
-                <outlet property="buddiesTableView" destination="sXv-Da-ioq" id="oxb-Ri-7eD"/>
+                <outlet property="addTopicButton" destination="wC6-Ul-KQe" id="PSH-PI-kpa"/>
+                <outlet property="buddiesTableView" destination="J1U-G7-sC7" id="7dK-K6-lW8"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -16,17 +17,29 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="sXv-Da-ioq">
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="iP3-a3-BJN">
                     <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                </tableView>
+                    <subviews>
+                        <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="J1U-G7-sC7">
+                            <rect key="frame" x="0.0" y="0.0" width="600" height="556"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </tableView>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wC6-Ul-KQe">
+                            <rect key="frame" x="0.0" y="556" width="600" height="44"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="44" id="1f7-Gh-vmC"/>
+                            </constraints>
+                            <state key="normal" title="Button"/>
+                        </button>
+                    </subviews>
+                </stackView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstAttribute="bottom" secondItem="sXv-Da-ioq" secondAttribute="bottom" id="IXW-jJ-BtL"/>
-                <constraint firstAttribute="trailing" secondItem="sXv-Da-ioq" secondAttribute="trailing" id="KhL-oe-r64"/>
-                <constraint firstItem="sXv-Da-ioq" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="PsF-Yj-wZK"/>
-                <constraint firstItem="sXv-Da-ioq" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="cwT-g8-yes"/>
+                <constraint firstAttribute="bottom" secondItem="iP3-a3-BJN" secondAttribute="bottom" id="0dR-QF-6H4"/>
+                <constraint firstItem="iP3-a3-BJN" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="7OV-AV-Tn5"/>
+                <constraint firstAttribute="trailing" secondItem="iP3-a3-BJN" secondAttribute="trailing" id="QEU-XD-HKz"/>
+                <constraint firstItem="iP3-a3-BJN" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="QSm-5c-iWv"/>
             </constraints>
         </view>
     </objects>

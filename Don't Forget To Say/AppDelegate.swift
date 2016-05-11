@@ -39,13 +39,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 let viewController = c as! TopicListViewController
                 viewController.presenter = r.resolve(TopicListPresenterInterface.self)
             }
-        
         c.register(TopicListPresenterInterface.self) { r in TopicListPresenter() }
             .initCompleted() { r, c in
                 let presenter = c as! TopicListPresenter
                 presenter.userInterface = r.resolve(TopicListViewInterface.self)
                 presenter.dataStore = r.resolve(GlobalDataStore.self)
             }
+        
+        c.register(AddTopicViewInterface.self) { r in AddTopicViewController() }
+            .initCompleted() { r, c in
+                let viewController = c as! AddTopicViewController
+                viewController.presenter = r.resolve(AddTopicPresenterInterface.self)
+        }
+        c.register(AddTopicPresenterInterface.self) { r in AddTopicPresenter() }
+            .initCompleted() { r, c in
+                let presenter = c as! AddTopicPresenter
+                presenter.userInterface = r.resolve(AddTopicViewInterface.self)
+                presenter.dataStore = r.resolve(GlobalDataStore.self)
+        }
     }
     
     var window: UIWindow?

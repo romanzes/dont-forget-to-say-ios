@@ -14,12 +14,16 @@ class BuddiesMemStore: BuddiesStoreProtocol {
     private var buddies = [
         Buddy(id: 1, name: "Roman Petrenko"),
         Buddy(id: 2, name: "Andrei Senchuk"),
-        Buddy(id: 3, name: "Гурбангулы Мяликулиевич Бердымухаммедов")
+        Buddy(id: 3, name: "Гурбангулы Мяликулиевич Бердымухаммедов"),
+        Buddy(id: 3, name: "Yuliya Charkasava"),
+        Buddy(id: 3, name: "Mikhail Aksionchyk"),
+        Buddy(id: 3, name: "Vladimir Putin"),
+        Buddy(id: 3, name: "Barack Obama")
     ]
     
     // MARK: - CRUD operations - Optional error
     
-    func fetchBuddies(completionHandler: (buddies: [Buddy], error: CrudStoreError?) -> Void) {
+    func fetchBuddies(completionHandler: (buddies: [Buddy]?, error: CrudStoreError?) -> Void) {
         completionHandler(buddies: buddies, error: nil)
     }
     
