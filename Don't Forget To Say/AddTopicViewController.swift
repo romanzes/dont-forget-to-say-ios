@@ -21,6 +21,7 @@ class AddTopicViewController: UIViewController, THContactPickerDelegate, UITable
     // MARK: Outlets
     @IBOutlet weak var buddyPicker: THContactPickerView!
     @IBOutlet weak var buddiesTableView: UITableView!
+    @IBOutlet weak var buddyPickerHeight: NSLayoutConstraint!
     
     init() {
         super.init(nibName: "AddTopicViewController", bundle: NSBundle.mainBundle())
@@ -63,6 +64,13 @@ class AddTopicViewController: UIViewController, THContactPickerDelegate, UITable
     
     func contactPicker(contactPicker: THContactPickerView!, didSelectContact contact: AnyObject!) {
         contactPicker.removeContact(contact)
+    }
+    
+    func contactPickerDidResize(contactPicker: THContactPickerView!) {
+        self.buddyPickerHeight.constant = contactPicker.frame.height
+        UIView.animateWithDuration(0.2) {
+            self.view.layoutIfNeeded()
+        }
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

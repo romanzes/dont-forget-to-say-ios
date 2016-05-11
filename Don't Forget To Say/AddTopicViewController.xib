@@ -7,8 +7,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AddTopicViewController" customModule="Dont_Forget_To_Say" customModuleProvider="target">
             <connections>
-                <outlet property="buddiesTableView" destination="ZN0-fc-whh" id="1n4-RL-z6Q"/>
-                <outlet property="buddyPicker" destination="V4Z-Js-eze" id="yqO-vd-3eO"/>
+                <outlet property="buddiesTableView" destination="vwe-R4-tdC" id="A0f-nm-a4r"/>
+                <outlet property="buddyPicker" destination="DJ8-pU-b3e" id="ZLe-xt-OO8"/>
+                <outlet property="buddyPickerHeight" destination="Mep-xr-DF0" id="4e7-5Q-pIm"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -17,29 +18,27 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="5F1-lz-JHE">
-                    <rect key="frame" x="8" y="8" width="304" height="552"/>
-                    <subviews>
-                        <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="V4Z-Js-eze" customClass="THContactPickerView">
-                            <rect key="frame" x="0.0" y="0.0" width="304" height="44"/>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="44" id="ebF-Ly-Qhq"/>
-                            </constraints>
-                        </view>
-                        <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ZN0-fc-whh">
-                            <rect key="frame" x="0.0" y="44" width="304" height="508"/>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        </tableView>
-                    </subviews>
-                </stackView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DJ8-pU-b3e" customClass="THContactPickerView">
+                    <rect key="frame" x="8" y="8" width="304" height="41"/>
+                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="41" id="Mep-xr-DF0"/>
+                    </constraints>
+                </view>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="vwe-R4-tdC">
+                    <rect key="frame" x="8" y="57" width="304" height="503"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </tableView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstAttribute="bottom" secondItem="5F1-lz-JHE" secondAttribute="bottom" constant="8" id="A1K-pW-Iy8"/>
-                <constraint firstAttribute="trailing" secondItem="5F1-lz-JHE" secondAttribute="trailing" constant="8" id="WSN-oX-N5Z"/>
-                <constraint firstItem="5F1-lz-JHE" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="YrQ-0n-yn7"/>
-                <constraint firstItem="5F1-lz-JHE" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="8" id="kLD-d5-pjy"/>
+                <constraint firstItem="vwe-R4-tdC" firstAttribute="top" secondItem="DJ8-pU-b3e" secondAttribute="bottom" constant="8" id="3z7-9E-WWD"/>
+                <constraint firstItem="vwe-R4-tdC" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="EB5-du-ZeJ"/>
+                <constraint firstItem="DJ8-pU-b3e" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="8" id="Efx-zD-Uya"/>
+                <constraint firstAttribute="bottom" secondItem="vwe-R4-tdC" secondAttribute="bottom" constant="8" id="MKX-Fg-Zih"/>
+                <constraint firstAttribute="trailing" secondItem="DJ8-pU-b3e" secondAttribute="trailing" constant="8" id="Znw-RD-Dd7"/>
+                <constraint firstAttribute="trailing" secondItem="vwe-R4-tdC" secondAttribute="trailing" constant="8" id="hLZ-4b-mkS"/>
+                <constraint firstItem="DJ8-pU-b3e" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="q7U-ug-UN1"/>
             </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
             <point key="canvasLocation" x="508" y="247"/>
