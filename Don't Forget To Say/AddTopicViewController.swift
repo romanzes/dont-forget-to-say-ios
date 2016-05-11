@@ -19,6 +19,7 @@ class AddTopicViewController: UIViewController, THContactPickerDelegate, UITable
     var contacts: [ContactListItemDisplayData]?
     
     // MARK: Outlets
+    @IBOutlet weak var topicTextField: UITextField!
     @IBOutlet weak var buddyPicker: THContactPickerView!
     @IBOutlet weak var buddiesTableView: UITableView!
     @IBOutlet weak var buddyPickerHeight: NSLayoutConstraint!
@@ -48,7 +49,16 @@ class AddTopicViewController: UIViewController, THContactPickerDelegate, UITable
         let cancelButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Cancel, target: self, action: #selector(self.cancel))
         self.navigationItem.leftBarButtonItem = cancelButton
         
+        topicTextField.placeholder = NSLocalizedString("What do you want to say?", comment: "Topic text placeholder")
+        
         buddyPicker.delegate = self
+        buddyPicker.setPlaceholderLabelText(NSLocalizedString("Whom to say this?", comment: "Buddy picker placeholder"))
+        buddyPicker.setPromptLabelText(NSLocalizedString("To:", comment: "Buddy picker prompt"))
+        let layer = buddyPicker.layer
+        layer.shadowColor = UIColor(red: 225.0/255.0, green: 226.0/255.0, blue: 228.0/255.0, alpha: 1).CGColor
+        layer.shadowOffset = CGSizeMake(0, 2)
+        layer.shadowOpacity = 1
+        layer.shadowRadius = 1.0
         
         buddiesTableView.delegate = self
         buddiesTableView.dataSource = self

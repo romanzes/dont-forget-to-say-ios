@@ -17,3 +17,12 @@
 
 /* Add topic screen title */
 "Add topic (title)" = "Add topic";
+
+/* Topic text placeholder */
+"What do you want to say?" = "What do you want to say?";
+
+/* Buddy picker placeholder */
+"Whom to say this?" = "Whom to say this?";
+
+/* Buddy picker prompt */
+"To:" = "To:";

@@ -10,6 +10,7 @@
                 <outlet property="buddiesTableView" destination="vwe-R4-tdC" id="A0f-nm-a4r"/>
                 <outlet property="buddyPicker" destination="DJ8-pU-b3e" id="ZLe-xt-OO8"/>
                 <outlet property="buddyPickerHeight" destination="Mep-xr-DF0" id="4e7-5Q-pIm"/>
+                <outlet property="topicTextField" destination="JP3-py-Jyh" id="bOu-S3-Nq0"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -18,27 +19,35 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JP3-py-Jyh">
+                    <rect key="frame" x="8" y="8" width="304" height="30"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DJ8-pU-b3e" customClass="THContactPickerView">
-                    <rect key="frame" x="8" y="8" width="304" height="41"/>
+                    <rect key="frame" x="0.0" y="46" width="320" height="41"/>
                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="41" id="Mep-xr-DF0"/>
                     </constraints>
                 </view>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="vwe-R4-tdC">
-                    <rect key="frame" x="8" y="57" width="304" height="503"/>
+                    <rect key="frame" x="8" y="95" width="304" height="465"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </tableView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="vwe-R4-tdC" firstAttribute="top" secondItem="DJ8-pU-b3e" secondAttribute="bottom" constant="8" id="3z7-9E-WWD"/>
-                <constraint firstItem="vwe-R4-tdC" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="EB5-du-ZeJ"/>
-                <constraint firstItem="DJ8-pU-b3e" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="8" id="Efx-zD-Uya"/>
-                <constraint firstAttribute="bottom" secondItem="vwe-R4-tdC" secondAttribute="bottom" constant="8" id="MKX-Fg-Zih"/>
-                <constraint firstAttribute="trailing" secondItem="DJ8-pU-b3e" secondAttribute="trailing" constant="8" id="Znw-RD-Dd7"/>
-                <constraint firstAttribute="trailing" secondItem="vwe-R4-tdC" secondAttribute="trailing" constant="8" id="hLZ-4b-mkS"/>
-                <constraint firstItem="DJ8-pU-b3e" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="q7U-ug-UN1"/>
+                <constraint firstItem="DJ8-pU-b3e" firstAttribute="top" secondItem="JP3-py-Jyh" secondAttribute="bottom" constant="8" id="6z7-OP-kiv"/>
+                <constraint firstAttribute="trailing" secondItem="vwe-R4-tdC" secondAttribute="trailing" constant="8" id="Q8g-NJ-fb0"/>
+                <constraint firstAttribute="bottom" secondItem="vwe-R4-tdC" secondAttribute="bottom" constant="8" id="SuM-QB-w8L"/>
+                <constraint firstItem="JP3-py-Jyh" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="Z8w-5P-rcu"/>
+                <constraint firstItem="vwe-R4-tdC" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="diK-AR-k4U"/>
+                <constraint firstItem="JP3-py-Jyh" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="8" id="g5J-0A-dbP"/>
+                <constraint firstAttribute="trailing" secondItem="DJ8-pU-b3e" secondAttribute="trailing" id="gGN-et-92P"/>
+                <constraint firstAttribute="trailing" secondItem="JP3-py-Jyh" secondAttribute="trailing" constant="8" id="luk-bs-N6z"/>
+                <constraint firstItem="DJ8-pU-b3e" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="rP2-P8-iIC"/>
+                <constraint firstItem="vwe-R4-tdC" firstAttribute="top" secondItem="DJ8-pU-b3e" secondAttribute="bottom" constant="8" id="xTn-TC-RXg"/>
             </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
             <point key="canvasLocation" x="508" y="247"/>

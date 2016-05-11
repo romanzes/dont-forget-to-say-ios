@@ -17,3 +17,12 @@
 
 /* Add topic screen title */
 "Add topic (title)" = "Добавление темы";
+
+/* Topic text placeholder */
+"What do you want to say?" = "О чем будет разговор?";
+
+/* Buddy picker placeholder */
+"Whom to say this?" = "С кем об этом поговорить?";
+
+/* Buddy picker prompt */
+"To:" = "Кому:";
