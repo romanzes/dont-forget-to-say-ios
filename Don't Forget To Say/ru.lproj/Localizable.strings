@@ -15,6 +15,9 @@
 /* Topic list screen title */
 "Topics for %@" = "Темы для %@";
 
+/* Show notifications button text */
+"Show" = "Показать";
+
 /* Add topic screen title */
 "Add topic (title)" = "Добавление темы";
 

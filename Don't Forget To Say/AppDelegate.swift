@@ -20,6 +20,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             GlobalDataStore(buddiesStore: BuddiesMemStore(), topicsStore: TopicsMemStore())
         }
         .inObjectScope(.Container)
+        c.register(NotificationManagerInterface.self) { r in NotificationManager() }
+            .initCompleted() { r, c in
+                let notificationManager = c as! NotificationManager
+                notificationManager.dataStore = r.resolve(GlobalDataStore.self)
+            }
+        .inObjectScope(.Container)
         
         c.register(BuddyListViewInterface.self) { r in BuddyListViewController() }
             .initCompleted() { r, c in
@@ -44,6 +50,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 let presenter = c as! TopicListPresenter
                 presenter.userInterface = r.resolve(TopicListViewInterface.self)
                 presenter.dataStore = r.resolve(GlobalDataStore.self)
+                presenter.notificationManager = r.resolve(NotificationManagerInterface.self)
             }
         
         c.register(AddTopicViewInterface.self) { r in AddTopicViewController() }
@@ -65,6 +72,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow(frame: UIScreen.mainScreen().bounds)
         container.resolve(Router.self)?.presentMainControllerFromWindow(window!)
         return true
+    }
+    
+    func application(application: UIApplication, didRegisterUserNotificationSettings notificationSettings: UIUserNotificationSettings) {
+        let notificationManager = container.resolve(NotificationManagerInterface.self) as! NotificationManager
+        notificationManager.continueAfterRegistration()
     }
 }
 

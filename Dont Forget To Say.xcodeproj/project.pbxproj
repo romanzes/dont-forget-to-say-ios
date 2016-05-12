@@ -34,6 +34,8 @@
 		079F19911CDB91A300D2AE2E /* AddTopicPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079F19901CDB91A300D2AE2E /* AddTopicPresenter.swift */; };
 		07AF68491CDA02230082A68A /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07AF68481CDA02230082A68A /* Router.swift */; };
 		07BA09DE1CDCE8F100E075B5 /* ContactListItemDisplayData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BA09DD1CDCE8F100E075B5 /* ContactListItemDisplayData.swift */; };
+		07D637B01CE47B89000D637A /* NotificationManagerLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D637AF1CE47B89000D637A /* NotificationManagerLogic.swift */; };
+		07D637B21CE49D3D000D637A /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D637B11CE49D3D000D637A /* NotificationManager.swift */; };
 		A696A73453BB37069C88A8D4 /* Pods_Dont_Forget_To_Say.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B083263A613CCFAC1491EFB /* Pods_Dont_Forget_To_Say.framework */; };
 /* End PBXBuildFile section */
 
@@ -69,6 +71,8 @@
 		079F19901CDB91A300D2AE2E /* AddTopicPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTopicPresenter.swift; sourceTree = "<group>"; };
 		07AF68481CDA02230082A68A /* Router.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		07BA09DD1CDCE8F100E075B5 /* ContactListItemDisplayData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactListItemDisplayData.swift; sourceTree = "<group>"; };
+		07D637AF1CE47B89000D637A /* NotificationManagerLogic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationManagerLogic.swift; sourceTree = "<group>"; };
+		07D637B11CE49D3D000D637A /* NotificationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
 		3B083263A613CCFAC1491EFB /* Pods_Dont_Forget_To_Say.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Dont_Forget_To_Say.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D83AD0985B1E8B15187665E /* Pods-Dont Forget To Say.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dont Forget To Say.release.xcconfig"; path = "Pods/Target Support Files/Pods-Dont Forget To Say/Pods-Dont Forget To Say.release.xcconfig"; sourceTree = "<group>"; };
 		62E66115C2B6CC6CF40AD647 /* Pods-Don't Forget To Say.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Don't Forget To Say.release.xcconfig"; path = "Pods/Target Support Files/Pods-Don't Forget To Say/Pods-Don't Forget To Say.release.xcconfig"; sourceTree = "<group>"; };
@@ -120,7 +124,9 @@
 		075B0AD71CD8E46500464EBC /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				07612FB61CDA1CC3009E1600 /* Store */,
 				075B0AD81CD8E4DF00464EBC /* Model */,
+				07D637AE1CE47B69000D637A /* Notifications */,
 				07AF68481CDA02230082A68A /* Router.swift */,
 				07796C9B1CD8CE5900CD6FDA /* AppDelegate.swift */,
 			);
@@ -185,7 +191,6 @@
 		07796C9A1CD8CE5900CD6FDA /* Dont Forget To Say */ = {
 			isa = PBXGroup;
 			children = (
-				07612FB61CDA1CC3009E1600 /* Store */,
 				075B0AD71CD8E46500464EBC /* Common */,
 				075B0AD41CD8E10600464EBC /* Scenes */,
 				07796CA21CD8CE5900CD6FDA /* Assets.xcassets */,
@@ -251,6 +256,15 @@
 				07BA09DD1CDCE8F100E075B5 /* ContactListItemDisplayData.swift */,
 			);
 			name = Presenter;
+			sourceTree = "<group>";
+		};
+		07D637AE1CE47B69000D637A /* Notifications */ = {
+			isa = PBXGroup;
+			children = (
+				07D637AF1CE47B89000D637A /* NotificationManagerLogic.swift */,
+				07D637B11CE49D3D000D637A /* NotificationManager.swift */,
+			);
+			name = Notifications;
 			sourceTree = "<group>";
 		};
 		C95B42C782346CDA62D7F874 /* Frameworks */ = {
@@ -401,6 +415,7 @@
 			files = (
 				079F19911CDB91A300D2AE2E /* AddTopicPresenter.swift in Sources */,
 				079F197F1CDB56FD00D2AE2E /* TopicTableCell.swift in Sources */,
+				07D637B01CE47B89000D637A /* NotificationManagerLogic.swift in Sources */,
 				079F198E1CDB90D400D2AE2E /* AddTopicViewController.swift in Sources */,
 				07612FC61CDA2F6E009E1600 /* BuddyTableCell.swift in Sources */,
 				07612FBD1CDA1D5A009E1600 /* BuddiesMemStore.swift in Sources */,
@@ -418,6 +433,7 @@
 				075B0ADA1CD8E4F700464EBC /* Buddy.swift in Sources */,
 				07612FBF1CDA1D64009E1600 /* TopicsMemStore.swift in Sources */,
 				075B0AD21CD8E10100464EBC /* BuddyListViewController.swift in Sources */,
+				07D637B21CE49D3D000D637A /* NotificationManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

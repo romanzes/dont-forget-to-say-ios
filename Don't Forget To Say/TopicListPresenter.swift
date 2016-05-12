@@ -10,6 +10,7 @@ import Foundation
 
 protocol TopicListPresenterInterface {
     func fetchData(buddyId: Int)
+    func showNotifications()
 }
 
 protocol TopicListViewInterface: class {
@@ -20,6 +21,7 @@ protocol TopicListViewInterface: class {
 class TopicListPresenter: TopicListPresenterInterface {
     // MARK: Injected properties
     var dataStore: GlobalDataStore!
+    var notificationManager: NotificationManagerInterface!
     weak var userInterface: TopicListViewInterface?
     
     // MARK: Properties
@@ -31,7 +33,11 @@ class TopicListPresenter: TopicListPresenterInterface {
         obtainTopics()
     }
     
-    func obtainTitle() {
+    func showNotifications() {
+        notificationManager.showNotificationsForBuddy(buddyId)
+    }
+    
+    private func obtainTitle() {
         dataStore.buddiesStore.fetchBuddy(buddyId, completionHandler: { (buddy, error) in
             if let buddy = buddy {
                 self.generateTitle(buddy)
@@ -39,7 +45,7 @@ class TopicListPresenter: TopicListPresenterInterface {
         })
     }
     
-    func obtainTopics() {
+    private func obtainTopics() {
         dataStore.topicsStore.fetchTopicsForBuddy(buddyId, completionHandler: { (topics, error) in
             if let topics = topics {
                 self.generateDisplayData(topics)
@@ -47,12 +53,12 @@ class TopicListPresenter: TopicListPresenterInterface {
         })
     }
     
-    func generateTitle(buddy: Buddy) {
+    private func generateTitle(buddy: Buddy) {
         let title = String.localizedStringWithFormat(NSLocalizedString("Topics for %@", comment: "Topic list screen title"), buddy.name)
         userInterface?.showTitle(title)
     }
     
-    func generateDisplayData(topics: [Topic]) {
+    private func generateDisplayData(topics: [Topic]) {
         let displayData = topics.map { (topic) -> TopicListItemDisplayData in
             return TopicListItemDisplayData(id: topic.id, text: topic.text)
         }

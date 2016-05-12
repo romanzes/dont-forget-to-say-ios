@@ -37,11 +37,19 @@ class TopicListViewController: UIViewController, UITableViewDataSource, TopicLis
     func configureView() {
         topicsTableView.dataSource = self
         topicsTableView.registerNib(UINib(nibName: TopicTableCellIdentifier, bundle: nil), forCellReuseIdentifier: TopicTableCellIdentifier)
+        
+        let showButtonTitle = NSLocalizedString("Show", comment: "Show notifications button text")
+        let showButton = UIBarButtonItem(title: showButtonTitle, style: UIBarButtonItemStyle.Plain, target: self, action: #selector(self.showButtonClicked))
+        self.navigationItem.rightBarButtonItem = showButton
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         presenter.fetchData(buddyId)
+    }
+    
+    func showButtonClicked() {
+        presenter.showNotifications()
     }
     
     func showTitle(title: String) {
