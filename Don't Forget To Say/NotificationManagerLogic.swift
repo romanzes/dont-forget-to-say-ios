@@ -21,7 +21,7 @@ extension NotificationManager: NotificationManagerInterface {
     }
     
     func showNotificationsForBuddyImpl(buddyId: Int) {
-        dataStore.topicsStore.fetchTopicsForBuddy(buddyId) { (topics, error) in
+        dataStore.fetchTopicsForBuddy(buddyId) { (topics, error) in
             UIApplication.sharedApplication().cancelAllLocalNotifications()
             topics?.reverse().forEach({ (topic) in
                 self.showNotificationForTopic(topic)

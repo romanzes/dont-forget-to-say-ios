@@ -12,10 +12,9 @@
 		075B0ADA1CD8E4F700464EBC /* Buddy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075B0AD91CD8E4F700464EBC /* Buddy.swift */; };
 		075B0ADC1CD8E51000464EBC /* Topic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075B0ADB1CD8E51000464EBC /* Topic.swift */; };
 		075B0ADF1CD8EDFB00464EBC /* BuddyListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075B0ADE1CD8EDFB00464EBC /* BuddyListPresenter.swift */; };
-		07612FB81CDA1D07009E1600 /* GlobalDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07612FB71CDA1D07009E1600 /* GlobalDataStore.swift */; };
+		07612FB81CDA1D07009E1600 /* DataStoreProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07612FB71CDA1D07009E1600 /* DataStoreProtocol.swift */; };
 		07612FBA1CDA1D1B009E1600 /* CrudStoreError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07612FB91CDA1D1B009E1600 /* CrudStoreError.swift */; };
-		07612FBD1CDA1D5A009E1600 /* BuddiesMemStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07612FBC1CDA1D5A009E1600 /* BuddiesMemStore.swift */; };
-		07612FBF1CDA1D64009E1600 /* TopicsMemStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07612FBE1CDA1D64009E1600 /* TopicsMemStore.swift */; };
+		07612FBF1CDA1D64009E1600 /* MemDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07612FBE1CDA1D64009E1600 /* MemDataStore.swift */; };
 		07612FC11CDA24B7009E1600 /* BuddyDisplayData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07612FC01CDA24B7009E1600 /* BuddyDisplayData.swift */; };
 		07612FC61CDA2F6E009E1600 /* BuddyTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07612FC41CDA2F6E009E1600 /* BuddyTableCell.swift */; };
 		07612FC71CDA2F6E009E1600 /* BuddyTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 07612FC51CDA2F6E009E1600 /* BuddyTableCell.xib */; };
@@ -46,10 +45,9 @@
 		075B0AD91CD8E4F700464EBC /* Buddy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Buddy.swift; sourceTree = "<group>"; };
 		075B0ADB1CD8E51000464EBC /* Topic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Topic.swift; sourceTree = "<group>"; };
 		075B0ADE1CD8EDFB00464EBC /* BuddyListPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BuddyListPresenter.swift; sourceTree = "<group>"; };
-		07612FB71CDA1D07009E1600 /* GlobalDataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalDataStore.swift; sourceTree = "<group>"; };
+		07612FB71CDA1D07009E1600 /* DataStoreProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataStoreProtocol.swift; sourceTree = "<group>"; };
 		07612FB91CDA1D1B009E1600 /* CrudStoreError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CrudStoreError.swift; sourceTree = "<group>"; };
-		07612FBC1CDA1D5A009E1600 /* BuddiesMemStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BuddiesMemStore.swift; sourceTree = "<group>"; };
-		07612FBE1CDA1D64009E1600 /* TopicsMemStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopicsMemStore.swift; sourceTree = "<group>"; };
+		07612FBE1CDA1D64009E1600 /* MemDataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemDataStore.swift; sourceTree = "<group>"; };
 		07612FC01CDA24B7009E1600 /* BuddyDisplayData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BuddyDisplayData.swift; sourceTree = "<group>"; };
 		07612FC41CDA2F6E009E1600 /* BuddyTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BuddyTableCell.swift; sourceTree = "<group>"; };
 		07612FC51CDA2F6E009E1600 /* BuddyTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BuddyTableCell.xib; sourceTree = "<group>"; };
@@ -154,20 +152,11 @@
 		07612FB61CDA1CC3009E1600 /* Store */ = {
 			isa = PBXGroup;
 			children = (
-				07612FBB1CDA1D33009E1600 /* MemStore */,
-				07612FB71CDA1D07009E1600 /* GlobalDataStore.swift */,
+				07612FBE1CDA1D64009E1600 /* MemDataStore.swift */,
+				07612FB71CDA1D07009E1600 /* DataStoreProtocol.swift */,
 				07612FB91CDA1D1B009E1600 /* CrudStoreError.swift */,
 			);
 			name = Store;
-			sourceTree = "<group>";
-		};
-		07612FBB1CDA1D33009E1600 /* MemStore */ = {
-			isa = PBXGroup;
-			children = (
-				07612FBC1CDA1D5A009E1600 /* BuddiesMemStore.swift */,
-				07612FBE1CDA1D64009E1600 /* TopicsMemStore.swift */,
-			);
-			name = MemStore;
 			sourceTree = "<group>";
 		};
 		07796C8F1CD8CE5900CD6FDA = {
@@ -418,20 +407,19 @@
 				07D637B01CE47B89000D637A /* NotificationManagerLogic.swift in Sources */,
 				079F198E1CDB90D400D2AE2E /* AddTopicViewController.swift in Sources */,
 				07612FC61CDA2F6E009E1600 /* BuddyTableCell.swift in Sources */,
-				07612FBD1CDA1D5A009E1600 /* BuddiesMemStore.swift in Sources */,
 				07612FC11CDA24B7009E1600 /* BuddyDisplayData.swift in Sources */,
 				07796C9C1CD8CE5900CD6FDA /* AppDelegate.swift in Sources */,
 				079F19861CDB58F200D2AE2E /* TopicListItemDisplayData.swift in Sources */,
 				079F19881CDB596100D2AE2E /* TopicListPresenter.swift in Sources */,
 				075B0ADF1CD8EDFB00464EBC /* BuddyListPresenter.swift in Sources */,
 				07BA09DE1CDCE8F100E075B5 /* ContactListItemDisplayData.swift in Sources */,
-				07612FB81CDA1D07009E1600 /* GlobalDataStore.swift in Sources */,
+				07612FB81CDA1D07009E1600 /* DataStoreProtocol.swift in Sources */,
 				075B0ADC1CD8E51000464EBC /* Topic.swift in Sources */,
 				079F19831CDB573F00D2AE2E /* TopicListViewController.swift in Sources */,
 				07612FBA1CDA1D1B009E1600 /* CrudStoreError.swift in Sources */,
 				07AF68491CDA02230082A68A /* Router.swift in Sources */,
 				075B0ADA1CD8E4F700464EBC /* Buddy.swift in Sources */,
-				07612FBF1CDA1D64009E1600 /* TopicsMemStore.swift in Sources */,
+				07612FBF1CDA1D64009E1600 /* MemDataStore.swift in Sources */,
 				075B0AD21CD8E10100464EBC /* BuddyListViewController.swift in Sources */,
 				07D637B21CE49D3D000D637A /* NotificationManager.swift in Sources */,
 			);

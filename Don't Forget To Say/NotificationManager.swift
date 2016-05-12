@@ -11,7 +11,7 @@ import NotificationCenter
 
 class NotificationManager {
     // MARK: Injected properties
-    var dataStore: GlobalDataStore!
+    var dataStore: DataStoreProtocol!
     
     // MARK: Properties
     var pendingAction: (() -> Void)?

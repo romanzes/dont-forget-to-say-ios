@@ -20,7 +20,7 @@ protocol TopicListViewInterface: class {
 
 class TopicListPresenter: TopicListPresenterInterface {
     // MARK: Injected properties
-    var dataStore: GlobalDataStore!
+    var dataStore: DataStoreProtocol!
     var notificationManager: NotificationManagerInterface!
     weak var userInterface: TopicListViewInterface?
     
@@ -38,7 +38,7 @@ class TopicListPresenter: TopicListPresenterInterface {
     }
     
     private func obtainTitle() {
-        dataStore.buddiesStore.fetchBuddy(buddyId, completionHandler: { (buddy, error) in
+        dataStore.fetchBuddy(buddyId, completionHandler: { (buddy, error) in
             if let buddy = buddy {
                 self.generateTitle(buddy)
             }
@@ -46,7 +46,7 @@ class TopicListPresenter: TopicListPresenterInterface {
     }
     
     private func obtainTopics() {
-        dataStore.topicsStore.fetchTopicsForBuddy(buddyId, completionHandler: { (topics, error) in
+        dataStore.fetchTopicsForBuddy(buddyId, completionHandler: { (topics, error) in
             if let topics = topics {
                 self.generateDisplayData(topics)
             }

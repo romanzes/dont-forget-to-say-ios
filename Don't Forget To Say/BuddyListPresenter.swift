@@ -18,11 +18,11 @@ protocol BuddyListViewInterface: class {
 
 class BuddyListPresenter: BuddyListPresenterInterface {
     // MARK: Injected properties
-    var dataStore: GlobalDataStore!
+    var dataStore: DataStoreProtocol!
     weak var userInterface: BuddyListViewInterface?
     
     func obtainBuddies() {
-        dataStore.buddiesStore.fetchBuddies() { buddies, error in
+        dataStore.fetchBuddies() { buddies, error in
             if let buddies = buddies {
                 var displayData = [BuddyListItemDisplayData]()
                 self.generateDisplayData(buddies, displayData: &displayData)
@@ -33,7 +33,7 @@ class BuddyListPresenter: BuddyListPresenterInterface {
     func generateDisplayData(buddies: [Buddy], inout displayData: [BuddyListItemDisplayData]) {
         if buddies.count > displayData.count {
             let buddy = buddies[displayData.count]
-            dataStore.topicsStore.fetchTopicsForBuddy(buddy.id) { (topics, error) in
+            dataStore.fetchTopicsForBuddy(buddy.id) { (topics, error) in
                 if let topics = topics {
                     let item = BuddyListItemDisplayData(id: buddy.id, name: buddy.name, topicCount: topics.count)
                     displayData += [item]

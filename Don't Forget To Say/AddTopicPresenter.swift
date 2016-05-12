@@ -20,13 +20,13 @@ protocol AddTopicViewInterface: class {
 
 class AddTopicPresenter: AddTopicPresenterInterface {
     // MARK: Injected properties
-    var dataStore: GlobalDataStore!
+    var dataStore: DataStoreProtocol!
     weak var userInterface: AddTopicViewInterface?
     
     var contacts: [ContactListItemDisplayData]?
     
     private func obtainContacts(completionHandler: () -> Void) {
-        dataStore.buddiesStore.fetchBuddies { (buddies, error) in
+        dataStore.fetchBuddies { (buddies, error) in
             if let buddies = buddies {
                 self.contacts = buddies.map({ (buddy) -> ContactListItemDisplayData in
                     let result = ContactListItemDisplayData(name: buddy.name, isNew: false)
@@ -69,7 +69,7 @@ class AddTopicPresenter: AddTopicPresenterInterface {
             }
         })
         addBuddies(&newBuddies, buddyIds: &buddyIds) {
-            self.dataStore.topicsStore.addTopic(text, buddyIds: buddyIds) { (topic, error) in
+            self.dataStore.addTopic(text, buddyIds: buddyIds) { (topic, error) in
                 if topic != nil {
                     self.userInterface?.savedTopic()
                 }
@@ -79,7 +79,7 @@ class AddTopicPresenter: AddTopicPresenterInterface {
     
     private func addBuddies(inout newBuddies: [String], inout buddyIds: [Int], completionHandler: () -> Void) {
         if let contactName = newBuddies.first {
-            dataStore.buddiesStore.addBuddy(contactName) { (buddy, error) in
+            dataStore.addBuddy(contactName) { (buddy, error) in
                 if let buddy = buddy {
                     buddyIds.append(buddy.id)
                 }

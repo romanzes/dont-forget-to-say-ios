@@ -16,14 +16,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             Router(container: c)
         }
         .inObjectScope(.Container)
-        c.register(GlobalDataStore.self) { r in
-            GlobalDataStore(buddiesStore: BuddiesMemStore(), topicsStore: TopicsMemStore())
-        }
+        c.register(DataStoreProtocol.self) { r in MemDataStore() }
         .inObjectScope(.Container)
         c.register(NotificationManagerInterface.self) { r in NotificationManager() }
             .initCompleted() { r, c in
                 let notificationManager = c as! NotificationManager
-                notificationManager.dataStore = r.resolve(GlobalDataStore.self)
+                notificationManager.dataStore = r.resolve(DataStoreProtocol.self)
             }
         .inObjectScope(.Container)
         
@@ -37,7 +35,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             .initCompleted() { r, c in
                 let presenter = c as! BuddyListPresenter
                 presenter.userInterface = r.resolve(BuddyListViewInterface.self)
-                presenter.dataStore = r.resolve(GlobalDataStore.self)
+                presenter.dataStore = r.resolve(DataStoreProtocol.self)
             }
         
         c.register(TopicListViewInterface.self) { r in TopicListViewController() }
@@ -49,7 +47,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             .initCompleted() { r, c in
                 let presenter = c as! TopicListPresenter
                 presenter.userInterface = r.resolve(TopicListViewInterface.self)
-                presenter.dataStore = r.resolve(GlobalDataStore.self)
+                presenter.dataStore = r.resolve(DataStoreProtocol.self)
                 presenter.notificationManager = r.resolve(NotificationManagerInterface.self)
             }
         
@@ -62,7 +60,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             .initCompleted() { r, c in
                 let presenter = c as! AddTopicPresenter
                 presenter.userInterface = r.resolve(AddTopicViewInterface.self)
-                presenter.dataStore = r.resolve(GlobalDataStore.self)
+                presenter.dataStore = r.resolve(DataStoreProtocol.self)
         }
     }
     
