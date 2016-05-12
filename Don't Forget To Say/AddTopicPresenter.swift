@@ -59,44 +59,35 @@ class AddTopicPresenter: AddTopicPresenterInterface {
     }
     
     func saveTopicWithText(text: String, contacts: Set<ContactListItemDisplayData>) {
-        dataStore.topicsStore.addTopic(text) { (topic, error) in
-            if let topicId = topic?.id {
-                var newBuddies = [String]()
-                var buddyIds = [Int]()
-                contacts.forEach({ (contact) in
-                    if contact.isNew {
-                        newBuddies.append(contact.name)
-                    } else if let buddyId = contact.buddyId {
-                        buddyIds.append(buddyId)
-                    }
-                })
-                self.addNextBuddy(topicId, newBuddies: &newBuddies, buddyIds: &buddyIds)
+        var newBuddies = [String]()
+        var buddyIds = [Int]()
+        contacts.forEach({ (contact) in
+            if contact.isNew {
+                newBuddies.append(contact.name)
+            } else if let buddyId = contact.buddyId {
+                buddyIds.append(buddyId)
+            }
+        })
+        addBuddies(&newBuddies, buddyIds: &buddyIds) {
+            self.dataStore.topicsStore.addTopic(text, buddyIds: buddyIds) { (topic, error) in
+                if topic != nil {
+                    self.userInterface?.savedTopic()
+                }
             }
         }
     }
     
-    private func addNextBuddy(topicId: Int, inout newBuddies: [String], inout buddyIds: [Int]) {
+    private func addBuddies(inout newBuddies: [String], inout buddyIds: [Int], completionHandler: () -> Void) {
         if let contactName = newBuddies.first {
-            dataStore.buddiesStore.addBuddy(contactName, completionHandler: { (buddy, error) in
+            dataStore.buddiesStore.addBuddy(contactName) { (buddy, error) in
                 if let buddy = buddy {
                     buddyIds.append(buddy.id)
                 }
                 newBuddies.removeFirst()
-                self.addNextBuddy(topicId, newBuddies: &newBuddies, buddyIds: &buddyIds)
-            })
+                self.addBuddies(&newBuddies, buddyIds: &buddyIds, completionHandler: completionHandler)
+            }
         } else {
-            addNextRelation(topicId, buddyIds: &buddyIds)
-        }
-    }
-    
-    private func addNextRelation(topicId: Int, inout buddyIds: [Int]) {
-        if let buddyId = buddyIds.first {
-            dataStore.topicsStore.addRelation(buddyId, topicId: topicId, completionHandler: { (topic, error) in
-                buddyIds.removeFirst()
-                self.addNextRelation(topicId, buddyIds: &buddyIds)
-            })
-        } else {
-            userInterface?.savedTopic()
+            completionHandler()
         }
     }
 }

@@ -22,26 +22,26 @@ class BuddyListPresenter: BuddyListPresenterInterface {
     weak var userInterface: BuddyListViewInterface?
     
     func obtainBuddies() {
-        var fetchedBuddies: [Buddy]?
-        let onRelationsFetched = { (relations: [TopicRelation]?, error: CrudStoreError?) in
-            if let buddies = fetchedBuddies, relations = relations {
-                self.generateDisplayData(buddies, relations: relations)
+        dataStore.buddiesStore.fetchBuddies() { buddies, error in
+            if let buddies = buddies {
+                var displayData = [BuddyListItemDisplayData]()
+                self.generateDisplayData(buddies, displayData: &displayData)
             }
         }
-        let onBuddiesFetched = { (buddies: [Buddy]?, error: CrudStoreError?) in
-            fetchedBuddies = buddies
-            self.dataStore.topicsStore.fetchRelations(onRelationsFetched)
-        }
-        dataStore.buddiesStore.fetchBuddies(onBuddiesFetched)
     }
     
-    func generateDisplayData(buddies: [Buddy], relations: [TopicRelation]) {
-        let displayData = buddies.map { (buddy) -> BuddyListItemDisplayData in
-            let topicCount = relations.filter({ (relation) -> Bool in
-                return relation.buddyId == buddy.id
-            }).count
-            return BuddyListItemDisplayData(id: buddy.id, name: buddy.name, topicCount: topicCount)
+    func generateDisplayData(buddies: [Buddy], inout displayData: [BuddyListItemDisplayData]) {
+        if buddies.count > displayData.count {
+            let buddy = buddies[displayData.count]
+            dataStore.topicsStore.fetchTopicsForBuddy(buddy.id) { (topics, error) in
+                if let topics = topics {
+                    let item = BuddyListItemDisplayData(id: buddy.id, name: buddy.name, topicCount: topics.count)
+                    displayData += [item]
+                    self.generateDisplayData(buddies, displayData: &displayData)
+                }
+            }
+        } else {
+            userInterface?.updateBuddies(displayData)
         }
-        userInterface?.updateBuddies(displayData)
     }
 }

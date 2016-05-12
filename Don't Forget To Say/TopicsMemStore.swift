@@ -46,17 +46,19 @@ class TopicsMemStore: TopicsStoreProtocol {
         completionHandler(topics: topics, error: nil)
     }
     
-    func addTopic(text: String, completionHandler: (topic: Topic?, error: CrudStoreError?) -> Void) {
+    func addTopic(text: String, buddyIds: [Int], completionHandler: (topic: Topic?, error: CrudStoreError?) -> Void) {
         let newTopic = Topic(id: freeTopicId, text: text)
         topics += [newTopic]
         freeTopicId += 1
+        buddyIds.forEach { (buddyId) in
+            addRelation(buddyId, topicId: newTopic.id)
+        }
         completionHandler(topic: newTopic, error: nil)
     }
     
-    func addRelation(buddyId: Int, topicId: Int, completionHandler: (relation: TopicRelation?, error: CrudStoreError?) -> Void) {
+    private func addRelation(buddyId: Int, topicId: Int) {
         let newRelation = TopicRelation(id: freeRelationId, topicId: topicId, buddyId: buddyId)
         relations += [newRelation]
         freeRelationId += 1
-        completionHandler(relation: newRelation, error: nil)
     }
 }

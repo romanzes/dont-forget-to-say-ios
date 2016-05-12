@@ -15,10 +15,8 @@ protocol BuddiesStoreProtocol {
 }
 
 protocol TopicsStoreProtocol {
-    func fetchRelations(completionHandler: (relations: [TopicRelation]?, error: CrudStoreError?) -> Void)
     func fetchTopicsForBuddy(buddyId: Int, completionHandler: (topics: [Topic]?, error: CrudStoreError?) -> Void)
-    func addTopic(text: String, completionHandler: (topic: Topic?, error: CrudStoreError?) -> Void)
-    func addRelation(buddyId: Int, topicId: Int, completionHandler: (relation: TopicRelation?, error: CrudStoreError?) -> Void)
+    func addTopic(text: String, buddyIds: [Int], completionHandler: (topic: Topic?, error: CrudStoreError?) -> Void)
 }
 
 struct GlobalDataStore {
