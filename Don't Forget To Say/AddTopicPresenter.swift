@@ -29,7 +29,7 @@ class AddTopicPresenter: AddTopicPresenterInterface {
         dataStore.buddiesStore.fetchBuddies { (buddies, error) in
             if let buddies = buddies {
                 self.contacts = buddies.map({ (buddy) -> ContactListItemDisplayData in
-                    let result = ContactListItemDisplayData(name: buddy.name)
+                    let result = ContactListItemDisplayData(name: buddy.name, isNew: false)
                     result.buddyId = buddy.id
                     return result
                 })
@@ -40,14 +40,16 @@ class AddTopicPresenter: AddTopicPresenterInterface {
     
     func filterContacts(predicate: String?) {
         let onObtain = {
+            var result: [ContactListItemDisplayData]?
             if predicate == nil || predicate!.isEmpty {
-                self.userInterface?.updateContacts(self.contacts)
+                result = self.contacts
             } else {
-                let filteredContacts = self.contacts?.filter({ (elem) -> Bool in
+                result = self.contacts?.filter({ (elem) -> Bool in
                     return elem.name.lowercaseString.containsString(predicate!.lowercaseString)
                 })
-                self.userInterface?.updateContacts(filteredContacts)
+                result?.append(ContactListItemDisplayData(name: predicate!, isNew: true))
             }
+            self.userInterface?.updateContacts(result)
         }
         if contacts == nil {
             obtainContacts(onObtain)
@@ -59,20 +61,37 @@ class AddTopicPresenter: AddTopicPresenterInterface {
     func saveTopicWithText(text: String, contacts: Set<ContactListItemDisplayData>) {
         dataStore.topicsStore.addTopic(text) { (topic, error) in
             if let topicId = topic?.id {
-                var buddyIds = Set<Int>()
+                var newBuddies = [String]()
+                var buddyIds = [Int]()
                 contacts.forEach({ (contact) in
-                    if let buddyId = contact.buddyId {
-                        buddyIds.insert(buddyId)
+                    if contact.isNew {
+                        newBuddies.append(contact.name)
+                    } else if let buddyId = contact.buddyId {
+                        buddyIds.append(buddyId)
                     }
                 })
-                self.addNextRelation(topicId, buddyIds: &buddyIds)
+                self.addNextBuddy(topicId, newBuddies: &newBuddies, buddyIds: &buddyIds)
             }
         }
     }
     
-    private func addNextRelation(topicId: Int, inout buddyIds: Set<Int>) {
+    private func addNextBuddy(topicId: Int, inout newBuddies: [String], inout buddyIds: [Int]) {
+        if let contactName = newBuddies.first {
+            dataStore.buddiesStore.addBuddy(contactName, completionHandler: { (buddy, error) in
+                if let buddy = buddy {
+                    buddyIds.append(buddy.id)
+                }
+                newBuddies.removeFirst()
+                self.addNextBuddy(topicId, newBuddies: &newBuddies, buddyIds: &buddyIds)
+            })
+        } else {
+            addNextRelation(topicId, buddyIds: &buddyIds)
+        }
+    }
+    
+    private func addNextRelation(topicId: Int, inout buddyIds: [Int]) {
         if let buddyId = buddyIds.first {
-            self.dataStore.topicsStore.addRelation(buddyId, topicId: topicId, completionHandler: { (topic, error) in
+            dataStore.topicsStore.addRelation(buddyId, topicId: topicId, completionHandler: { (topic, error) in
                 buddyIds.removeFirst()
                 self.addNextRelation(topicId, buddyIds: &buddyIds)
             })

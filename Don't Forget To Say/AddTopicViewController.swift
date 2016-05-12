@@ -114,9 +114,18 @@ class AddTopicViewController: UIViewController, THContactPickerDelegate, UITable
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier(BuddySuggestTableCellIdentifier)!
         if let contacts = contacts {
-            cell.textLabel?.text = contacts[indexPath.row].name
+            fillCell(cell, contact: contacts[indexPath.row])
         }
         return cell
+    }
+    
+    func fillCell(cell: UITableViewCell, contact: ContactListItemDisplayData) {
+        if (contact.isNew) {
+            let text = String.localizedStringWithFormat(NSLocalizedString("Add new buddy", comment: "New buddy list item"), contact.name)
+            cell.textLabel?.text = text
+        } else {
+            cell.textLabel?.text = contact.name
+        }
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {

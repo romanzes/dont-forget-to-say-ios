@@ -26,3 +26,6 @@
 
 /* Buddy picker prompt */
 "To:" = "To:";
+
+/* New buddy list item */
+"Add new buddy" = "New buddy: %@";

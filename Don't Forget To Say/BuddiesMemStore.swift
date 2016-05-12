@@ -11,6 +11,8 @@ import Foundation
 class BuddiesMemStore: BuddiesStoreProtocol {
     // MARK: - Data
     
+    private var freeId = 8
+    
     private var buddies = [
         Buddy(id: 1, name: "Roman Petrenko"),
         Buddy(id: 2, name: "Andrei Senchuk"),
@@ -36,5 +38,12 @@ class BuddiesMemStore: BuddiesStoreProtocol {
         } else {
             completionHandler(buddy: nil, error: CrudStoreError.CannotFetch("Cannot fetch buddy with id \(id)"))
         }
+    }
+    
+    func addBuddy(name: String, completionHandler: (buddy: Buddy?, error: CrudStoreError?) -> Void) {
+        let newBuddy = Buddy(id: freeId, name: name)
+        buddies += [newBuddy]
+        freeId += 1
+        completionHandler(buddy: newBuddy, error: nil)
     }
 }

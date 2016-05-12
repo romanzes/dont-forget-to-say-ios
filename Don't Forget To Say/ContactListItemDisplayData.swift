@@ -11,9 +11,11 @@ import Foundation
 class ContactListItemDisplayData: Hashable {
     var buddyId: Int?
     var name: String
+    var isNew: Bool
     
-    init(name: String) {
+    init(name: String, isNew: Bool) {
         self.name = name
+        self.isNew = isNew
     }
     
     var hashValue: Int {
@@ -28,5 +30,5 @@ class ContactListItemDisplayData: Hashable {
 }
 
 func ==<T where T: ContactListItemDisplayData>(lhs: T, rhs: T) -> Bool {
-    return lhs.buddyId == rhs.buddyId && lhs.name == rhs.name
+    return lhs.buddyId == rhs.buddyId && lhs.name == rhs.name && lhs.isNew == rhs.isNew
 }

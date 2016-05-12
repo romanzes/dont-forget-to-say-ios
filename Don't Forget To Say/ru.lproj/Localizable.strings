@@ -26,3 +26,6 @@
 
 /* Buddy picker prompt */
 "To:" = "Кому:";
+
+/* New buddy list item */
+"Add new buddy" = "Новый друг: %@";

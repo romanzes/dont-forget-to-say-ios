@@ -11,6 +11,7 @@ import Foundation
 protocol BuddiesStoreProtocol {
     func fetchBuddies(completionHandler: (buddies: [Buddy]?, error: CrudStoreError?) -> Void)
     func fetchBuddy(id: Int, completionHandler: (buddy: Buddy?, error: CrudStoreError?) -> Void)
+    func addBuddy(name: String, completionHandler: (buddy: Buddy?, error: CrudStoreError?) -> Void)
 }
 
 protocol TopicsStoreProtocol {
