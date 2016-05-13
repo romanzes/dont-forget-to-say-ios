@@ -24,24 +24,28 @@ class BuddyListPresenter: BuddyListPresenterInterface {
     func obtainBuddies() {
         dataStore.fetchBuddies() { buddies, error in
             if let buddies = buddies {
-                var displayData = [BuddyListItemDisplayData]()
-                self.generateDisplayData(buddies, displayData: &displayData)
+                self.generateDisplayData(buddies)
             }
         }
     }
     
-    func generateDisplayData(buddies: [Buddy], inout displayData: [BuddyListItemDisplayData]) {
-        if buddies.count > displayData.count {
-            let buddy = buddies[displayData.count]
-            dataStore.fetchTopicsForBuddy(buddy.id) { (topics, error) in
-                if let topics = topics {
-                    let item = BuddyListItemDisplayData(id: buddy.id, name: buddy.name, topicCount: topics.count)
-                    displayData += [item]
-                    self.generateDisplayData(buddies, displayData: &displayData)
+    func generateDisplayData(buddies: [Buddy]) {
+        var displayData = [BuddyListItemDisplayData]()
+        var generateNextItem: (() -> Void)!
+        generateNextItem = {
+            if displayData.count < buddies.count {
+                let buddy = buddies[displayData.count]
+                self.dataStore.fetchTopicsForBuddy(buddy.id) { (topics, error) in
+                    if let topics = topics {
+                        let item = BuddyListItemDisplayData(id: buddy.id, name: buddy.name, topicCount: topics.count)
+                        displayData += [item]
+                        generateNextItem()
+                    }
                 }
+            } else {
+                self.userInterface?.updateBuddies(displayData)
             }
-        } else {
-            userInterface?.updateBuddies(displayData)
         }
+        generateNextItem()
     }
 }

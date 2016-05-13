@@ -59,16 +59,19 @@ class AddTopicPresenter: AddTopicPresenterInterface {
     }
     
     func saveTopicWithText(text: String, contacts: Set<ContactListItemDisplayData>) {
-        var newBuddies = [String]()
+        var newNames = [String]()
         var buddyIds = [Int]()
         contacts.forEach({ (contact) in
             if contact.isNew {
-                newBuddies.append(contact.name)
+                newNames.append(contact.name)
             } else if let buddyId = contact.buddyId {
                 buddyIds.append(buddyId)
             }
         })
-        addBuddies(&newBuddies, buddyIds: &buddyIds) { buddyIds in
+        addBuddies(newNames) { buddies in
+            buddies.forEach({ (buddy) in
+                buddyIds.append(buddy.id)
+            })
             self.dataStore.addTopic(text, buddyIds: buddyIds) { (topic, error) in
                 if topic != nil {
                     self.userInterface?.savedTopic()
@@ -77,17 +80,23 @@ class AddTopicPresenter: AddTopicPresenterInterface {
         }
     }
     
-    private func addBuddies(inout newBuddies: [String], inout buddyIds: [Int], completionHandler: (buddyIds: [Int]) -> Void) {
-        if let contactName = newBuddies.first {
-            dataStore.addBuddy(contactName) { (buddy, error) in
-                if let buddy = buddy {
-                    buddyIds.append(buddy.id)
+    private func addBuddies(newNames: [String], completionHandler: (buddies: [Buddy]) -> Void) {
+        var buddyNameQueue = newNames
+        var buddies = [Buddy]()
+        var addNextBuddy: (() -> Void)!
+        addNextBuddy = {
+            if let name = buddyNameQueue.first {
+                self.dataStore.addBuddy(name) { (buddy, error) in
+                    if let buddy = buddy {
+                        buddies.append(buddy)
+                    }
+                    buddyNameQueue.removeFirst()
+                    addNextBuddy()
                 }
-                newBuddies.removeFirst()
-                self.addBuddies(&newBuddies, buddyIds: &buddyIds, completionHandler: completionHandler)
+            } else {
+                completionHandler(buddies: buddies)
             }
-        } else {
-            completionHandler(buddyIds: buddyIds)
         }
+        addNextBuddy()
     }
 }
