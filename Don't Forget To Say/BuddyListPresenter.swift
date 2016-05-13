@@ -14,6 +14,7 @@ protocol BuddyListPresenterInterface {
 
 protocol BuddyListViewInterface: class {
     func updateBuddies(buddies: [BuddyListItemDisplayData])
+    func showNoContentMessage()
 }
 
 class BuddyListPresenter: BuddyListPresenterInterface {
@@ -43,9 +44,17 @@ class BuddyListPresenter: BuddyListPresenterInterface {
                     }
                 }
             } else {
-                self.userInterface?.updateBuddies(displayData)
+                self.onDisplayDataGenerated(displayData)
             }
         }
         generateNextItem()
+    }
+    
+    func onDisplayDataGenerated(displayData: [BuddyListItemDisplayData]) {
+        if displayData.count == 0 {
+            userInterface?.showNoContentMessage()
+        } else {
+            userInterface?.updateBuddies(displayData)
+        }
     }
 }

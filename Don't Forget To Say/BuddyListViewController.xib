@@ -9,6 +9,8 @@
             <connections>
                 <outlet property="addTopicButton" destination="wC6-Ul-KQe" id="PSH-PI-kpa"/>
                 <outlet property="buddiesTableView" destination="J1U-G7-sC7" id="7dK-K6-lW8"/>
+                <outlet property="noContentLabel" destination="cYB-8V-cZW" id="JjT-h1-A3t"/>
+                <outlet property="noContentView" destination="BG9-9r-ch0" id="BHz-Y3-HKX"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -39,6 +41,24 @@
                 <constraint firstItem="wC6-Ul-KQe" firstAttribute="top" secondItem="J1U-G7-sC7" secondAttribute="bottom" id="idg-3X-YO5"/>
                 <constraint firstItem="J1U-G7-sC7" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="tMo-9c-AeN"/>
             </constraints>
+        </view>
+        <view contentMode="scaleToFill" id="BG9-9r-ch0">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cYB-8V-cZW">
+                    <rect key="frame" x="279" y="289" width="42" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="cYB-8V-cZW" firstAttribute="centerY" secondItem="BG9-9r-ch0" secondAttribute="centerY" id="8Qw-Ku-zom"/>
+                <constraint firstItem="cYB-8V-cZW" firstAttribute="centerX" secondItem="BG9-9r-ch0" secondAttribute="centerX" id="XJI-AW-JMz"/>
+            </constraints>
+            <point key="canvasLocation" x="1191" y="214"/>
         </view>
     </objects>
 </document>

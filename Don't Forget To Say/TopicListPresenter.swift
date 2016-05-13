@@ -16,6 +16,7 @@ protocol TopicListPresenterInterface {
 protocol TopicListViewInterface: class {
     func showTitle(title: String)
     func updateTopics(topics: [TopicListItemDisplayData])
+    func showNoContentMessage()
 }
 
 class TopicListPresenter: TopicListPresenterInterface {
@@ -62,6 +63,10 @@ class TopicListPresenter: TopicListPresenterInterface {
         let displayData = topics.map { (topic) -> TopicListItemDisplayData in
             return TopicListItemDisplayData(id: topic.id, text: topic.text)
         }
-        userInterface?.updateTopics(displayData)
+        if displayData.count == 0 {
+            userInterface?.showNoContentMessage()
+        } else {
+            userInterface?.updateTopics(displayData)
+        }
     }
 }

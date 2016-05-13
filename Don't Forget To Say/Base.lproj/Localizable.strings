@@ -9,11 +9,17 @@
 /* Buddy list screen title */
 "Buddies" = "Buddies";
 
+/* Buddy list empty message */
+"Buddy list is empty" = "Buddy list is empty";
+
 /* Add topic button text */
 "Add topic (button)" = "Add topic";
 
 /* Topic list screen title */
 "Topics for %@" = "Topics for %@";
+
+/* Topic list empty message */
+"Topic list is empty" = "There are no topics for this buddy";
 
 /* Show notifications button text */
 "Show" = "Show";

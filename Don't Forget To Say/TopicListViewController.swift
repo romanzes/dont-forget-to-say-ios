@@ -20,6 +20,8 @@ class TopicListViewController: UIViewController, UITableViewDataSource, TopicLis
     
     // MARK: Outlets
     @IBOutlet weak var topicsTableView: UITableView!
+    @IBOutlet var noContentView: UIView!
+    @IBOutlet weak var noContentLabel: UILabel!
     
     init() {
         super.init(nibName: "TopicListViewController", bundle: NSBundle.mainBundle())
@@ -35,12 +37,14 @@ class TopicListViewController: UIViewController, UITableViewDataSource, TopicLis
     }
     
     func configureView() {
-        topicsTableView.dataSource = self
-        topicsTableView.registerNib(UINib(nibName: TopicTableCellIdentifier, bundle: nil), forCellReuseIdentifier: TopicTableCellIdentifier)
-        
         let showButtonTitle = NSLocalizedString("Show", comment: "Show notifications button text")
         let showButton = UIBarButtonItem(title: showButtonTitle, style: UIBarButtonItemStyle.Plain, target: self, action: #selector(self.showButtonClicked))
         self.navigationItem.rightBarButtonItem = showButton
+        
+        topicsTableView.dataSource = self
+        topicsTableView.registerNib(UINib(nibName: TopicTableCellIdentifier, bundle: nil), forCellReuseIdentifier: TopicTableCellIdentifier)
+        
+        noContentLabel.text = NSLocalizedString("Topic list is empty", comment: "Topic list empty message")
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -58,6 +62,14 @@ class TopicListViewController: UIViewController, UITableViewDataSource, TopicLis
     
     func updateTopics(topics: [TopicListItemDisplayData]) {
         displayData = topics
+        topicsTableView.backgroundView = nil
+        topicsTableView.separatorStyle = .SingleLine
+        reloadEntries()
+    }
+    
+    func showNoContentMessage() {
+        topicsTableView.backgroundView = noContentView
+        topicsTableView.separatorStyle = .None
         reloadEntries()
     }
     

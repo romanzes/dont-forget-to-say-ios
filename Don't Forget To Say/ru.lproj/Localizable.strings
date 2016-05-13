@@ -9,11 +9,17 @@
 /* Buddy list screen title */
 "Buddies" = "Друзья";
 
+/* Buddy list empty message */
+"Buddy list is empty" = "Список друзей пуст";
+
 /* Add topic button text */
 "Add topic (button)" = "Добавить тему";
 
 /* Topic list screen title */
 "Topics for %@" = "Темы для %@";
+
+/* Topic list empty message */
+"Topic list is empty" = "Для этого друга тем нет";
 
 /* Show notifications button text */
 "Show" = "Показать";

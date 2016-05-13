@@ -21,6 +21,8 @@ class BuddyListViewController: UIViewController, UITableViewDataSource, UITableV
     // MARK: Outlets
     @IBOutlet weak var buddiesTableView: UITableView!
     @IBOutlet weak var addTopicButton: UIButton!
+    @IBOutlet var noContentView: UIView!
+    @IBOutlet weak var noContentLabel: UILabel!
     
     init() {
         super.init(nibName: "BuddyListViewController", bundle: NSBundle.mainBundle())
@@ -42,6 +44,8 @@ class BuddyListViewController: UIViewController, UITableViewDataSource, UITableV
         buddiesTableView.delegate = self
         buddiesTableView.registerNib(UINib(nibName: BuddyTableCellIdentifier, bundle: nil), forCellReuseIdentifier: BuddyTableCellIdentifier)
         
+        noContentLabel.text = NSLocalizedString("Buddy list is empty", comment: "Buddy list empty message")
+        
         addTopicButton.setTitle(NSLocalizedString("Add topic (button)", comment: "Add topic button text"), forState: UIControlState.Normal)
         addTopicButton.addTarget(self, action: #selector(self.addTopicClicked), forControlEvents: UIControlEvents.TouchUpInside)
     }
@@ -52,6 +56,14 @@ class BuddyListViewController: UIViewController, UITableViewDataSource, UITableV
     
     func updateBuddies(buddies: [BuddyListItemDisplayData]) {
         displayData = buddies
+        buddiesTableView.backgroundView = nil
+        buddiesTableView.separatorStyle = .SingleLine
+        reloadEntries()
+    }
+    
+    func showNoContentMessage() {
+        buddiesTableView.backgroundView = noContentView
+        buddiesTableView.separatorStyle = .None
         reloadEntries()
     }
     
