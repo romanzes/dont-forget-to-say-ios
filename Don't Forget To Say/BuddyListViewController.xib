@@ -17,29 +17,27 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="iP3-a3-BJN">
-                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                    <subviews>
-                        <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="J1U-G7-sC7">
-                            <rect key="frame" x="0.0" y="0.0" width="600" height="556"/>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        </tableView>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wC6-Ul-KQe">
-                            <rect key="frame" x="0.0" y="556" width="600" height="44"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="44" id="1f7-Gh-vmC"/>
-                            </constraints>
-                            <state key="normal" title="Button"/>
-                        </button>
-                    </subviews>
-                </stackView>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="J1U-G7-sC7">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="556"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </tableView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wC6-Ul-KQe">
+                    <rect key="frame" x="0.0" y="556" width="600" height="44"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="7uT-pJ-Vu4"/>
+                    </constraints>
+                    <state key="normal" title="Button"/>
+                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstAttribute="bottom" secondItem="iP3-a3-BJN" secondAttribute="bottom" id="0dR-QF-6H4"/>
-                <constraint firstItem="iP3-a3-BJN" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="7OV-AV-Tn5"/>
-                <constraint firstAttribute="trailing" secondItem="iP3-a3-BJN" secondAttribute="trailing" id="QEU-XD-HKz"/>
-                <constraint firstItem="iP3-a3-BJN" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="QSm-5c-iWv"/>
+                <constraint firstAttribute="trailing" secondItem="wC6-Ul-KQe" secondAttribute="trailing" id="3Vz-4N-EqW"/>
+                <constraint firstItem="J1U-G7-sC7" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="LkS-P3-4ch"/>
+                <constraint firstItem="wC6-Ul-KQe" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="RUe-s0-Woh"/>
+                <constraint firstAttribute="bottom" secondItem="wC6-Ul-KQe" secondAttribute="bottom" id="akY-4q-c9G"/>
+                <constraint firstAttribute="trailing" secondItem="J1U-G7-sC7" secondAttribute="trailing" id="hfM-gl-AtB"/>
+                <constraint firstItem="wC6-Ul-KQe" firstAttribute="top" secondItem="J1U-G7-sC7" secondAttribute="bottom" id="idg-3X-YO5"/>
+                <constraint firstItem="J1U-G7-sC7" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="tMo-9c-AeN"/>
             </constraints>
         </view>
     </objects>
