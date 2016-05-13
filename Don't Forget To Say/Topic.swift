@@ -12,9 +12,3 @@ struct Topic {
     let id: Int
     let text: String
 }
-
-struct TopicRelation {
-    let id: Int
-    let topicId: Int
-    let buddyId: Int
-}

@@ -8,6 +8,12 @@
 
 import Foundation
 
+private struct TopicRelation {
+    let id: Int
+    let topicId: Int
+    let buddyId: Int
+}
+
 class MemDataStore: DataStoreProtocol {
     // MARK: - Data
     
