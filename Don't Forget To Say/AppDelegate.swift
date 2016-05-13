@@ -16,7 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             Router(container: c)
         }
         .inObjectScope(.Container)
-        c.register(DataStoreProtocol.self) { r in MemDataStore() }
+        c.register(DataStoreProtocol.self) { r in RealmDataStore() }
         .inObjectScope(.Container)
         c.register(NotificationManagerInterface.self) { r in NotificationManager() }
             .initCompleted() { r, c in

@@ -68,7 +68,7 @@ class AddTopicPresenter: AddTopicPresenterInterface {
                 buddyIds.append(buddyId)
             }
         })
-        addBuddies(&newBuddies, buddyIds: &buddyIds) {
+        addBuddies(&newBuddies, buddyIds: &buddyIds) { buddyIds in
             self.dataStore.addTopic(text, buddyIds: buddyIds) { (topic, error) in
                 if topic != nil {
                     self.userInterface?.savedTopic()
@@ -77,7 +77,7 @@ class AddTopicPresenter: AddTopicPresenterInterface {
         }
     }
     
-    private func addBuddies(inout newBuddies: [String], inout buddyIds: [Int], completionHandler: () -> Void) {
+    private func addBuddies(inout newBuddies: [String], inout buddyIds: [Int], completionHandler: (buddyIds: [Int]) -> Void) {
         if let contactName = newBuddies.first {
             dataStore.addBuddy(contactName) { (buddy, error) in
                 if let buddy = buddy {
@@ -87,7 +87,7 @@ class AddTopicPresenter: AddTopicPresenterInterface {
                 self.addBuddies(&newBuddies, buddyIds: &buddyIds, completionHandler: completionHandler)
             }
         } else {
-            completionHandler()
+            completionHandler(buddyIds: buddyIds)
         }
     }
 }
