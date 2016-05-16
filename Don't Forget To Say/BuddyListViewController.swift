@@ -111,14 +111,14 @@ class BuddyListViewController: UIViewController, UITableViewDataSource, UITableV
             let okButton = NSLocalizedString("buddy_remove_ok", comment: "Buddy deletion confirmation button")
             let cancelButton = NSLocalizedString("buddy_remove_cancel", comment: "Buddy deletion cancel button")
             
-            let refreshAlert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
-            refreshAlert.addAction(UIAlertAction(title: okButton, style: .Default, handler: { (action: UIAlertAction!) in
+            let deleteAlert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
+            deleteAlert.addAction(UIAlertAction(title: okButton, style: .Default, handler: { (action: UIAlertAction!) in
                 self.presenter.deleteBuddy(buddy.id)
             }))
-            refreshAlert.addAction(UIAlertAction(title: cancelButton, style: .Cancel, handler: nil))
+            deleteAlert.addAction(UIAlertAction(title: cancelButton, style: .Cancel, handler: nil))
             
             tableView.setEditing(false, animated: true)
-            presentViewController(refreshAlert, animated: true, completion: nil)
+            presentViewController(deleteAlert, animated: true, completion: nil)
         }
     }
 }
