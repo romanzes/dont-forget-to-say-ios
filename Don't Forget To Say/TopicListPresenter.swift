@@ -55,7 +55,7 @@ class TopicListPresenter: TopicListPresenterInterface {
     }
     
     private func generateTitle(buddy: Buddy) {
-        let title = String.localizedStringWithFormat(NSLocalizedString("Topics for %@", comment: "Topic list screen title"), buddy.name)
+        let title = String.localizedStringWithFormat(NSLocalizedString("topic_list_title", comment: "Topic list screen title"), buddy.name)
         userInterface?.showTitle(title)
     }
     

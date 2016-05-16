@@ -38,15 +38,15 @@ class BuddyListViewController: UIViewController, UITableViewDataSource, UITableV
     }
     
     func configureView() {
-        navigationItem.title = NSLocalizedString("Buddies", comment: "Buddy list screen title")
+        navigationItem.title = NSLocalizedString("buddy_list_title", comment: "Buddy list screen title")
         
         buddiesTableView.dataSource = self
         buddiesTableView.delegate = self
         buddiesTableView.registerNib(UINib(nibName: BuddyTableCellIdentifier, bundle: nil), forCellReuseIdentifier: BuddyTableCellIdentifier)
         
-        noContentLabel.text = NSLocalizedString("Buddy list is empty", comment: "Buddy list empty message")
+        noContentLabel.text = NSLocalizedString("buddy_list_empty", comment: "Buddy list empty message")
         
-        addTopicButton.setTitle(NSLocalizedString("Add topic (button)", comment: "Add topic button text"), forState: UIControlState.Normal)
+        addTopicButton.setTitle(NSLocalizedString("add_topic_button", comment: "Add topic button text"), forState: UIControlState.Normal)
         addTopicButton.addTarget(self, action: #selector(self.addTopicClicked), forControlEvents: UIControlEvents.TouchUpInside)
     }
     
@@ -106,10 +106,10 @@ class BuddyListViewController: UIViewController, UITableViewDataSource, UITableV
     
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if let buddy = displayData?[indexPath.row] {
-            let title = String.localizedStringWithFormat(NSLocalizedString("Remove %@", comment: "Buddy deletion alert title"), buddy.name)
-            let message = NSLocalizedString("Buddy deletion alert message", comment: "Buddy deletion alert message")
-            let okButton = NSLocalizedString("OK", comment: "Buddy deletion confirmation button")
-            let cancelButton = NSLocalizedString("Cancel", comment: "Buddy deletion cancel button")
+            let title = String.localizedStringWithFormat(NSLocalizedString("buddy_remove_title", comment: "Buddy deletion alert title"), buddy.name)
+            let message = NSLocalizedString("buddy_remove_message", comment: "Buddy deletion alert message")
+            let okButton = NSLocalizedString("buddy_remove_ok", comment: "Buddy deletion confirmation button")
+            let cancelButton = NSLocalizedString("buddy_remove_cancel", comment: "Buddy deletion cancel button")
             
             let refreshAlert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
             refreshAlert.addAction(UIAlertAction(title: okButton, style: .Default, handler: { (action: UIAlertAction!) in

@@ -7,46 +7,46 @@
 */
 
 /* Buddy list screen title */
-"Buddies" = "Buddies";
+"buddy_list_title" = "Buddies";
 
 /* Buddy list empty message */
-"Buddy list is empty" = "Buddy list is empty";
+"buddy_list_empty" = "Buddy list is empty";
 
 /* Add topic button text */
-"Add topic (button)" = "Add topic";
+"add_topic_button" = "Add topic";
 
 /* Buddy deletion alert title */
-"Remove %@" = "Remove %@";
+"buddy_remove_title" = "Remove %@";
 
 /* Buddy deletion alert message */
-"Buddy deletion alert message" = "You may lose related topics. Are you sure?";
+"buddy_remove_message" = "You may lose related topics. Are you sure?";
 
 /* Buddy deletion confirmation button */
-"OK" = "OK";
+"buddy_remove_ok" = "OK";
 
 /* Buddy deletion cancel button */
-"Cancel" = "Cancel";
+"buddy_remove_cancel" = "Cancel";
 
 /* Topic list screen title */
-"Topics for %@" = "Topics for %@";
+"topic_list_title" = "Topics for %@";
 
 /* Topic list empty message */
-"Topic list is empty" = "There are no topics for this buddy";
+"topic_list_empty" = "There are no topics for this buddy";
 
 /* Show notifications button text */
-"Show" = "Show";
+"show_notifications_button" = "Show";
 
 /* Add topic screen title */
-"Add topic (title)" = "Add topic";
+"add_topic_title" = "Add topic";
 
 /* Topic text placeholder */
-"What do you want to say?" = "What do you want to say?";
+"topic_text_placeholder" = "What do you want to say?";
 
 /* Buddy picker placeholder */
-"Whom to say this?" = "Whom to say this?";
+"buddy_picker_placeholder" = "Whom to say this?";
 
 /* Buddy picker prompt */
-"To:" = "To:";
+"buddy_picker_prompt" = "To:";
 
 /* New buddy list item */
-"Add new buddy" = "New buddy: %@";
+"new_buddy_list_item" = "New buddy: %@";

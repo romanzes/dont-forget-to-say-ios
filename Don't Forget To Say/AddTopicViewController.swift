@@ -44,7 +44,7 @@ class AddTopicViewController: UIViewController, THContactPickerDelegate, UITable
     }
     
     func configureView() {
-        navigationItem.title = NSLocalizedString("Add topic (title)", comment: "Add topic screen title")
+        navigationItem.title = NSLocalizedString("add_topic_title", comment: "Add topic screen title")
         edgesForExtendedLayout = UIRectEdge.None
         
         let cancelButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Cancel, target: self, action: #selector(self.cancel))
@@ -52,11 +52,11 @@ class AddTopicViewController: UIViewController, THContactPickerDelegate, UITable
         let saveButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Save, target: self, action: #selector(self.save))
         self.navigationItem.rightBarButtonItem = saveButton
         
-        topicTextField.placeholder = NSLocalizedString("What do you want to say?", comment: "Topic text placeholder")
+        topicTextField.placeholder = NSLocalizedString("topic_text_placeholder", comment: "Topic text placeholder")
         
         buddyPicker.delegate = self
-        buddyPicker.setPlaceholderLabelText(NSLocalizedString("Whom to say this?", comment: "Buddy picker placeholder"))
-        buddyPicker.setPromptLabelText(NSLocalizedString("To:", comment: "Buddy picker prompt"))
+        buddyPicker.setPlaceholderLabelText(NSLocalizedString("buddy_picker_placeholder", comment: "Buddy picker placeholder"))
+        buddyPicker.setPromptLabelText(NSLocalizedString("buddy_picker_prompt", comment: "Buddy picker prompt"))
         let layer = buddyPicker.layer
         layer.shadowColor = UIColor(red: 225.0/255.0, green: 226.0/255.0, blue: 228.0/255.0, alpha: 1).CGColor
         layer.shadowOffset = CGSizeMake(0, 2)
@@ -121,7 +121,7 @@ class AddTopicViewController: UIViewController, THContactPickerDelegate, UITable
     
     func fillCell(cell: UITableViewCell, contact: ContactListItemDisplayData) {
         if (contact.isNew) {
-            let text = String.localizedStringWithFormat(NSLocalizedString("Add new buddy", comment: "New buddy list item"), contact.name)
+            let text = String.localizedStringWithFormat(NSLocalizedString("new_buddy_list_item", comment: "New buddy list item"), contact.name)
             cell.textLabel?.text = text
         } else {
             cell.textLabel?.text = contact.name

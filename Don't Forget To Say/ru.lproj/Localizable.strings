@@ -7,46 +7,46 @@
 */
 
 /* Buddy list screen title */
-"Buddies" = "Друзья";
+"buddy_list_title" = "Друзья";
 
 /* Buddy list empty message */
-"Buddy list is empty" = "Список друзей пуст";
+"buddy_list_empty" = "Список друзей пуст";
 
 /* Add topic button text */
-"Add topic (button)" = "Добавить тему";
+"add_topic_button" = "Добавить тему";
 
 /* Buddy deletion alert title */
-"Remove %@" = "Удаление %@";
+"buddy_remove_title" = "Удаление %@";
 
 /* Buddy deletion alert message */
-"Buddy deletion alert message" = "Вы можете потерять связанные темы. Точно удалить?";
+"buddy_remove_message" = "Вы можете потерять связанные темы. Точно удалить?";
 
 /* Buddy deletion confirmation button */
-"OK" = "ОК";
+"buddy_remove_ok" = "ОК";
 
 /* Buddy deletion cancel button */
-"Cancel" = "Отменить";
+"buddy_remove_cancel" = "Отменить";
 
 /* Topic list screen title */
-"Topics for %@" = "Темы для %@";
+"topic_list_title" = "Темы для %@";
 
 /* Topic list empty message */
-"Topic list is empty" = "Для этого друга тем нет";
+"topic_list_empty" = "Для этого друга тем нет";
 
 /* Show notifications button text */
-"Show" = "Показать";
+"show_notifications_button" = "Показать";
 
 /* Add topic screen title */
-"Add topic (title)" = "Добавление темы";
+"add_topic_title" = "Добавление темы";
 
 /* Topic text placeholder */
-"What do you want to say?" = "О чем будет разговор?";
+"topic_text_placeholder" = "О чем будет разговор?";
 
 /* Buddy picker placeholder */
-"Whom to say this?" = "С кем об этом поговорить?";
+"buddy_picker_placeholder" = "С кем об этом поговорить?";
 
 /* Buddy picker prompt */
-"To:" = "Кому:";
+"buddy_picker_prompt" = "Кому:";
 
 /* New buddy list item */
-"Add new buddy" = "Новый друг: %@";
+"new_buddy_list_item" = "Новый друг: %@";

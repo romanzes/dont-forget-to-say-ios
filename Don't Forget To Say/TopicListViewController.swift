@@ -37,14 +37,14 @@ class TopicListViewController: UIViewController, UITableViewDataSource, TopicLis
     }
     
     func configureView() {
-        let showButtonTitle = NSLocalizedString("Show", comment: "Show notifications button text")
+        let showButtonTitle = NSLocalizedString("show_notifications_button", comment: "Show notifications button text")
         let showButton = UIBarButtonItem(title: showButtonTitle, style: UIBarButtonItemStyle.Plain, target: self, action: #selector(self.showButtonClicked))
         self.navigationItem.rightBarButtonItem = showButton
         
         topicsTableView.dataSource = self
         topicsTableView.registerNib(UINib(nibName: TopicTableCellIdentifier, bundle: nil), forCellReuseIdentifier: TopicTableCellIdentifier)
         
-        noContentLabel.text = NSLocalizedString("Topic list is empty", comment: "Topic list empty message")
+        noContentLabel.text = NSLocalizedString("topic_list_empty", comment: "Topic list empty message")
     }
     
     override func viewWillAppear(animated: Bool) {
