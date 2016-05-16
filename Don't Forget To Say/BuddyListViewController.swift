@@ -62,6 +62,7 @@ class BuddyListViewController: UIViewController, UITableViewDataSource, UITableV
     }
     
     func showNoContentMessage() {
+        displayData = nil
         buddiesTableView.backgroundView = noContentView
         buddiesTableView.separatorStyle = .None
         reloadEntries()
@@ -97,5 +98,13 @@ class BuddyListViewController: UIViewController, UITableViewDataSource, UITableV
         if let buddyId = displayData?[indexPath.row].id {
             router.showTopicListFromViewController(self, buddyId: buddyId)
         }
+    }
+    
+    func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        presenter.deleteBuddy(displayData?[indexPath.row].id)
     }
 }

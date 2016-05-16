@@ -44,6 +44,20 @@ class RealmDataStore: DataStoreProtocol {
         }
     }
     
+    func deleteBuddy(id: Int, completionHandler: (error: CrudStoreError?) -> Void) {
+        do {
+            try realm.write {
+                // delete buddy
+                realm.delete(realm.objectForPrimaryKey(RealmBuddy.self, key: id)!)
+                // clean unowned topics
+                realm.delete(realm.objects(RealmTopic.self).filter("buddies.@count = 0"))
+            }
+            completionHandler(error: nil)
+        } catch {
+            completionHandler(error: CrudStoreError.CannotFetch("Cannot remove buddy with id \(id)"))
+        }
+    }
+    
     func fetchTopicsForBuddy(buddyId: Int, completionHandler: (topics: [Topic]?, error: CrudStoreError?) -> Void) {
         let realmBuddy = realm.objectForPrimaryKey(RealmBuddy.self, key: buddyId)
         if let realmBuddy = realmBuddy {

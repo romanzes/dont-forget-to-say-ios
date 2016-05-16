@@ -22,6 +22,7 @@ class RealmBuddy: Object {
 class RealmTopic: Object {
     dynamic var id = 0
     dynamic var text = ""
+    let buddies = LinkingObjects(fromType: RealmBuddy.self, property: "topics")
     
     override static func primaryKey() -> String? {
         return "id"

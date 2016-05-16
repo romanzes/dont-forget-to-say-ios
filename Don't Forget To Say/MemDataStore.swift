@@ -66,6 +66,21 @@ class MemDataStore: DataStoreProtocol {
         completionHandler(buddy: newBuddy, error: nil)
     }
     
+    func deleteBuddy(id: Int, completionHandler: (error: CrudStoreError?) -> Void) {
+        relations = relations.filter({ (relation) -> Bool in
+            relation.buddyId != id
+        })
+        let index = buddies.indexOf { (buddy) -> Bool in
+            buddy.id == id
+        }
+        if let index = index {
+            buddies.removeAtIndex(index)
+            completionHandler(error: nil)
+        } else {
+            completionHandler(error: CrudStoreError.CannotFetch("Cannot remove buddy with id \(id)"))
+        }
+    }
+    
     func fetchTopicsForBuddy(buddyId: Int, completionHandler: (topics: [Topic]?, error: CrudStoreError?) -> Void) {
         let relations = self.relations.filter { (relation) -> Bool in
             return relation.buddyId == buddyId

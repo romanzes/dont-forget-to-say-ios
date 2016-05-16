@@ -10,6 +10,7 @@ import Foundation
 
 protocol BuddyListPresenterInterface {
     func obtainBuddies()
+    func deleteBuddy(buddyId: Int?)
 }
 
 protocol BuddyListViewInterface: class {
@@ -27,6 +28,14 @@ class BuddyListPresenter: BuddyListPresenterInterface {
             if let buddies = buddies {
                 self.generateDisplayData(buddies)
             }
+        }
+    }
+    
+    func deleteBuddy(buddyId: Int?) {
+        if let buddyId = buddyId {
+            dataStore.deleteBuddy(buddyId, completionHandler: { (error) in
+                self.obtainBuddies()
+            })
         }
     }
     
