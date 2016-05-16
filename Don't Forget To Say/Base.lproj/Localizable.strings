@@ -15,6 +15,18 @@
 /* Add topic button text */
 "Add topic (button)" = "Add topic";
 
+/* Buddy deletion alert title */
+"Remove %@" = "Remove %@";
+
+/* Buddy deletion alert message */
+"Buddy deletion alert message" = "You may lose related topics. Are you sure?";
+
+/* Buddy deletion confirmation button */
+"OK" = "OK";
+
+/* Buddy deletion cancel button */
+"Cancel" = "Cancel";
+
 /* Topic list screen title */
 "Topics for %@" = "Topics for %@";
 

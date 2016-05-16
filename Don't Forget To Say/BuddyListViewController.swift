@@ -105,6 +105,20 @@ class BuddyListViewController: UIViewController, UITableViewDataSource, UITableV
     }
     
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        presenter.deleteBuddy(displayData?[indexPath.row].id)
+        if let buddy = displayData?[indexPath.row] {
+            let title = String.localizedStringWithFormat(NSLocalizedString("Remove %@", comment: "Buddy deletion alert title"), buddy.name)
+            let message = NSLocalizedString("Buddy deletion alert message", comment: "Buddy deletion alert message")
+            let okButton = NSLocalizedString("OK", comment: "Buddy deletion confirmation button")
+            let cancelButton = NSLocalizedString("Cancel", comment: "Buddy deletion cancel button")
+            
+            let refreshAlert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
+            refreshAlert.addAction(UIAlertAction(title: okButton, style: .Default, handler: { (action: UIAlertAction!) in
+                self.presenter.deleteBuddy(buddy.id)
+            }))
+            refreshAlert.addAction(UIAlertAction(title: cancelButton, style: .Cancel, handler: nil))
+            
+            tableView.setEditing(false, animated: true)
+            presentViewController(refreshAlert, animated: true, completion: nil)
+        }
     }
 }

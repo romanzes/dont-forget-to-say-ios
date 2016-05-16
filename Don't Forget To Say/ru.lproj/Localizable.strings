@@ -15,6 +15,18 @@
 /* Add topic button text */
 "Add topic (button)" = "Добавить тему";
 
+/* Buddy deletion alert title */
+"Remove %@" = "Удаление %@";
+
+/* Buddy deletion alert message */
+"Buddy deletion alert message" = "Вы можете потерять связанные темы. Точно удалить?";
+
+/* Buddy deletion confirmation button */
+"OK" = "ОК";
+
+/* Buddy deletion cancel button */
+"Cancel" = "Отменить";
+
 /* Topic list screen title */
 "Topics for %@" = "Темы для %@";
 
