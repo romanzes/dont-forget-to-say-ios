@@ -32,9 +32,9 @@ class MemDataStore: DataStoreProtocol {
     ]
     
     private var topics = [
-        Topic(id: 1, text: "VIPER is bad"),
-        Topic(id: 2, text: "MVP is better"),
-        Topic(id: 3, text: "Dagger and Typhoon are brothers forever")
+        Topic(id: 1, text: "VIPER is bad", buddyCount: 2),
+        Topic(id: 2, text: "MVP is better", buddyCount: 1),
+        Topic(id: 3, text: "Dagger and Typhoon are brothers forever", buddyCount: 1)
     ]
     
     private var relations = [
@@ -95,7 +95,7 @@ class MemDataStore: DataStoreProtocol {
     }
     
     func addTopic(text: String, buddyIds: [Int], completionHandler: (topic: Topic?, error: CrudStoreError?) -> Void) {
-        let newTopic = Topic(id: freeTopicId, text: text)
+        let newTopic = Topic(id: freeTopicId, text: text, buddyCount: buddyIds.count)
         topics += [newTopic]
         freeTopicId += 1
         buddyIds.forEach { (buddyId) in
@@ -104,9 +104,44 @@ class MemDataStore: DataStoreProtocol {
         completionHandler(topic: newTopic, error: nil)
     }
     
+    func deleteTopic(id: Int, completionHandler: (error: CrudStoreError?) -> Void) {
+        relations = self.relations.filter({ (relation) -> Bool in
+            return relation.topicId != id
+        })
+        if let index = (topics.indexOf { (topic) -> Bool in
+            return topic.id == id
+        }) {
+            topics.removeAtIndex(index)
+            completionHandler(error: nil)
+        } else {
+            completionHandler(error: CrudStoreError.CannotDelete("Cannot remove topic with id \(id)"))
+        }
+    }
+    
+    func deleteTopicFromBuddy(buddyId: Int, topicId: Int, completionHandler: (error: CrudStoreError?) -> Void) {
+        if let index = (relations.indexOf { (relation) -> Bool in
+            return relation.buddyId == buddyId && relation.topicId == topicId
+        }) {
+            relations.removeAtIndex(index)
+            decreaseBuddyCountForTopic(topicId)
+            completionHandler(error: nil)
+        } else {
+            completionHandler(error: CrudStoreError.CannotDelete("Cannot remove topic with id \(topicId) for buddy id \(buddyId)"))
+        }
+    }
+    
     private func addRelation(buddyId: Int, topicId: Int) {
         let newRelation = TopicRelation(id: freeRelationId, topicId: topicId, buddyId: buddyId)
         relations += [newRelation]
         freeRelationId += 1
+    }
+    
+    private func decreaseBuddyCountForTopic(topicId: Int) {
+        if let index = (topics.indexOf { (topic) -> Bool in
+            topic.id == topicId
+        }) {
+            let topic = topics[index]
+            topics[index] = Topic(id: topic.id, text: topic.text, buddyCount: topic.buddyCount - 1)
+        }
     }
 }

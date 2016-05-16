@@ -16,6 +16,7 @@ class TopicListViewController: UIViewController, UITableViewDataSource, TopicLis
     
     // MARK: Properties
     var buddyId: Int!
+    var buddyName: String?
     var displayData: [TopicListItemDisplayData]?
     
     // MARK: Outlets
@@ -57,6 +58,7 @@ class TopicListViewController: UIViewController, UITableViewDataSource, TopicLis
     }
     
     func showBuddyName(name: String) {
+        buddyName = name
         let title = String.localizedStringWithFormat(NSLocalizedString("topic_list_title", comment: "Topic list screen title"), name)
         navigationItem.title = title
     }
@@ -69,6 +71,7 @@ class TopicListViewController: UIViewController, UITableViewDataSource, TopicLis
     }
     
     func showNoContentMessage() {
+        displayData = nil
         topicsTableView.backgroundView = noContentView
         topicsTableView.separatorStyle = .None
         reloadEntries()
@@ -90,5 +93,54 @@ class TopicListViewController: UIViewController, UITableViewDataSource, TopicLis
         let cell = tableView.dequeueReusableCellWithIdentifier(TopicTableCellIdentifier, forIndexPath: indexPath) as! TopicTableCell
         cell.topicTextLabel.text = topicItem.text
         return cell
+    }
+    
+    func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        if let topic = displayData?[indexPath.row] {
+            let dialog: UIAlertController
+            if topic.isSingle {
+                dialog = singleDeletionDialog(topic)
+            } else {
+                dialog = multipleDeletionDialog(topic)
+            }
+            tableView.setEditing(false, animated: true)
+            presentViewController(dialog, animated: true, completion: nil)
+        }
+    }
+    
+    private func singleDeletionDialog(topic: TopicListItemDisplayData) -> UIAlertController {
+        let title = NSLocalizedString("topic_remove_title", comment: "Topic deletion alert title")
+        let message = NSLocalizedString("topic_remove_message_single", comment: "Topic deletion alert message for single relation")
+        let okButton = NSLocalizedString("topic_remove_ok", comment: "Topic deletion confirmation button")
+        let cancelButton = NSLocalizedString("topic_remove_cancel", comment: "Topic deletion cancel button")
+        
+        let deleteAlert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
+        deleteAlert.addAction(UIAlertAction(title: okButton, style: .Default, handler: { (action: UIAlertAction!) in
+            self.presenter.deleteTopic(topic.id, deleteAll: true)
+        }))
+        deleteAlert.addAction(UIAlertAction(title: cancelButton, style: .Cancel, handler: nil))
+        return deleteAlert
+    }
+    
+    private func multipleDeletionDialog(topic: TopicListItemDisplayData) -> UIAlertController {
+        let title = NSLocalizedString("topic_remove_title", comment: "Topic deletion alert title")
+        let message = NSLocalizedString("topic_remove_message_multiple", comment: "Topic deletion alert message for multiple relation")
+        let deleteAllButton = NSLocalizedString("topic_remove_all_ok", comment: "Topic button to delete all relations")
+        let deleteSingleButton = String.localizedStringWithFormat(NSLocalizedString("topic_remove_single_ok", comment: "Topic button to delete one relation"), buddyName!)
+        let cancelButton = NSLocalizedString("topic_remove_cancel", comment: "Topic deletion cancel button")
+        
+        let deleteAlert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
+        deleteAlert.addAction(UIAlertAction(title: deleteAllButton, style: .Destructive, handler: { (action: UIAlertAction!) in
+            self.presenter.deleteTopic(topic.id, deleteAll: true)
+        }))
+        deleteAlert.addAction(UIAlertAction(title: deleteSingleButton, style: .Default, handler: { (action: UIAlertAction!) in
+            self.presenter.deleteTopic(topic.id, deleteAll: false)
+        }))
+        deleteAlert.addAction(UIAlertAction(title: cancelButton, style: .Cancel, handler: nil))
+        return deleteAlert
     }
 }

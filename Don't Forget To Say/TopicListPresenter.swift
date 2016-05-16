@@ -11,6 +11,7 @@ import Foundation
 protocol TopicListPresenterInterface {
     func fetchData(buddyId: Int)
     func showNotifications()
+    func deleteTopic(topicId: Int, deleteAll: Bool)
 }
 
 protocol TopicListViewInterface: class {
@@ -38,6 +39,17 @@ class TopicListPresenter: TopicListPresenterInterface {
         notificationManager.showNotificationsForBuddy(buddyId)
     }
     
+    func deleteTopic(topicId: Int, deleteAll: Bool) {
+        let onDelete: (CrudStoreError?) -> Void = { (error) in
+            self.obtainTopics()
+        }
+        if deleteAll {
+            dataStore.deleteTopic(topicId, completionHandler: onDelete)
+        } else {
+            dataStore.deleteTopicFromBuddy(buddyId, topicId: topicId, completionHandler: onDelete)
+        }
+    }
+    
     private func obtainTitle() {
         dataStore.fetchBuddy(buddyId, completionHandler: { (buddy, error) in
             if let buddy = buddy {
@@ -56,7 +68,7 @@ class TopicListPresenter: TopicListPresenterInterface {
     
     private func generateDisplayData(topics: [Topic]) {
         let displayData = topics.map { (topic) -> TopicListItemDisplayData in
-            return TopicListItemDisplayData(id: topic.id, text: topic.text)
+            return TopicListItemDisplayData(id: topic.id, text: topic.text, isSingle: topic.buddyCount == 1)
         }
         if displayData.count == 0 {
             userInterface?.showNoContentMessage()

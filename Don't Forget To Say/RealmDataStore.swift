@@ -89,6 +89,38 @@ class RealmDataStore: DataStoreProtocol {
         }
     }
     
+    func deleteTopic(id: Int, completionHandler: (error: CrudStoreError?) -> Void) {
+        do {
+            try realm.write {
+                realm.delete(realm.objectForPrimaryKey(RealmTopic.self, key: id)!)
+            }
+            completionHandler(error: nil)
+        } catch {
+            completionHandler(error: CrudStoreError.CannotFetch("Cannot remove topic with id \(id)"))
+        }
+    }
+    
+    func deleteTopicFromBuddy(buddyId: Int, topicId: Int, completionHandler: (error: CrudStoreError?) -> Void) {
+        do {
+            try realm.write {
+                if let buddy = realm.objectForPrimaryKey(RealmBuddy.self, key: buddyId) {
+                    if let index = buddy.topics.indexOf({ (topic) -> Bool in
+                        topic.id == topicId
+                    }) {
+                        buddy.topics.removeAtIndex(index)
+                        completionHandler(error: nil)
+                    } else {
+                        completionHandler(error: CrudStoreError.CannotFetch("There no relation between buddy \(buddyId) and topic \(topicId)"))
+                    }
+                } else {
+                    completionHandler(error: CrudStoreError.CannotFetch("Cannot fetch buddy with id \(buddyId)"))
+                }
+            }
+        } catch {
+            completionHandler(error: CrudStoreError.CannotFetch("Cannot remove relation between buddy \(buddyId) and topic \(topicId)"))
+        }
+    }
+    
     private func entityPrimaryKey(type: Object.Type) -> Int {
         var result = 1
         if let last = realm.objects(type).sorted("id").last {
@@ -102,6 +134,6 @@ class RealmDataStore: DataStoreProtocol {
     }
     
     private func convertTopic(topic: RealmTopic) -> Topic {
-        return Topic(id: topic.id, text: topic.text)
+        return Topic(id: topic.id, text: topic.text, buddyCount: topic.buddies.count)
     }
 }

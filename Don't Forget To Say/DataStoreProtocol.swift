@@ -15,4 +15,6 @@ protocol DataStoreProtocol {
     func deleteBuddy(id: Int, completionHandler: (error: CrudStoreError?) -> Void)
     func fetchTopicsForBuddy(buddyId: Int, completionHandler: (topics: [Topic]?, error: CrudStoreError?) -> Void)
     func addTopic(text: String, buddyIds: [Int], completionHandler: (topic: Topic?, error: CrudStoreError?) -> Void)
+    func deleteTopic(id: Int, completionHandler: (error: CrudStoreError?) -> Void)
+    func deleteTopicFromBuddy(buddyId: Int, topicId: Int, completionHandler: (error: CrudStoreError?) -> Void)
 }

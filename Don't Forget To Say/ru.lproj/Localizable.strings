@@ -36,6 +36,27 @@
 /* Show notifications button text */
 "show_notifications_button" = "Показать";
 
+/* Topic deletion alert title */
+"topic_remove_title" = "Удаление темы";
+
+/* Topic deletion alert message */
+"topic_remove_message_single" = "Вы уверены?";
+
+/* Topic deletion alert message */
+"topic_remove_message_multiple" = "Удалить тему только для выбранного друга, или для всех остальных тоже?";
+
+/* Topic deletion confirmation button */
+"topic_remove_ok" = "Удалить";
+
+/* Topic button to delete all relations */
+"topic_remove_all_ok" = "Для всех";
+
+/* Topic button to delete one relation */
+"topic_remove_single_ok" = "Для %@";
+
+/* Topic deletion cancel button */
+"topic_remove_cancel" = "Отмена";
+
 /* Add topic screen title */
 "add_topic_title" = "Добавление темы";
 

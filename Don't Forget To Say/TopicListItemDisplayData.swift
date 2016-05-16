@@ -11,4 +11,5 @@ import Foundation
 struct TopicListItemDisplayData {
     let id: Int
     let text: String
+    let isSingle: Bool
 }

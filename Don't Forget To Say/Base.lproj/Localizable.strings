@@ -36,6 +36,27 @@
 /* Show notifications button text */
 "show_notifications_button" = "Show";
 
+/* Topic deletion alert title */
+"topic_remove_title" = "Remove topic";
+
+/* Topic deletion alert message for single relation */
+"topic_remove_message_single" = "Are you sure?";
+
+/* Topic deletion alert message for multiple relations */
+"topic_remove_message_multiple" = "Do you want to delete topic for this buddy or for other buddies too?";
+
+/* Topic deletion confirmation button */
+"topic_remove_ok" = "Delete";
+
+/* Topic button to delete all relations */
+"topic_remove_all_ok" = "For all";
+
+/* Topic button to delete one relation */
+"topic_remove_single_ok" = "For %@";
+
+/* Topic deletion cancel button */
+"topic_remove_cancel" = "Cancel";
+
 /* Add topic screen title */
 "add_topic_title" = "Add topic";
 
