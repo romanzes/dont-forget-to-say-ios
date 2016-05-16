@@ -5,6 +5,6 @@ use_frameworks!
 target 'Dont Forget To Say' do
 	pod 'Swinject', '~> 1.1.0'
 	pod 'THContactPicker', '~> 2.0'
-	pod 'RealmSwift'
+	pod 'RealmSwift', '~> 0.102.1'
 end
 

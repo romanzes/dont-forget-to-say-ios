@@ -1,20 +1,20 @@
 PODS:
-  - Realm (0.102.0):
-    - Realm/Headers (= 0.102.0)
-  - Realm/Headers (0.102.0)
-  - RealmSwift (0.102.0):
-    - Realm (= 0.102.0)
+  - Realm (0.102.1):
+    - Realm/Headers (= 0.102.1)
+  - Realm/Headers (0.102.1)
+  - RealmSwift (0.102.1):
+    - Realm (= 0.102.1)
   - Swinject (1.1.1)
   - THContactPicker (2.0)
 
 DEPENDENCIES:
-  - RealmSwift
+  - RealmSwift (~> 0.102.1)
   - Swinject (~> 1.1.0)
   - THContactPicker (~> 2.0)
 
 SPEC CHECKSUMS:
-  Realm: 5d219f9037e3ec2019c599b8227bfc95433cb10e
-  RealmSwift: e6f436f9fea1c57b9ad6d1c46d57562c845f3c4c
+  Realm: 5254be610db3e5024879684717bf038990bb59ec
+  RealmSwift: 3e24e6bcf56d98ccc134f4909e00839b81a659af
   Swinject: 8c1b46e49c604f8c5c1f45f92ef314d3736bbef4
   THContactPicker: 4345c81a407af534e5f618d495e8fb422a911c10
 
