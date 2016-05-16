@@ -14,7 +14,7 @@ protocol TopicListPresenterInterface {
 }
 
 protocol TopicListViewInterface: class {
-    func showTitle(title: String)
+    func showBuddyName(name: String)
     func updateTopics(topics: [TopicListItemDisplayData])
     func showNoContentMessage()
 }
@@ -41,7 +41,7 @@ class TopicListPresenter: TopicListPresenterInterface {
     private func obtainTitle() {
         dataStore.fetchBuddy(buddyId, completionHandler: { (buddy, error) in
             if let buddy = buddy {
-                self.generateTitle(buddy)
+                self.userInterface?.showBuddyName(buddy.name)
             }
         })
     }
@@ -52,11 +52,6 @@ class TopicListPresenter: TopicListPresenterInterface {
                 self.generateDisplayData(topics)
             }
         })
-    }
-    
-    private func generateTitle(buddy: Buddy) {
-        let title = String.localizedStringWithFormat(NSLocalizedString("topic_list_title", comment: "Topic list screen title"), buddy.name)
-        userInterface?.showTitle(title)
     }
     
     private func generateDisplayData(topics: [Topic]) {

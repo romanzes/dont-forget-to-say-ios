@@ -56,7 +56,8 @@ class TopicListViewController: UIViewController, UITableViewDataSource, TopicLis
         presenter.showNotifications()
     }
     
-    func showTitle(title: String) {
+    func showBuddyName(name: String) {
+        let title = String.localizedStringWithFormat(NSLocalizedString("topic_list_title", comment: "Topic list screen title"), name)
         navigationItem.title = title
     }
     
