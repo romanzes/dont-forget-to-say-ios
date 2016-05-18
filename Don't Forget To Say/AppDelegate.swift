@@ -8,6 +8,7 @@
 
 import UIKit
 import Swinject
+import PasscodeLock
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -24,6 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 notificationManager.dataStore = r.resolve(DataStoreProtocol.self)
             }
         .inObjectScope(.Container)
+        c.register(SettingsProvider.self) { r in UserDefaultsSettingsProvider() }
         
         c.register(BuddyListViewInterface.self) { r in BuddyListViewController() }
             .initCompleted() { r, c in
@@ -62,14 +64,46 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 presenter.userInterface = r.resolve(AddTopicViewInterface.self)
                 presenter.dataStore = r.resolve(DataStoreProtocol.self)
         }
+        
+        c.register(SettingsViewInterface.self) { r in SettingsViewController() }
+            .initCompleted() { r, c in
+                let viewController = c as! SettingsViewController
+                viewController.router = r.resolve(Router.self)
+                viewController.presenter = r.resolve(SettingsPresenterInterface.self)
+        }
+        c.register(SettingsPresenterInterface.self) { r in SettingsPresenter() }
+            .initCompleted() { r, c in
+                let presenter = c as! SettingsPresenter
+                presenter.settingsProvider = r.resolve(SettingsProvider.self)
+                presenter.settingsForm = SettingsFormImpl()
+                presenter.userInterface = r.resolve(SettingsViewInterface.self)
+        }
     }
+    
+    lazy var passcodeLockPresenter: PasscodeLockPresenter = {
+        let configuration = PasscodeLockConfiguration()
+        let presenter = PasscodeLockPresenter(mainWindow: self.window, configuration: configuration)
+        return presenter
+    }()
     
     var window: UIWindow?
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         window = UIWindow(frame: UIScreen.mainScreen().bounds)
         container.resolve(Router.self)?.presentMainControllerFromWindow(window!)
+        showPasscode()
         return true
+    }
+    
+    func showPasscode() {
+        let settingsProvider = container.resolve(SettingsProvider)!
+        if settingsProvider.isPasscodeEnabled() {
+            passcodeLockPresenter.presentPasscodeLock()
+        }
+    }
+    
+    func applicationDidEnterBackground(application: UIApplication) {
+        showPasscode()
     }
     
     func application(application: UIApplication, didRegisterUserNotificationSettings notificationSettings: UIUserNotificationSettings) {

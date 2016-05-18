@@ -9,6 +9,9 @@
 /* Buddy list screen title */
 "buddy_list_title" = "Buddies";
 
+/* Settings button label */
+"settings_button_label" = "Settings";
+
 /* Buddy list empty message */
 "buddy_list_empty" = "Buddy list is empty";
 
@@ -71,3 +74,12 @@
 
 /* New buddy list item */
 "new_buddy_list_item" = "New buddy: %@";
+
+/* Settings screen title */
+"settings_screen_title" = "Settings";
+
+/* Passcode enabled label */
+"passcode_enabled" = "Pin Lock";
+
+/* Change passcode label */
+"сhange_passcode" = "Change Pin";

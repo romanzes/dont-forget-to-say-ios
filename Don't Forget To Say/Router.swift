@@ -8,6 +8,7 @@
 
 import UIKit
 import Swinject
+import PasscodeLock
 
 struct Router {
     let container: Container
@@ -28,5 +29,22 @@ struct Router {
         let addTopicViewController = container.resolve(AddTopicViewInterface) as! AddTopicViewController
         let navigationController = UINavigationController(rootViewController: addTopicViewController)
         viewController.presentViewController(navigationController, animated: true, completion: nil)
+    }
+    
+    func showSettingsFromViewController(viewController: UIViewController) {
+        let settingsViewController = container.resolve(SettingsViewInterface) as! SettingsViewController
+        viewController.navigationController?.pushViewController(settingsViewController, animated: true)
+    }
+    
+    func showPasscodeFromSettings(viewController: UIViewController) {
+        let repo = UserDefaultsPasscodeRepository()
+        let config = PasscodeLockConfiguration(repository: repo)
+        let passcodeViewController: PasscodeLockViewController
+        if repo.hasPasscode {
+            passcodeViewController = PasscodeLockViewController(state: .ChangePasscode, configuration: config)
+        } else {
+            passcodeViewController = PasscodeLockViewController(state: .SetPasscode, configuration: config)
+        }
+        viewController.navigationController?.pushViewController(passcodeViewController, animated: true)
     }
 }

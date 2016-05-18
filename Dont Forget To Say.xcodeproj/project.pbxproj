@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0746566A1CEA17C2008E5F45 /* PasscodeLockConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 074656691CEA17C2008E5F45 /* PasscodeLockConfiguration.swift */; };
+		0746566C1CEA17E2008E5F45 /* UserDefaultsPasscodeRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0746566B1CEA17E2008E5F45 /* UserDefaultsPasscodeRepository.swift */; };
 		075B0AD21CD8E10100464EBC /* BuddyListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075B0AD01CD8E10100464EBC /* BuddyListViewController.swift */; };
 		075B0AD31CD8E10100464EBC /* BuddyListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 075B0AD11CD8E10100464EBC /* BuddyListViewController.xib */; };
 		075B0ADA1CD8E4F700464EBC /* Buddy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075B0AD91CD8E4F700464EBC /* Buddy.swift */; };
@@ -34,6 +36,10 @@
 		07AF68491CDA02230082A68A /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07AF68481CDA02230082A68A /* Router.swift */; };
 		07B758E41CE5B52600C8726B /* RealmModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B758E31CE5B52600C8726B /* RealmModels.swift */; };
 		07BA09DE1CDCE8F100E075B5 /* ContactListItemDisplayData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BA09DD1CDCE8F100E075B5 /* ContactListItemDisplayData.swift */; };
+		07BDE08B1CEB347A004CE5EC /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BDE08A1CEB347A004CE5EC /* SettingsViewController.swift */; };
+		07BDE08E1CEB35CE004CE5EC /* SettingsForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BDE08D1CEB35CE004CE5EC /* SettingsForm.swift */; };
+		07BDE0921CEB480E004CE5EC /* SettingsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BDE0911CEB480E004CE5EC /* SettingsPresenter.swift */; };
+		07BDE0971CEB52D7004CE5EC /* SettingsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BDE0961CEB52D7004CE5EC /* SettingsProvider.swift */; };
 		07D637B01CE47B89000D637A /* NotificationManagerLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D637AF1CE47B89000D637A /* NotificationManagerLogic.swift */; };
 		07D637B21CE49D3D000D637A /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D637B11CE49D3D000D637A /* NotificationManager.swift */; };
 		07FA2E491CE4CB4100BE1EFE /* RealmDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07FA2E481CE4CB4100BE1EFE /* RealmDataStore.swift */; };
@@ -42,6 +48,8 @@
 
 /* Begin PBXFileReference section */
 		04F2BC6FC058D554BD1CCD33 /* Pods-Don't Forget To Say.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Don't Forget To Say.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Don't Forget To Say/Pods-Don't Forget To Say.debug.xcconfig"; sourceTree = "<group>"; };
+		074656691CEA17C2008E5F45 /* PasscodeLockConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasscodeLockConfiguration.swift; sourceTree = "<group>"; };
+		0746566B1CEA17E2008E5F45 /* UserDefaultsPasscodeRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaultsPasscodeRepository.swift; sourceTree = "<group>"; };
 		075B0AD01CD8E10100464EBC /* BuddyListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BuddyListViewController.swift; sourceTree = "<group>"; };
 		075B0AD11CD8E10100464EBC /* BuddyListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BuddyListViewController.xib; sourceTree = "<group>"; };
 		075B0AD91CD8E4F700464EBC /* Buddy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Buddy.swift; sourceTree = "<group>"; };
@@ -72,6 +80,10 @@
 		07AF68481CDA02230082A68A /* Router.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		07B758E31CE5B52600C8726B /* RealmModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmModels.swift; sourceTree = "<group>"; };
 		07BA09DD1CDCE8F100E075B5 /* ContactListItemDisplayData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactListItemDisplayData.swift; sourceTree = "<group>"; };
+		07BDE08A1CEB347A004CE5EC /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		07BDE08D1CEB35CE004CE5EC /* SettingsForm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsForm.swift; sourceTree = "<group>"; };
+		07BDE0911CEB480E004CE5EC /* SettingsPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsPresenter.swift; sourceTree = "<group>"; };
+		07BDE0961CEB52D7004CE5EC /* SettingsProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsProvider.swift; sourceTree = "<group>"; };
 		07D637AF1CE47B89000D637A /* NotificationManagerLogic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationManagerLogic.swift; sourceTree = "<group>"; };
 		07D637B11CE49D3D000D637A /* NotificationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
 		07FA2E481CE4CB4100BE1EFE /* RealmDataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmDataStore.swift; sourceTree = "<group>"; };
@@ -93,12 +105,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0746566E1CEA1869008E5F45 /* Passcode */ = {
+			isa = PBXGroup;
+			children = (
+				074656691CEA17C2008E5F45 /* PasscodeLockConfiguration.swift */,
+				0746566B1CEA17E2008E5F45 /* UserDefaultsPasscodeRepository.swift */,
+			);
+			name = Passcode;
+			sourceTree = "<group>";
+		};
 		075B0AD41CD8E10600464EBC /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
 				075B0AD51CD8E10D00464EBC /* BuddyList */,
 				079F197A1CDB562500D2AE2E /* TopicList */,
 				079F19891CDB901D00D2AE2E /* AddTopic */,
+				07BDE0891CEB3457004CE5EC /* Settings */,
 			);
 			name = Scenes;
 			sourceTree = "<group>";
@@ -126,6 +148,7 @@
 		075B0AD71CD8E46500464EBC /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				0746566E1CEA1869008E5F45 /* Passcode */,
 				07612FB61CDA1CC3009E1600 /* Store */,
 				075B0AD81CD8E4DF00464EBC /* Model */,
 				07D637AE1CE47B69000D637A /* Notifications */,
@@ -160,6 +183,7 @@
 				07FA2E4D1CE4D41200BE1EFE /* Realm */,
 				07612FB71CDA1D07009E1600 /* DataStoreProtocol.swift */,
 				07612FB91CDA1D1B009E1600 /* CrudStoreError.swift */,
+				07BDE0961CEB52D7004CE5EC /* SettingsProvider.swift */,
 			);
 			name = Store;
 			sourceTree = "<group>";
@@ -250,6 +274,24 @@
 				07BA09DD1CDCE8F100E075B5 /* ContactListItemDisplayData.swift */,
 			);
 			name = Presenter;
+			sourceTree = "<group>";
+		};
+		07BDE0891CEB3457004CE5EC /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				07BDE08C1CEB3550004CE5EC /* View */,
+				07BDE0911CEB480E004CE5EC /* SettingsPresenter.swift */,
+			);
+			name = Settings;
+			sourceTree = "<group>";
+		};
+		07BDE08C1CEB3550004CE5EC /* View */ = {
+			isa = PBXGroup;
+			children = (
+				07BDE08A1CEB347A004CE5EC /* SettingsViewController.swift */,
+				07BDE08D1CEB35CE004CE5EC /* SettingsForm.swift */,
+			);
+			name = View;
 			sourceTree = "<group>";
 		};
 		07D637AE1CE47B69000D637A /* Notifications */ = {
@@ -430,8 +472,11 @@
 				079F197F1CDB56FD00D2AE2E /* TopicTableCell.swift in Sources */,
 				07D637B01CE47B89000D637A /* NotificationManagerLogic.swift in Sources */,
 				079F198E1CDB90D400D2AE2E /* AddTopicViewController.swift in Sources */,
+				07BDE0921CEB480E004CE5EC /* SettingsPresenter.swift in Sources */,
 				07612FC61CDA2F6E009E1600 /* BuddyTableCell.swift in Sources */,
+				0746566A1CEA17C2008E5F45 /* PasscodeLockConfiguration.swift in Sources */,
 				07612FC11CDA24B7009E1600 /* BuddyDisplayData.swift in Sources */,
+				07BDE08E1CEB35CE004CE5EC /* SettingsForm.swift in Sources */,
 				07796C9C1CD8CE5900CD6FDA /* AppDelegate.swift in Sources */,
 				079F19861CDB58F200D2AE2E /* TopicListItemDisplayData.swift in Sources */,
 				079F19881CDB596100D2AE2E /* TopicListPresenter.swift in Sources */,
@@ -440,13 +485,16 @@
 				07612FB81CDA1D07009E1600 /* DataStoreProtocol.swift in Sources */,
 				075B0ADC1CD8E51000464EBC /* Topic.swift in Sources */,
 				079F19831CDB573F00D2AE2E /* TopicListViewController.swift in Sources */,
+				0746566C1CEA17E2008E5F45 /* UserDefaultsPasscodeRepository.swift in Sources */,
 				07B758E41CE5B52600C8726B /* RealmModels.swift in Sources */,
 				07612FBA1CDA1D1B009E1600 /* CrudStoreError.swift in Sources */,
 				07AF68491CDA02230082A68A /* Router.swift in Sources */,
 				075B0ADA1CD8E4F700464EBC /* Buddy.swift in Sources */,
 				07612FBF1CDA1D64009E1600 /* MemDataStore.swift in Sources */,
+				07BDE08B1CEB347A004CE5EC /* SettingsViewController.swift in Sources */,
 				075B0AD21CD8E10100464EBC /* BuddyListViewController.swift in Sources */,
 				07D637B21CE49D3D000D637A /* NotificationManager.swift in Sources */,
+				07BDE0971CEB52D7004CE5EC /* SettingsProvider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

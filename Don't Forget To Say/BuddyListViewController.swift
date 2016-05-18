@@ -40,6 +40,10 @@ class BuddyListViewController: UIViewController, UITableViewDataSource, UITableV
     func configureView() {
         navigationItem.title = NSLocalizedString("buddy_list_title", comment: "Buddy list screen title")
         
+        let settingsButtonLabel = NSLocalizedString("settings_button_label", comment: "Settings button label")
+        let settingsButton = UIBarButtonItem(title: settingsButtonLabel, style: UIBarButtonItemStyle.Plain, target: self, action: #selector(self.settingsButtonClicked))
+        self.navigationItem.rightBarButtonItem = settingsButton
+        
         buddiesTableView.dataSource = self
         buddiesTableView.delegate = self
         buddiesTableView.registerNib(UINib(nibName: BuddyTableCellIdentifier, bundle: nil), forCellReuseIdentifier: BuddyTableCellIdentifier)
@@ -48,6 +52,10 @@ class BuddyListViewController: UIViewController, UITableViewDataSource, UITableV
         
         addTopicButton.setTitle(NSLocalizedString("add_topic_button", comment: "Add topic button text"), forState: UIControlState.Normal)
         addTopicButton.addTarget(self, action: #selector(self.addTopicClicked), forControlEvents: UIControlEvents.TouchUpInside)
+    }
+    
+    func settingsButtonClicked() {
+        router.showSettingsFromViewController(self)
     }
     
     override func viewDidAppear(animated: Bool) {

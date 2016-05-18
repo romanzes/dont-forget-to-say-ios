@@ -1,4 +1,6 @@
 PODS:
+  - FXForms (1.2.14)
+  - PasscodeLock (1.0.2)
   - Realm (0.102.1):
     - Realm/Headers (= 0.102.1)
   - Realm/Headers (0.102.1)
@@ -8,11 +10,15 @@ PODS:
   - THContactPicker (2.0)
 
 DEPENDENCIES:
+  - FXForms (~> 1.2.14)
+  - PasscodeLock (~> 1.0.1)
   - RealmSwift (~> 0.102.1)
   - Swinject (~> 1.1.0)
   - THContactPicker (~> 2.0)
 
 SPEC CHECKSUMS:
+  FXForms: 724500c0c3f3eb3ba1004b3b83abcee55d3daf18
+  PasscodeLock: 4ae42c094224a01de3773fcd69ae33886394d959
   Realm: 5254be610db3e5024879684717bf038990bb59ec
   RealmSwift: 3e24e6bcf56d98ccc134f4909e00839b81a659af
   Swinject: 8c1b46e49c604f8c5c1f45f92ef314d3736bbef4
