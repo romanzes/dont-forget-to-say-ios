@@ -43,6 +43,7 @@
 		07D637B01CE47B89000D637A /* NotificationManagerLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D637AF1CE47B89000D637A /* NotificationManagerLogic.swift */; };
 		07D637B21CE49D3D000D637A /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D637B11CE49D3D000D637A /* NotificationManager.swift */; };
 		07DEAFD61CEC83F3009070F3 /* PasscodeLock.strings in Resources */ = {isa = PBXBuildFile; fileRef = 07DEAFD81CEC83F3009070F3 /* PasscodeLock.strings */; };
+		07DEAFDD1CEC8A90009070F3 /* LocalizedPasscodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07DEAFDC1CEC8A90009070F3 /* LocalizedPasscodeViewController.swift */; };
 		07FA2E491CE4CB4100BE1EFE /* RealmDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07FA2E481CE4CB4100BE1EFE /* RealmDataStore.swift */; };
 		A696A73453BB37069C88A8D4 /* Pods_Dont_Forget_To_Say.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B083263A613CCFAC1491EFB /* Pods_Dont_Forget_To_Say.framework */; };
 /* End PBXBuildFile section */
@@ -88,6 +89,7 @@
 		07D637AF1CE47B89000D637A /* NotificationManagerLogic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationManagerLogic.swift; sourceTree = "<group>"; };
 		07D637B11CE49D3D000D637A /* NotificationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
 		07DEAFD71CEC83F3009070F3 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/PasscodeLock.strings; sourceTree = "<group>"; };
+		07DEAFDC1CEC8A90009070F3 /* LocalizedPasscodeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalizedPasscodeViewController.swift; sourceTree = "<group>"; };
 		07FA2E481CE4CB4100BE1EFE /* RealmDataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmDataStore.swift; sourceTree = "<group>"; };
 		3B083263A613CCFAC1491EFB /* Pods_Dont_Forget_To_Say.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Dont_Forget_To_Say.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D83AD0985B1E8B15187665E /* Pods-Dont Forget To Say.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dont Forget To Say.release.xcconfig"; path = "Pods/Target Support Files/Pods-Dont Forget To Say/Pods-Dont Forget To Say.release.xcconfig"; sourceTree = "<group>"; };
@@ -112,6 +114,7 @@
 			children = (
 				074656691CEA17C2008E5F45 /* PasscodeLockConfiguration.swift */,
 				0746566B1CEA17E2008E5F45 /* UserDefaultsPasscodeRepository.swift */,
+				07DEAFDC1CEC8A90009070F3 /* LocalizedPasscodeViewController.swift */,
 			);
 			name = Passcode;
 			sourceTree = "<group>";
@@ -496,6 +499,7 @@
 				07612FC61CDA2F6E009E1600 /* BuddyTableCell.swift in Sources */,
 				0746566A1CEA17C2008E5F45 /* PasscodeLockConfiguration.swift in Sources */,
 				07612FC11CDA24B7009E1600 /* BuddyDisplayData.swift in Sources */,
+				07DEAFDD1CEC8A90009070F3 /* LocalizedPasscodeViewController.swift in Sources */,
 				07BDE08E1CEB35CE004CE5EC /* SettingsForm.swift in Sources */,
 				07796C9C1CD8CE5900CD6FDA /* AppDelegate.swift in Sources */,
 				079F19861CDB58F200D2AE2E /* TopicListItemDisplayData.swift in Sources */,

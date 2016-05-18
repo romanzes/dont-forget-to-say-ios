@@ -82,7 +82,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     lazy var passcodeLockPresenter: PasscodeLockPresenter = {
         let configuration = PasscodeLockConfiguration()
-        let presenter = PasscodeLockPresenter(mainWindow: self.window, configuration: configuration)
+        let viewController = LocalizedPasscodeViewController(state: .EnterPasscode, configuration: configuration)
+        let presenter = PasscodeLockPresenter(mainWindow: self.window, configuration: configuration, viewController: viewController)
         return presenter
     }()
     

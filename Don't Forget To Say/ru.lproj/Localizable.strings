@@ -83,3 +83,9 @@
 
 /* Change passcode label */
 "сhange_passcode" = "Сменить пин-код";
+
+/* Passcode screen cancel button */
+"passcode_cancel_button" = "Отмена";
+
+/* Passcode screen delete button */
+"passcode_delete_button" = "Удалить";

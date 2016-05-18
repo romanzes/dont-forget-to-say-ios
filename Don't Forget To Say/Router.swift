@@ -41,9 +41,9 @@ struct Router {
         let config = PasscodeLockConfiguration(repository: repo)
         let passcodeViewController: PasscodeLockViewController
         if repo.hasPasscode {
-            passcodeViewController = PasscodeLockViewController(state: .ChangePasscode, configuration: config)
+            passcodeViewController = LocalizedPasscodeViewController(state: .ChangePasscode, configuration: config)
         } else {
-            passcodeViewController = PasscodeLockViewController(state: .SetPasscode, configuration: config)
+            passcodeViewController = LocalizedPasscodeViewController(state: .SetPasscode, configuration: config)
         }
         viewController.navigationController?.pushViewController(passcodeViewController, animated: true)
     }
