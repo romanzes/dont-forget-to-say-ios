@@ -1,0 +1,32 @@
+/* 
+  PasscodeLock.strings
+  Dont Forget To Say
+
+  Created by mac-132 on 5/18/16.
+  Copyright © 2016 Romanzes. All rights reserved.
+*/
+/* Enter Passcode State */
+"PasscodeLockEnterTitle" = "Ввод пин-кода";
+"PasscodeLockEnterDescription" = "Чтобы продолжить, наберите пин-код.";
+
+/* Set Passcode State */
+"PasscodeLockSetTitle" = "Ввод пин-кода";
+"PasscodeLockSetDescription" = "Наберите новый пин-код.";
+
+/* Confirm Passcode State */
+"PasscodeLockConfirmTitle" = "Подтверждение пин-кода";
+"PasscodeLockConfirmDescription" = "Наберите пин-код еще раз.";
+
+/* Change Passcode State */
+"PasscodeLockChangeTitle" = "Ввод старого пин-кода";
+"PasscodeLockChangeDescription" = "Наберите свой старый пин-код.";
+
+/* Passcode Mismatch State */
+"PasscodeLockMismatchTitle" = "Попробуйте снова";
+"PasscodeLockMismatchDescription" = "Пин-коды не совпадают.";
+
+/* Touch ID Reason */
+"PasscodeLockTouchIDReason" = "Для продолжения требуется аутентификация";
+
+/* Touch ID Fallback Button */
+"PasscodeLockTouchIDButton" = "Ввод пин-кода";

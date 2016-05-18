@@ -42,6 +42,7 @@
 		07BDE0971CEB52D7004CE5EC /* SettingsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BDE0961CEB52D7004CE5EC /* SettingsProvider.swift */; };
 		07D637B01CE47B89000D637A /* NotificationManagerLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D637AF1CE47B89000D637A /* NotificationManagerLogic.swift */; };
 		07D637B21CE49D3D000D637A /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D637B11CE49D3D000D637A /* NotificationManager.swift */; };
+		07DEAFD61CEC83F3009070F3 /* PasscodeLock.strings in Resources */ = {isa = PBXBuildFile; fileRef = 07DEAFD81CEC83F3009070F3 /* PasscodeLock.strings */; };
 		07FA2E491CE4CB4100BE1EFE /* RealmDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07FA2E481CE4CB4100BE1EFE /* RealmDataStore.swift */; };
 		A696A73453BB37069C88A8D4 /* Pods_Dont_Forget_To_Say.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B083263A613CCFAC1491EFB /* Pods_Dont_Forget_To_Say.framework */; };
 /* End PBXBuildFile section */
@@ -86,6 +87,7 @@
 		07BDE0961CEB52D7004CE5EC /* SettingsProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsProvider.swift; sourceTree = "<group>"; };
 		07D637AF1CE47B89000D637A /* NotificationManagerLogic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationManagerLogic.swift; sourceTree = "<group>"; };
 		07D637B11CE49D3D000D637A /* NotificationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
+		07DEAFD71CEC83F3009070F3 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/PasscodeLock.strings; sourceTree = "<group>"; };
 		07FA2E481CE4CB4100BE1EFE /* RealmDataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmDataStore.swift; sourceTree = "<group>"; };
 		3B083263A613CCFAC1491EFB /* Pods_Dont_Forget_To_Say.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Dont_Forget_To_Say.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D83AD0985B1E8B15187665E /* Pods-Dont Forget To Say.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dont Forget To Say.release.xcconfig"; path = "Pods/Target Support Files/Pods-Dont Forget To Say/Pods-Dont Forget To Say.release.xcconfig"; sourceTree = "<group>"; };
@@ -211,10 +213,7 @@
 			children = (
 				075B0AD71CD8E46500464EBC /* Common */,
 				075B0AD41CD8E10600464EBC /* Scenes */,
-				07796CA21CD8CE5900CD6FDA /* Assets.xcassets */,
-				07796CA41CD8CE5900CD6FDA /* LaunchScreen.storyboard */,
-				079F19781CDB440900D2AE2E /* Localizable.strings */,
-				07796CA71CD8CE5900CD6FDA /* Info.plist */,
+				07DEAFDA1CEC8A2E009070F3 /* Resources */,
 			);
 			name = "Dont Forget To Say";
 			path = "Don't Forget To Say";
@@ -301,6 +300,26 @@
 				07D637B11CE49D3D000D637A /* NotificationManager.swift */,
 			);
 			name = Notifications;
+			sourceTree = "<group>";
+		};
+		07DEAFDA1CEC8A2E009070F3 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				07DEAFDB1CEC8A48009070F3 /* Strings */,
+				07796CA21CD8CE5900CD6FDA /* Assets.xcassets */,
+				07796CA41CD8CE5900CD6FDA /* LaunchScreen.storyboard */,
+				07796CA71CD8CE5900CD6FDA /* Info.plist */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		07DEAFDB1CEC8A48009070F3 /* Strings */ = {
+			isa = PBXGroup;
+			children = (
+				079F19781CDB440900D2AE2E /* Localizable.strings */,
+				07DEAFD81CEC83F3009070F3 /* PasscodeLock.strings */,
+			);
+			name = Strings;
 			sourceTree = "<group>";
 		};
 		07FA2E4D1CE4D41200BE1EFE /* Realm */ = {
@@ -404,6 +423,7 @@
 				079F19801CDB56FD00D2AE2E /* TopicTableCell.xib in Resources */,
 				079F19761CDB440900D2AE2E /* Localizable.strings in Resources */,
 				079F198F1CDB90D400D2AE2E /* AddTopicViewController.xib in Resources */,
+				07DEAFD61CEC83F3009070F3 /* PasscodeLock.strings in Resources */,
 				079F19841CDB573F00D2AE2E /* TopicListViewController.xib in Resources */,
 				07796CA61CD8CE5900CD6FDA /* LaunchScreen.storyboard in Resources */,
 				07796CA31CD8CE5900CD6FDA /* Assets.xcassets in Resources */,
@@ -516,6 +536,14 @@
 				079F19791CDB442800D2AE2E /* Base */,
 			);
 			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		07DEAFD81CEC83F3009070F3 /* PasscodeLock.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				07DEAFD71CEC83F3009070F3 /* ru */,
+			);
+			name = PasscodeLock.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
