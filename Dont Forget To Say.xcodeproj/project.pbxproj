@@ -44,6 +44,9 @@
 		07D637B21CE49D3D000D637A /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D637B11CE49D3D000D637A /* NotificationManager.swift */; };
 		07DEAFD61CEC83F3009070F3 /* PasscodeLock.strings in Resources */ = {isa = PBXBuildFile; fileRef = 07DEAFD81CEC83F3009070F3 /* PasscodeLock.strings */; };
 		07DEAFDD1CEC8A90009070F3 /* LocalizedPasscodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07DEAFDC1CEC8A90009070F3 /* LocalizedPasscodeViewController.swift */; };
+		07DEAFEC1CECBD97009070F3 /* ContactStoreProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07DEAFEB1CECBD97009070F3 /* ContactStoreProtocol.swift */; };
+		07DEAFEE1CECBDA6009070F3 /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07DEAFED1CECBDA6009070F3 /* Contact.swift */; };
+		07DEAFF01CECBEA8009070F3 /* AddressBookContactStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07DEAFEF1CECBEA8009070F3 /* AddressBookContactStore.swift */; };
 		07FA2E491CE4CB4100BE1EFE /* RealmDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07FA2E481CE4CB4100BE1EFE /* RealmDataStore.swift */; };
 		A696A73453BB37069C88A8D4 /* Pods_Dont_Forget_To_Say.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B083263A613CCFAC1491EFB /* Pods_Dont_Forget_To_Say.framework */; };
 /* End PBXBuildFile section */
@@ -90,6 +93,9 @@
 		07D637B11CE49D3D000D637A /* NotificationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
 		07DEAFD71CEC83F3009070F3 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/PasscodeLock.strings; sourceTree = "<group>"; };
 		07DEAFDC1CEC8A90009070F3 /* LocalizedPasscodeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalizedPasscodeViewController.swift; sourceTree = "<group>"; };
+		07DEAFEB1CECBD97009070F3 /* ContactStoreProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactStoreProtocol.swift; sourceTree = "<group>"; };
+		07DEAFED1CECBDA6009070F3 /* Contact.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
+		07DEAFEF1CECBEA8009070F3 /* AddressBookContactStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddressBookContactStore.swift; sourceTree = "<group>"; };
 		07FA2E481CE4CB4100BE1EFE /* RealmDataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmDataStore.swift; sourceTree = "<group>"; };
 		3B083263A613CCFAC1491EFB /* Pods_Dont_Forget_To_Say.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Dont_Forget_To_Say.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D83AD0985B1E8B15187665E /* Pods-Dont Forget To Say.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dont Forget To Say.release.xcconfig"; path = "Pods/Target Support Files/Pods-Dont Forget To Say/Pods-Dont Forget To Say.release.xcconfig"; sourceTree = "<group>"; };
@@ -168,6 +174,7 @@
 			children = (
 				075B0AD91CD8E4F700464EBC /* Buddy.swift */,
 				075B0ADB1CD8E51000464EBC /* Topic.swift */,
+				07DEAFED1CECBDA6009070F3 /* Contact.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -184,11 +191,9 @@
 		07612FB61CDA1CC3009E1600 /* Store */ = {
 			isa = PBXGroup;
 			children = (
-				07FA2E4E1CE4D41C00BE1EFE /* Memory */,
-				07FA2E4D1CE4D41200BE1EFE /* Realm */,
-				07612FB71CDA1D07009E1600 /* DataStoreProtocol.swift */,
-				07612FB91CDA1D1B009E1600 /* CrudStoreError.swift */,
-				07BDE0961CEB52D7004CE5EC /* SettingsProvider.swift */,
+				07DEAFE81CECBD4F009070F3 /* Data */,
+				07DEAFE91CECBD68009070F3 /* Settings */,
+				07DEAFEA1CECBD78009070F3 /* Contacts */,
 			);
 			name = Store;
 			sourceTree = "<group>";
@@ -323,6 +328,34 @@
 				07DEAFD81CEC83F3009070F3 /* PasscodeLock.strings */,
 			);
 			name = Strings;
+			sourceTree = "<group>";
+		};
+		07DEAFE81CECBD4F009070F3 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				07FA2E4E1CE4D41C00BE1EFE /* Memory */,
+				07FA2E4D1CE4D41200BE1EFE /* Realm */,
+				07612FB71CDA1D07009E1600 /* DataStoreProtocol.swift */,
+				07612FB91CDA1D1B009E1600 /* CrudStoreError.swift */,
+			);
+			name = Data;
+			sourceTree = "<group>";
+		};
+		07DEAFE91CECBD68009070F3 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				07BDE0961CEB52D7004CE5EC /* SettingsProvider.swift */,
+			);
+			name = Settings;
+			sourceTree = "<group>";
+		};
+		07DEAFEA1CECBD78009070F3 /* Contacts */ = {
+			isa = PBXGroup;
+			children = (
+				07DEAFEB1CECBD97009070F3 /* ContactStoreProtocol.swift */,
+				07DEAFEF1CECBEA8009070F3 /* AddressBookContactStore.swift */,
+			);
+			name = Contacts;
 			sourceTree = "<group>";
 		};
 		07FA2E4D1CE4D41200BE1EFE /* Realm */ = {
@@ -490,7 +523,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				07DEAFEC1CECBD97009070F3 /* ContactStoreProtocol.swift in Sources */,
 				07FA2E491CE4CB4100BE1EFE /* RealmDataStore.swift in Sources */,
+				07DEAFF01CECBEA8009070F3 /* AddressBookContactStore.swift in Sources */,
 				079F19911CDB91A300D2AE2E /* AddTopicPresenter.swift in Sources */,
 				079F197F1CDB56FD00D2AE2E /* TopicTableCell.swift in Sources */,
 				07D637B01CE47B89000D637A /* NotificationManagerLogic.swift in Sources */,
@@ -502,6 +537,7 @@
 				07DEAFDD1CEC8A90009070F3 /* LocalizedPasscodeViewController.swift in Sources */,
 				07BDE08E1CEB35CE004CE5EC /* SettingsForm.swift in Sources */,
 				07796C9C1CD8CE5900CD6FDA /* AppDelegate.swift in Sources */,
+				07DEAFEE1CECBDA6009070F3 /* Contact.swift in Sources */,
 				079F19861CDB58F200D2AE2E /* TopicListItemDisplayData.swift in Sources */,
 				079F19881CDB596100D2AE2E /* TopicListPresenter.swift in Sources */,
 				075B0ADF1CD8EDFB00464EBC /* BuddyListPresenter.swift in Sources */,

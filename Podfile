@@ -8,5 +8,6 @@ target 'Dont Forget To Say' do
 	pod 'RealmSwift', '~> 0.102.1'
     pod 'PasscodeLock', '~> 1.0.1'
     pod 'FXForms', '~> 1.2.14'
+    pod 'SwiftAddressBook', '~> 0.6.2'
 end
 

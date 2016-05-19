@@ -30,9 +30,10 @@ class RealmDataStore: DataStoreProtocol {
         }
     }
     
-    func addBuddy(name: String, completionHandler: (buddy: Buddy?, error: CrudStoreError?) -> Void) {
+    func addBuddy(name: String, contactId: Int?, completionHandler: (buddy: Buddy?, error: CrudStoreError?) -> Void) {
         let newBuddy = RealmBuddy()
         newBuddy.id = entityPrimaryKey(RealmBuddy)
+        newBuddy.contactId.value = contactId
         newBuddy.name = name
         do {
             try realm.write({
@@ -130,7 +131,7 @@ class RealmDataStore: DataStoreProtocol {
     }
     
     private func convertBuddy(buddy: RealmBuddy) -> Buddy {
-        return Buddy(id: buddy.id, name: buddy.name)
+        return Buddy(id: buddy.id, contactId: buddy.contactId.value, name: buddy.name)
     }
     
     private func convertTopic(topic: RealmTopic) -> Topic {

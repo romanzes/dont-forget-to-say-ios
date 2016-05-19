@@ -11,6 +11,7 @@ import RealmSwift
 
 class RealmBuddy: Object {
     dynamic var id = 0
+    let contactId = RealmOptional<Int>()
     dynamic var name = ""
     let topics = List<RealmTopic>()
     

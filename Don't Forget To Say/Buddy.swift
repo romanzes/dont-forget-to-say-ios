@@ -10,5 +10,12 @@ import Foundation
 
 struct Buddy {
     let id: Int
+    let contactId: Int?
     let name: String
+    
+    init(id: Int, contactId: Int? = nil, name: String) {
+        self.id = id
+        self.contactId = contactId
+        self.name = name
+    }
 }

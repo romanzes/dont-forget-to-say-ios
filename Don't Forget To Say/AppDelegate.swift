@@ -14,17 +14,19 @@ import PasscodeLock
 class AppDelegate: UIResponder, UIApplicationDelegate {
     let container = Container() { c in
         c.register(Router.self) { r in
-            Router(container: c)
-        }
-        .inObjectScope(.Container)
+                Router(container: c)
+            }
+            .inObjectScope(.Container)
         c.register(DataStoreProtocol.self) { r in RealmDataStore() }
-        .inObjectScope(.Container)
+            .inObjectScope(.Container)
+        c.register(ContactStoreProtocol.self) { r in AddressBookContactStore() }
+            .inObjectScope(.Container)
         c.register(NotificationManagerInterface.self) { r in NotificationManager() }
             .initCompleted() { r, c in
                 let notificationManager = c as! NotificationManager
                 notificationManager.dataStore = r.resolve(DataStoreProtocol.self)
             }
-        .inObjectScope(.Container)
+            .inObjectScope(.Container)
         c.register(SettingsProvider.self) { r in UserDefaultsSettingsProvider() }
         
         c.register(BuddyListViewInterface.self) { r in BuddyListViewController() }
@@ -63,6 +65,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 let presenter = c as! AddTopicPresenter
                 presenter.userInterface = r.resolve(AddTopicViewInterface.self)
                 presenter.dataStore = r.resolve(DataStoreProtocol.self)
+                presenter.contactStore = r.resolve(ContactStoreProtocol.self)
         }
         
         c.register(SettingsViewInterface.self) { r in SettingsViewController() }

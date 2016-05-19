@@ -59,8 +59,8 @@ class MemDataStore: DataStoreProtocol {
         }
     }
     
-    func addBuddy(name: String, completionHandler: (buddy: Buddy?, error: CrudStoreError?) -> Void) {
-        let newBuddy = Buddy(id: freeBuddyId, name: name)
+    func addBuddy(name: String, contactId: Int?, completionHandler: (buddy: Buddy?, error: CrudStoreError?) -> Void) {
+        let newBuddy = Buddy(id: freeBuddyId, contactId: contactId, name: name)
         buddies += [newBuddy]
         freeBuddyId += 1
         completionHandler(buddy: newBuddy, error: nil)

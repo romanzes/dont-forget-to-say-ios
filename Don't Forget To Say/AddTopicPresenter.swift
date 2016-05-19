@@ -21,25 +21,40 @@ protocol AddTopicViewInterface: class {
 class AddTopicPresenter: AddTopicPresenterInterface {
     // MARK: Injected properties
     var dataStore: DataStoreProtocol!
+    var contactStore: ContactStoreProtocol!
     weak var userInterface: AddTopicViewInterface?
     
     var contacts: [ContactListItemDisplayData]?
     
-    private func obtainContacts(completionHandler: () -> Void) {
+    private func obtainBuddies(completionHandler: () -> Void) {
         dataStore.fetchBuddies { (buddies, error) in
             if let buddies = buddies {
                 self.contacts = buddies.map({ (buddy) -> ContactListItemDisplayData in
-                    let result = ContactListItemDisplayData(name: buddy.name, isNew: false)
-                    result.buddyId = buddy.id
-                    return result
+                    ContactListItemDisplayData(buddyId: buddy.id, contactId: buddy.contactId, name: buddy.name, isNew: false)
                 })
                 completionHandler()
             }
         }
     }
     
+    private func obtainContacts(completionHandler: () -> Void) {
+        contactStore.loadContacts({ (contacts) in
+            let contactsFromPhone = contacts
+                .filter({ (contact) -> Bool in
+                    self.contacts?.indexOf({ (buddy) -> Bool in
+                        buddy.contactId == contact.id
+                    }) == nil
+                })
+                .map({ (contact) -> ContactListItemDisplayData in
+                    ContactListItemDisplayData(contactId: contact.id, name: contact.name, isNew: false)
+                })
+            self.contacts! += contactsFromPhone
+            completionHandler()
+        })
+    }
+    
     func filterContacts(predicate: String?) {
-        let onObtain = {
+        let onObtainedContacts = {
             var result: [ContactListItemDisplayData]?
             if predicate == nil || predicate!.isEmpty {
                 result = self.contacts
@@ -49,26 +64,31 @@ class AddTopicPresenter: AddTopicPresenterInterface {
                 })
                 result?.append(ContactListItemDisplayData(name: predicate!, isNew: true))
             }
-            self.userInterface?.updateContacts(result)
+            dispatch_async(dispatch_get_main_queue()) {
+                self.userInterface?.updateContacts(result)
+            }
+        }
+        let onObtainedBuddies = {
+            self.obtainContacts(onObtainedContacts)
         }
         if contacts == nil {
-            obtainContacts(onObtain)
+            obtainBuddies(onObtainedBuddies)
         } else {
-            onObtain()
+            onObtainedContacts()
         }
     }
     
     func saveTopicWithText(text: String, contacts: Set<ContactListItemDisplayData>) {
-        var newNames = [String]()
+        var newBuddies = [ContactListItemDisplayData]()
         var buddyIds = [Int]()
         contacts.forEach({ (contact) in
-            if contact.isNew {
-                newNames.append(contact.name)
-            } else if let buddyId = contact.buddyId {
+            if let buddyId = contact.buddyId {
                 buddyIds.append(buddyId)
+            } else {
+                newBuddies.append(contact)
             }
         })
-        addBuddies(newNames) { buddies in
+        addBuddies(newBuddies) { buddies in
             buddies.forEach({ (buddy) in
                 buddyIds.append(buddy.id)
             })
@@ -80,17 +100,17 @@ class AddTopicPresenter: AddTopicPresenterInterface {
         }
     }
     
-    private func addBuddies(newNames: [String], completionHandler: (buddies: [Buddy]) -> Void) {
-        var buddyNameQueue = newNames
+    private func addBuddies(newBuddies: [ContactListItemDisplayData], completionHandler: (buddies: [Buddy]) -> Void) {
+        var buddyQueue = newBuddies
         var buddies = [Buddy]()
         var addNextBuddy: (() -> Void)!
         addNextBuddy = {
-            if let name = buddyNameQueue.first {
-                self.dataStore.addBuddy(name) { (buddy, error) in
+            if let buddy = buddyQueue.first {
+                self.dataStore.addBuddy(buddy.name, contactId: buddy.contactId) { (buddy, error) in
                     if let buddy = buddy {
                         buddies.append(buddy)
                     }
-                    buddyNameQueue.removeFirst()
+                    buddyQueue.removeFirst()
                     addNextBuddy()
                 }
             } else {
