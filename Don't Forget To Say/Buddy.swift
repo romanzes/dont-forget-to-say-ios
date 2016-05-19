@@ -10,10 +10,10 @@ import Foundation
 
 struct Buddy {
     let id: Int
-    let contactId: Int?
+    let contactId: String?
     let name: String
     
-    init(id: Int, contactId: Int? = nil, name: String) {
+    init(id: Int, contactId: String? = nil, name: String) {
         self.id = id
         self.contactId = contactId
         self.name = name

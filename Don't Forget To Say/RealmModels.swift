@@ -9,9 +9,22 @@
 import Foundation
 import RealmSwift
 
+/* v0
 class RealmBuddy: Object {
     dynamic var id = 0
     let contactId = RealmOptional<Int>()
+    dynamic var name = ""
+    let topics = List<RealmTopic>()
+
+    override static func primaryKey() -> String? {
+        return "id"
+    }
+}*/
+
+// v1
+class RealmBuddy: Object {
+    dynamic var id = 0
+    dynamic var contactId: String? = nil
     dynamic var name = ""
     let topics = List<RealmTopic>()
     
@@ -20,6 +33,7 @@ class RealmBuddy: Object {
     }
 }
 
+// v0
 class RealmTopic: Object {
     dynamic var id = 0
     dynamic var text = ""

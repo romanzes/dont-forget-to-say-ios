@@ -9,6 +9,6 @@
 import Foundation
 
 struct Contact {
-    let id: Int
+    let id: String
     let name: String
 }

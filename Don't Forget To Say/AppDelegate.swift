@@ -19,7 +19,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             .inObjectScope(.Container)
         c.register(DataStoreProtocol.self) { r in RealmDataStore() }
             .inObjectScope(.Container)
-        c.register(ContactStoreProtocol.self) { r in AddressBookContactStore() }
+        c.register(ContactStoreProtocol.self) { r in
+                if #available(iOS 9.0, *) {
+                    return ModernContactStore()
+                } else {
+                    return AddressBookContactStore()
+                }
+            }
             .inObjectScope(.Container)
         c.register(NotificationManagerInterface.self) { r in NotificationManager() }
             .initCompleted() { r, c in
@@ -93,6 +99,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+        RealmMigration().performRealmMigration()
         window = UIWindow(frame: UIScreen.mainScreen().bounds)
         container.resolve(Router.self)?.presentMainControllerFromWindow(window!)
         showPasscode()

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		073876731CEDD1B600D927E7 /* ModernContactStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073876721CEDD1B600D927E7 /* ModernContactStore.swift */; };
+		073876751CEDDF5700D927E7 /* RealmMigration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073876741CEDDF5700D927E7 /* RealmMigration.swift */; };
 		0746566A1CEA17C2008E5F45 /* PasscodeLockConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 074656691CEA17C2008E5F45 /* PasscodeLockConfiguration.swift */; };
 		0746566C1CEA17E2008E5F45 /* UserDefaultsPasscodeRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0746566B1CEA17E2008E5F45 /* UserDefaultsPasscodeRepository.swift */; };
 		075B0AD21CD8E10100464EBC /* BuddyListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075B0AD01CD8E10100464EBC /* BuddyListViewController.swift */; };
@@ -53,6 +55,8 @@
 
 /* Begin PBXFileReference section */
 		04F2BC6FC058D554BD1CCD33 /* Pods-Don't Forget To Say.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Don't Forget To Say.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Don't Forget To Say/Pods-Don't Forget To Say.debug.xcconfig"; sourceTree = "<group>"; };
+		073876721CEDD1B600D927E7 /* ModernContactStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModernContactStore.swift; sourceTree = "<group>"; };
+		073876741CEDDF5700D927E7 /* RealmMigration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmMigration.swift; sourceTree = "<group>"; };
 		074656691CEA17C2008E5F45 /* PasscodeLockConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasscodeLockConfiguration.swift; sourceTree = "<group>"; };
 		0746566B1CEA17E2008E5F45 /* UserDefaultsPasscodeRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaultsPasscodeRepository.swift; sourceTree = "<group>"; };
 		075B0AD01CD8E10100464EBC /* BuddyListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BuddyListViewController.swift; sourceTree = "<group>"; };
@@ -354,6 +358,7 @@
 			children = (
 				07DEAFEB1CECBD97009070F3 /* ContactStoreProtocol.swift */,
 				07DEAFEF1CECBEA8009070F3 /* AddressBookContactStore.swift */,
+				073876721CEDD1B600D927E7 /* ModernContactStore.swift */,
 			);
 			name = Contacts;
 			sourceTree = "<group>";
@@ -363,6 +368,7 @@
 			children = (
 				07FA2E481CE4CB4100BE1EFE /* RealmDataStore.swift */,
 				07B758E31CE5B52600C8726B /* RealmModels.swift */,
+				073876741CEDDF5700D927E7 /* RealmMigration.swift */,
 			);
 			name = Realm;
 			sourceTree = "<group>";
@@ -553,7 +559,9 @@
 				07612FBF1CDA1D64009E1600 /* MemDataStore.swift in Sources */,
 				07BDE08B1CEB347A004CE5EC /* SettingsViewController.swift in Sources */,
 				075B0AD21CD8E10100464EBC /* BuddyListViewController.swift in Sources */,
+				073876731CEDD1B600D927E7 /* ModernContactStore.swift in Sources */,
 				07D637B21CE49D3D000D637A /* NotificationManager.swift in Sources */,
+				073876751CEDDF5700D927E7 /* RealmMigration.swift in Sources */,
 				07BDE0971CEB52D7004CE5EC /* SettingsProvider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

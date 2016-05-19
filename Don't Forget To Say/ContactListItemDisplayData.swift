@@ -10,11 +10,11 @@ import Foundation
 
 class ContactListItemDisplayData: Hashable {
     var buddyId: Int?
-    var contactId: Int?
+    var contactId: String?
     var name: String
     var isNew: Bool
     
-    init(buddyId: Int? = nil, contactId: Int? = nil, name: String, isNew: Bool) {
+    init(buddyId: Int? = nil, contactId: String? = nil, name: String, isNew: Bool) {
         self.buddyId = buddyId
         self.contactId = contactId
         self.name = name

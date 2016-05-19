@@ -17,7 +17,7 @@ class AddressBookContactStore: ContactStoreProtocol {
                 if let people = swiftAddressBook?.allPeople {
                     for person in people {
                         if let name = person.compositeName {
-                            contacts += [Contact(id: person.recordID, name: name)]
+                            contacts += [Contact(id: "\(person.recordID)", name: name)]
                         }
                     }
                 }
