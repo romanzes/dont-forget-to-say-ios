@@ -99,7 +99,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        RealmMigration().performRealmMigration()
+        RealmMigration.performMigration()
         window = UIWindow(frame: UIScreen.mainScreen().bounds)
         container.resolve(Router.self)?.presentMainControllerFromWindow(window!)
         showPasscode()

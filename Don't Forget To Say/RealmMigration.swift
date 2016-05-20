@@ -10,7 +10,7 @@ import Foundation
 import RealmSwift
 
 class RealmMigration {
-    func performRealmMigration() {
+    class func performMigration() {
         let config = Realm.Configuration(
             schemaVersion: 1,
             
@@ -25,7 +25,7 @@ class RealmMigration {
         Realm.Configuration.defaultConfiguration = config
     }
     
-    private func migrateToV1(migration: Migration) {
+    class private func migrateToV1(migration: Migration) {
         migration.enumerate(RealmBuddy.className()) { oldObject, newObject in
             if let contactId = oldObject!["contactId"] as! Int? {
                 newObject!["contactId"] = "\(contactId)"
