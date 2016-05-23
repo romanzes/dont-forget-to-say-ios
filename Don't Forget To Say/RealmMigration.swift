@@ -10,8 +10,15 @@ import Foundation
 import RealmSwift
 
 class RealmMigration {
-    class func performMigration() {
-        let config = Realm.Configuration(
+    class func defineMigrationLogic() {
+        let config = configuration()
+        
+        // Tell Realm to use this new configuration object for the default Realm
+        Realm.Configuration.defaultConfiguration = config
+    }
+    
+    class func configuration() -> Realm.Configuration {
+        return Realm.Configuration(
             schemaVersion: 1,
             
             migrationBlock: { migration, oldSchemaVersion in
@@ -20,14 +27,11 @@ class RealmMigration {
                 }
             }
         )
-        
-        // Tell Realm to use this new configuration object for the default Realm
-        Realm.Configuration.defaultConfiguration = config
     }
     
     class private func migrateToV1(migration: Migration) {
         migration.enumerate(RealmBuddy.className()) { oldObject, newObject in
-            if let contactId = oldObject!["contactId"] as! Int? {
+            if let contactId = oldObject!["contactId"] as? Int {
                 newObject!["contactId"] = "\(contactId)"
             }
         }

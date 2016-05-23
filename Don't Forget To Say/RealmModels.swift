@@ -10,7 +10,7 @@ import Foundation
 import RealmSwift
 
 /* v0
-class RealmBuddy: Object {
+public class RealmBuddy: Object {
     dynamic var id = 0
     let contactId = RealmOptional<Int>()
     dynamic var name = ""
@@ -22,24 +22,24 @@ class RealmBuddy: Object {
 }*/
 
 // v1
-class RealmBuddy: Object {
+public class RealmBuddy: Object {
     dynamic var id = 0
     dynamic var contactId: String? = nil
     dynamic var name = ""
     let topics = List<RealmTopic>()
     
-    override static func primaryKey() -> String? {
+    override public static func primaryKey() -> String? {
         return "id"
     }
 }
 
 // v0
-class RealmTopic: Object {
+public class RealmTopic: Object {
     dynamic var id = 0
     dynamic var text = ""
     let buddies = LinkingObjects(fromType: RealmBuddy.self, property: "topics")
     
-    override static func primaryKey() -> String? {
+    override public static func primaryKey() -> String? {
         return "id"
     }
 }
