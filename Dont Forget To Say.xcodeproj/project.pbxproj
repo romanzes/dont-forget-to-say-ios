@@ -48,8 +48,21 @@
 		07DEAFEE1CECBDA6009070F3 /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07DEAFED1CECBDA6009070F3 /* Contact.swift */; };
 		07DEAFF01CECBEA8009070F3 /* AddressBookContactStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07DEAFEF1CECBEA8009070F3 /* AddressBookContactStore.swift */; };
 		07FA2E491CE4CB4100BE1EFE /* RealmDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07FA2E481CE4CB4100BE1EFE /* RealmDataStore.swift */; };
+		07FB675A1CF435CD00BF4E0A /* RealmTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07FB67591CF435CD00BF4E0A /* RealmTestCase.swift */; };
+		07FB675E1CF4364D00BF4E0A /* default-v0.realm in Resources */ = {isa = PBXBuildFile; fileRef = 07FB675D1CF4364D00BF4E0A /* default-v0.realm */; };
+		07FB67601CF4366400BF4E0A /* RealmDataStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07FB675F1CF4366400BF4E0A /* RealmDataStoreTests.swift */; };
 		A696A73453BB37069C88A8D4 /* Pods_Dont_Forget_To_Say.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B083263A613CCFAC1491EFB /* Pods_Dont_Forget_To_Say.framework */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		07FB67541CF4358A00BF4E0A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 07796C901CD8CE5900CD6FDA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 07796C971CD8CE5900CD6FDA;
+			remoteInfo = "Dont Forget To Say";
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		04F2BC6FC058D554BD1CCD33 /* Pods-Don't Forget To Say.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Don't Forget To Say.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Don't Forget To Say/Pods-Don't Forget To Say.debug.xcconfig"; sourceTree = "<group>"; };
@@ -97,6 +110,11 @@
 		07DEAFED1CECBDA6009070F3 /* Contact.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
 		07DEAFEF1CECBEA8009070F3 /* AddressBookContactStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddressBookContactStore.swift; sourceTree = "<group>"; };
 		07FA2E481CE4CB4100BE1EFE /* RealmDataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmDataStore.swift; sourceTree = "<group>"; };
+		07FB674F1CF4358A00BF4E0A /* Dont Forget To Say Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Dont Forget To Say Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		07FB67591CF435CD00BF4E0A /* RealmTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmTestCase.swift; sourceTree = "<group>"; };
+		07FB675B1CF4361E00BF4E0A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		07FB675D1CF4364D00BF4E0A /* default-v0.realm */ = {isa = PBXFileReference; lastKnownFileType = file; path = "default-v0.realm"; sourceTree = "<group>"; };
+		07FB675F1CF4366400BF4E0A /* RealmDataStoreTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmDataStoreTests.swift; sourceTree = "<group>"; };
 		3B083263A613CCFAC1491EFB /* Pods_Dont_Forget_To_Say.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Dont_Forget_To_Say.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D83AD0985B1E8B15187665E /* Pods-Dont Forget To Say.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dont Forget To Say.release.xcconfig"; path = "Pods/Target Support Files/Pods-Dont Forget To Say/Pods-Dont Forget To Say.release.xcconfig"; sourceTree = "<group>"; };
 		62E66115C2B6CC6CF40AD647 /* Pods-Don't Forget To Say.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Don't Forget To Say.release.xcconfig"; path = "Pods/Target Support Files/Pods-Don't Forget To Say/Pods-Don't Forget To Say.release.xcconfig"; sourceTree = "<group>"; };
@@ -109,6 +127,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				A696A73453BB37069C88A8D4 /* Pods_Dont_Forget_To_Say.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		07FB674C1CF4358A00BF4E0A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -202,6 +227,7 @@
 			isa = PBXGroup;
 			children = (
 				07796C9A1CD8CE5900CD6FDA /* Dont Forget To Say */,
+				07FB67501CF4358A00BF4E0A /* Dont Forget To Say Tests */,
 				07796C991CD8CE5900CD6FDA /* Products */,
 				CE37903F6D0C0E87028D8BBA /* Pods */,
 				C95B42C782346CDA62D7F874 /* Frameworks */,
@@ -212,6 +238,7 @@
 			isa = PBXGroup;
 			children = (
 				07796C981CD8CE5900CD6FDA /* Dont Forget To Say.app */,
+				07FB674F1CF4358A00BF4E0A /* Dont Forget To Say Tests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -375,6 +402,17 @@
 			name = Memory;
 			sourceTree = "<group>";
 		};
+		07FB67501CF4358A00BF4E0A /* Dont Forget To Say Tests */ = {
+			isa = PBXGroup;
+			children = (
+				07FB67591CF435CD00BF4E0A /* RealmTestCase.swift */,
+				07FB675F1CF4366400BF4E0A /* RealmDataStoreTests.swift */,
+				07FB675B1CF4361E00BF4E0A /* Info.plist */,
+				07FB675D1CF4364D00BF4E0A /* default-v0.realm */,
+			);
+			path = "Dont Forget To Say Tests";
+			sourceTree = "<group>";
+		};
 		C95B42C782346CDA62D7F874 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -417,6 +455,24 @@
 			productReference = 07796C981CD8CE5900CD6FDA /* Dont Forget To Say.app */;
 			productType = "com.apple.product-type.application";
 		};
+		07FB674E1CF4358A00BF4E0A /* Dont Forget To Say Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 07FB67581CF4358A00BF4E0A /* Build configuration list for PBXNativeTarget "Dont Forget To Say Tests" */;
+			buildPhases = (
+				07FB674B1CF4358A00BF4E0A /* Sources */,
+				07FB674C1CF4358A00BF4E0A /* Frameworks */,
+				07FB674D1CF4358A00BF4E0A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				07FB67551CF4358A00BF4E0A /* PBXTargetDependency */,
+			);
+			name = "Dont Forget To Say Tests";
+			productName = "Dont Forget To Say Tests";
+			productReference = 07FB674F1CF4358A00BF4E0A /* Dont Forget To Say Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -430,6 +486,10 @@
 					07796C971CD8CE5900CD6FDA = {
 						CreatedOnToolsVersion = 7.3;
 						DevelopmentTeam = EZVHN5KL4Z;
+					};
+					07FB674E1CF4358A00BF4E0A = {
+						CreatedOnToolsVersion = 7.3;
+						TestTargetID = 07796C971CD8CE5900CD6FDA;
 					};
 				};
 			};
@@ -447,6 +507,7 @@
 			projectRoot = "";
 			targets = (
 				07796C971CD8CE5900CD6FDA /* Dont Forget To Say */,
+				07FB674E1CF4358A00BF4E0A /* Dont Forget To Say Tests */,
 			);
 		};
 /* End PBXProject section */
@@ -465,6 +526,14 @@
 				07796CA31CD8CE5900CD6FDA /* Assets.xcassets in Resources */,
 				075B0AD31CD8E10100464EBC /* BuddyListViewController.xib in Resources */,
 				07612FC71CDA2F6E009E1600 /* BuddyTableCell.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		07FB674D1CF4358A00BF4E0A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				07FB675E1CF4364D00BF4E0A /* default-v0.realm in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -558,7 +627,24 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		07FB674B1CF4358A00BF4E0A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				07FB675A1CF435CD00BF4E0A /* RealmTestCase.swift in Sources */,
+				07FB67601CF4366400BF4E0A /* RealmDataStoreTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		07FB67551CF4358A00BF4E0A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 07796C971CD8CE5900CD6FDA /* Dont Forget To Say */;
+			targetProxy = 07FB67541CF4358A00BF4E0A /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		07796CA41CD8CE5900CD6FDA /* LaunchScreen.storyboard */ = {
@@ -704,6 +790,32 @@
 			};
 			name = Release;
 		};
+		07FB67561CF4358A00BF4E0A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = "Dont Forget To Say Tests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.romanzes.Dont-Forget-To-Say-Tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Dont Forget To Say.app/Dont Forget To Say";
+			};
+			name = Debug;
+		};
+		07FB67571CF4358A00BF4E0A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = "Dont Forget To Say Tests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.romanzes.Dont-Forget-To-Say-Tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Dont Forget To Say.app/Dont Forget To Say";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -721,6 +833,15 @@
 			buildConfigurations = (
 				07796CAB1CD8CE5900CD6FDA /* Debug */,
 				07796CAC1CD8CE5900CD6FDA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		07FB67581CF4358A00BF4E0A /* Build configuration list for PBXNativeTarget "Dont Forget To Say Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				07FB67561CF4358A00BF4E0A /* Debug */,
+				07FB67571CF4358A00BF4E0A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
