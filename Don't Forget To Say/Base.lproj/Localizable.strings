@@ -30,6 +30,9 @@
 /* Buddy deletion cancel button */
 "buddy_remove_cancel" = "Cancel";
 
+/* Buddy list loading progress */
+"buddy_loading_progress" = "Loading buddies...";
+
 /* Topic list screen title */
 "topic_list_title" = "Topics for %@";
 

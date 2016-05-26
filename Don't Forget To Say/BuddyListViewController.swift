@@ -7,10 +7,11 @@
 //
 
 import UIKit
+import StatefulViewController
 
 var BuddyTableCellIdentifier = "BuddyTableCell"
 
-class BuddyListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, BuddyListViewInterface {
+class BuddyListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, BuddyListViewInterface, StatefulViewController {
     // MARK: Injected properties
     var router: Router!
     var presenter: BuddyListPresenterInterface!
@@ -52,13 +53,21 @@ class BuddyListViewController: UIViewController, UITableViewDataSource, UITableV
         
         addTopicButton.setTitle(NSLocalizedString("add_topic_button", comment: "Add topic button text"), forState: UIControlState.Normal)
         addTopicButton.addTarget(self, action: #selector(self.addTopicClicked), forControlEvents: UIControlEvents.TouchUpInside)
+        
+        loadingView = LoadingBuddyListView.instanceFromNib()
     }
     
     func settingsButtonClicked() {
         router.showSettingsFromViewController(self)
     }
     
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        setupInitialViewState()
+    }
+    
     override func viewDidAppear(animated: Bool) {
+        startLoading()
         presenter.obtainBuddies()
     }
     
@@ -77,6 +86,7 @@ class BuddyListViewController: UIViewController, UITableViewDataSource, UITableV
     }
     
     func reloadEntries() {
+        endLoading()
         buddiesTableView.reloadData()
     }
     
@@ -128,5 +138,11 @@ class BuddyListViewController: UIViewController, UITableViewDataSource, UITableV
             tableView.setEditing(false, animated: true)
             presentViewController(deleteAlert, animated: true, completion: nil)
         }
+    }
+    
+    // MARK: StatefulViewController
+    
+    func hasContent() -> Bool {
+        return displayData?.count > 0
     }
 }

@@ -7,6 +7,7 @@ PODS:
   - Realm/Headers (0.103.2)
   - RealmSwift (0.103.2):
     - Realm (= 0.103.2)
+  - StatefulViewController (1.1)
   - SwiftAddressBook (0.6.2)
   - Swinject (1.1.1)
   - THContactPicker (2.0)
@@ -16,6 +17,7 @@ DEPENDENCIES:
   - FXForms (~> 1.2.14)
   - PasscodeLock (~> 1.0.1)
   - RealmSwift (~> 0.103.2)
+  - StatefulViewController (~> 1.1)
   - SwiftAddressBook (~> 0.6.2)
   - Swinject (~> 1.1.0)
   - THContactPicker (~> 2.0)
@@ -26,6 +28,7 @@ SPEC CHECKSUMS:
   PasscodeLock: 4ae42c094224a01de3773fcd69ae33886394d959
   Realm: 448f0416079fe5b0ed947e7d86f3c4e1c75826cb
   RealmSwift: 8a45cc8f02dfac093b72a3b5a01d567e27e15891
+  StatefulViewController: 396f6d25676680a5c0503143cca55be23ab8c362
   SwiftAddressBook: 88c68c6bd0c6a9cb10e5cdc80f91fd87b5e0f4ec
   Swinject: 8c1b46e49c604f8c5c1f45f92ef314d3736bbef4
   THContactPicker: 4345c81a407af534e5f618d495e8fb422a911c10
