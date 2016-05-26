@@ -7,10 +7,11 @@
 //
 
 import UIKit
+import StatefulViewController
 
 var TopicTableCellIdentifier = "TopicTableCell"
 
-class TopicListViewController: UIViewController, UITableViewDataSource, TopicListViewInterface {
+class TopicListViewController: UIViewController, UITableViewDataSource, TopicListViewInterface, StatefulViewController {
     // MARK: Injected properties
     var presenter: TopicListPresenterInterface!
     
@@ -46,10 +47,16 @@ class TopicListViewController: UIViewController, UITableViewDataSource, TopicLis
         topicsTableView.registerNib(UINib(nibName: TopicTableCellIdentifier, bundle: nil), forCellReuseIdentifier: TopicTableCellIdentifier)
         
         noContentLabel.text = NSLocalizedString("topic_list_empty", comment: "Topic list empty message")
+        
+        let loadingView = CommonLoadingView.instanceFromNib()
+        self.loadingView = loadingView
+        loadingView.showMessage(NSLocalizedString("topic_list_loading_progress", comment: "Topic list loading progress"))
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
+        setupInitialViewState()
+        startLoading()
         presenter.fetchData(buddyId)
     }
     
@@ -78,6 +85,7 @@ class TopicListViewController: UIViewController, UITableViewDataSource, TopicLis
     }
     
     func reloadEntries() {
+        endLoading()
         topicsTableView.reloadData()
     }
     
@@ -142,5 +150,11 @@ class TopicListViewController: UIViewController, UITableViewDataSource, TopicLis
         }))
         deleteAlert.addAction(UIAlertAction(title: cancelButton, style: .Cancel, handler: nil))
         return deleteAlert
+    }
+    
+    // MARK: StatefulViewController
+    
+    func hasContent() -> Bool {
+        return displayData?.count > 0
     }
 }

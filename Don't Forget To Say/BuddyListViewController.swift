@@ -54,7 +54,9 @@ class BuddyListViewController: UIViewController, UITableViewDataSource, UITableV
         addTopicButton.setTitle(NSLocalizedString("add_topic_button", comment: "Add topic button text"), forState: UIControlState.Normal)
         addTopicButton.addTarget(self, action: #selector(self.addTopicClicked), forControlEvents: UIControlEvents.TouchUpInside)
         
-        loadingView = LoadingBuddyListView.instanceFromNib()
+        let loadingView = CommonLoadingView.instanceFromNib()
+        self.loadingView = loadingView
+        loadingView.showMessage(NSLocalizedString("buddy_list_loading_progress", comment: "Buddy list loading progress"))
     }
     
     func settingsButtonClicked() {

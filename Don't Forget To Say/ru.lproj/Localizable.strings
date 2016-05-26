@@ -31,7 +31,7 @@
 "buddy_remove_cancel" = "Отменить";
 
 /* Buddy list loading progress */
-"buddy_loading_progress" = "Загрузка друзей...";
+"buddy_list_loading_progress" = "Загрузка друзей...";
 
 /* Topic list screen title */
 "topic_list_title" = "Темы для %@";
@@ -62,6 +62,9 @@
 
 /* Topic deletion cancel button */
 "topic_remove_cancel" = "Отмена";
+
+/* Topic list loading progress */
+"topic_list_loading_progress" = "Загрузка тем...";
 
 /* Add topic screen title */
 "add_topic_title" = "Добавление темы";

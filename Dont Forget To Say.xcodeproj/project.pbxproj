@@ -17,8 +17,8 @@
 		075B0ADA1CD8E4F700464EBC /* Buddy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075B0AD91CD8E4F700464EBC /* Buddy.swift */; };
 		075B0ADC1CD8E51000464EBC /* Topic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075B0ADB1CD8E51000464EBC /* Topic.swift */; };
 		075B0ADF1CD8EDFB00464EBC /* BuddyListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075B0ADE1CD8EDFB00464EBC /* BuddyListPresenter.swift */; };
-		075F8B681CF5D83200808933 /* LoadingBuddyListView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 075F8B671CF5D83200808933 /* LoadingBuddyListView.xib */; };
-		075F8B6A1CF5DA4100808933 /* LoadingBuddyListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075F8B691CF5DA4100808933 /* LoadingBuddyListView.swift */; };
+		075F8B681CF5D83200808933 /* CommonLoadingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 075F8B671CF5D83200808933 /* CommonLoadingView.xib */; };
+		075F8B6A1CF5DA4100808933 /* CommonLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075F8B691CF5DA4100808933 /* CommonLoadingView.swift */; };
 		07612FB81CDA1D07009E1600 /* DataStoreProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07612FB71CDA1D07009E1600 /* DataStoreProtocol.swift */; };
 		07612FBA1CDA1D1B009E1600 /* CrudStoreError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07612FB91CDA1D1B009E1600 /* CrudStoreError.swift */; };
 		07612FBF1CDA1D64009E1600 /* MemDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07612FBE1CDA1D64009E1600 /* MemDataStore.swift */; };
@@ -81,8 +81,8 @@
 		075B0AD91CD8E4F700464EBC /* Buddy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Buddy.swift; sourceTree = "<group>"; };
 		075B0ADB1CD8E51000464EBC /* Topic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Topic.swift; sourceTree = "<group>"; };
 		075B0ADE1CD8EDFB00464EBC /* BuddyListPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BuddyListPresenter.swift; sourceTree = "<group>"; };
-		075F8B671CF5D83200808933 /* LoadingBuddyListView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoadingBuddyListView.xib; sourceTree = "<group>"; };
-		075F8B691CF5DA4100808933 /* LoadingBuddyListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingBuddyListView.swift; sourceTree = "<group>"; };
+		075F8B671CF5D83200808933 /* CommonLoadingView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CommonLoadingView.xib; sourceTree = "<group>"; };
+		075F8B691CF5DA4100808933 /* CommonLoadingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonLoadingView.swift; sourceTree = "<group>"; };
 		07612FB71CDA1D07009E1600 /* DataStoreProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataStoreProtocol.swift; sourceTree = "<group>"; };
 		07612FB91CDA1D1B009E1600 /* CrudStoreError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CrudStoreError.swift; sourceTree = "<group>"; };
 		07612FBE1CDA1D64009E1600 /* MemDataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemDataStore.swift; sourceTree = "<group>"; };
@@ -187,8 +187,6 @@
 				075B0AD11CD8E10100464EBC /* BuddyListViewController.xib */,
 				07612FC41CDA2F6E009E1600 /* BuddyTableCell.swift */,
 				07612FC51CDA2F6E009E1600 /* BuddyTableCell.xib */,
-				075F8B691CF5DA4100808933 /* LoadingBuddyListView.swift */,
-				075F8B671CF5D83200808933 /* LoadingBuddyListView.xib */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -200,6 +198,7 @@
 				07612FB61CDA1CC3009E1600 /* Store */,
 				075B0AD81CD8E4DF00464EBC /* Model */,
 				07D637AE1CE47B69000D637A /* Notifications */,
+				079B996D1CF6F84A008E0045 /* View */,
 				07AF68481CDA02230082A68A /* Router.swift */,
 				07796C9B1CD8CE5900CD6FDA /* AppDelegate.swift */,
 			);
@@ -264,6 +263,15 @@
 			);
 			name = "Dont Forget To Say";
 			path = "Don't Forget To Say";
+			sourceTree = "<group>";
+		};
+		079B996D1CF6F84A008E0045 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				075F8B691CF5DA4100808933 /* CommonLoadingView.swift */,
+				075F8B671CF5D83200808933 /* CommonLoadingView.xib */,
+			);
+			name = View;
 			sourceTree = "<group>";
 		};
 		079F197A1CDB562500D2AE2E /* TopicList */ = {
@@ -542,7 +550,7 @@
 			files = (
 				079F19801CDB56FD00D2AE2E /* TopicTableCell.xib in Resources */,
 				079F19761CDB440900D2AE2E /* Localizable.strings in Resources */,
-				075F8B681CF5D83200808933 /* LoadingBuddyListView.xib in Resources */,
+				075F8B681CF5D83200808933 /* CommonLoadingView.xib in Resources */,
 				079F198F1CDB90D400D2AE2E /* AddTopicViewController.xib in Resources */,
 				07DEAFD61CEC83F3009070F3 /* PasscodeLock.strings in Resources */,
 				079F19841CDB573F00D2AE2E /* TopicListViewController.xib in Resources */,
@@ -647,7 +655,7 @@
 				07612FBF1CDA1D64009E1600 /* MemDataStore.swift in Sources */,
 				07BDE08B1CEB347A004CE5EC /* SettingsViewController.swift in Sources */,
 				075B0AD21CD8E10100464EBC /* BuddyListViewController.swift in Sources */,
-				075F8B6A1CF5DA4100808933 /* LoadingBuddyListView.swift in Sources */,
+				075F8B6A1CF5DA4100808933 /* CommonLoadingView.swift in Sources */,
 				073876731CEDD1B600D927E7 /* ModernContactStore.swift in Sources */,
 				07D637B21CE49D3D000D637A /* NotificationManager.swift in Sources */,
 				073876751CEDDF5700D927E7 /* RealmMigration.swift in Sources */,

@@ -31,7 +31,7 @@
 "buddy_remove_cancel" = "Cancel";
 
 /* Buddy list loading progress */
-"buddy_loading_progress" = "Loading buddies...";
+"buddy_list_loading_progress" = "Loading buddies...";
 
 /* Topic list screen title */
 "topic_list_title" = "Topics for %@";
@@ -62,6 +62,9 @@
 
 /* Topic deletion cancel button */
 "topic_remove_cancel" = "Cancel";
+
+/* Topic list loading progress */
+"topic_list_loading_progress" = "Loading topics...";
 
 /* Add topic screen title */
 "add_topic_title" = "Add topic";
