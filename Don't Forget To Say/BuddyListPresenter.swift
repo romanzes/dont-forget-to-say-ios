@@ -16,7 +16,6 @@ protocol BuddyListPresenterInterface {
 
 protocol BuddyListViewInterface: class {
     func updateBuddies(buddies: [BuddyListItemDisplayData])
-    func showNoContentMessage()
 }
 
 class BuddyListPresenter: BuddyListPresenterInterface {
@@ -60,11 +59,7 @@ class BuddyListPresenter: BuddyListPresenterInterface {
     
     func onDisplayDataGenerated(displayData: [BuddyListItemDisplayData]) {
         Async.main {
-            if displayData.count == 0 {
-                self.userInterface?.showNoContentMessage()
-            } else {
-                self.userInterface?.updateBuddies(displayData)
-            }
+            self.userInterface?.updateBuddies(displayData)
         }
     }
 }

@@ -22,8 +22,6 @@ class BuddyListViewController: UIViewController, UITableViewDataSource, UITableV
     // MARK: Outlets
     @IBOutlet weak var buddiesTableView: UITableView!
     @IBOutlet weak var addTopicButton: UIButton!
-    @IBOutlet var noContentView: UIView!
-    @IBOutlet weak var noContentLabel: UILabel!
     
     init() {
         super.init(nibName: "BuddyListViewController", bundle: NSBundle.mainBundle())
@@ -49,14 +47,16 @@ class BuddyListViewController: UIViewController, UITableViewDataSource, UITableV
         buddiesTableView.delegate = self
         buddiesTableView.registerNib(UINib(nibName: BuddyTableCellIdentifier, bundle: nil), forCellReuseIdentifier: BuddyTableCellIdentifier)
         
-        noContentLabel.text = NSLocalizedString("buddy_list_empty", comment: "Buddy list empty message")
-        
         addTopicButton.setTitle(NSLocalizedString("add_topic_button", comment: "Add topic button text"), forState: UIControlState.Normal)
         addTopicButton.addTarget(self, action: #selector(self.addTopicClicked), forControlEvents: UIControlEvents.TouchUpInside)
         
         let loadingView = CommonLoadingView.instanceFromNib()
         self.loadingView = loadingView
         loadingView.showMessage(NSLocalizedString("buddy_list_loading_progress", comment: "Buddy list loading progress"))
+        
+        let emptyView = CommonEmptyView.instanceFromNib()
+        self.emptyView = emptyView
+        emptyView.showMessage(NSLocalizedString("buddy_list_empty", comment: "Buddy list empty message"))
     }
     
     func settingsButtonClicked() {
@@ -77,13 +77,6 @@ class BuddyListViewController: UIViewController, UITableViewDataSource, UITableV
         displayData = buddies
         buddiesTableView.backgroundView = nil
         buddiesTableView.separatorStyle = .SingleLine
-        reloadEntries()
-    }
-    
-    func showNoContentMessage() {
-        displayData = nil
-        buddiesTableView.backgroundView = noContentView
-        buddiesTableView.separatorStyle = .None
         reloadEntries()
     }
     
