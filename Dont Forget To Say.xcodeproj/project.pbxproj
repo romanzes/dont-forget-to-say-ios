@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		070246D51CF6D23E00DF03B1 /* RealmProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 070246D41CF6D23E00DF03B1 /* RealmProvider.swift */; };
 		073876731CEDD1B600D927E7 /* ModernContactStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073876721CEDD1B600D927E7 /* ModernContactStore.swift */; };
 		073876751CEDDF5700D927E7 /* RealmMigration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073876741CEDDF5700D927E7 /* RealmMigration.swift */; };
 		0746566A1CEA17C2008E5F45 /* PasscodeLockConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 074656691CEA17C2008E5F45 /* PasscodeLockConfiguration.swift */; };
@@ -68,6 +69,7 @@
 
 /* Begin PBXFileReference section */
 		04F2BC6FC058D554BD1CCD33 /* Pods-Don't Forget To Say.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Don't Forget To Say.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Don't Forget To Say/Pods-Don't Forget To Say.debug.xcconfig"; sourceTree = "<group>"; };
+		070246D41CF6D23E00DF03B1 /* RealmProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmProvider.swift; sourceTree = "<group>"; };
 		073876721CEDD1B600D927E7 /* ModernContactStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModernContactStore.swift; sourceTree = "<group>"; };
 		073876741CEDDF5700D927E7 /* RealmMigration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmMigration.swift; sourceTree = "<group>"; };
 		074656691CEA17C2008E5F45 /* PasscodeLockConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasscodeLockConfiguration.swift; sourceTree = "<group>"; };
@@ -415,6 +417,7 @@
 				07FA2E481CE4CB4100BE1EFE /* RealmDataStore.swift */,
 				07B758E31CE5B52600C8726B /* RealmModels.swift */,
 				073876741CEDDF5700D927E7 /* RealmMigration.swift */,
+				070246D41CF6D23E00DF03B1 /* RealmProvider.swift */,
 			);
 			name = Realm;
 			sourceTree = "<group>";
@@ -632,6 +635,7 @@
 				07B758E41CE5B52600C8726B /* RealmModels.swift in Sources */,
 				07612FBA1CDA1D1B009E1600 /* CrudStoreError.swift in Sources */,
 				07AF68491CDA02230082A68A /* Router.swift in Sources */,
+				070246D51CF6D23E00DF03B1 /* RealmProvider.swift in Sources */,
 				075B0ADA1CD8E4F700464EBC /* Buddy.swift in Sources */,
 				07612FBF1CDA1D64009E1600 /* MemDataStore.swift in Sources */,
 				07BDE08B1CEB347A004CE5EC /* SettingsViewController.swift in Sources */,

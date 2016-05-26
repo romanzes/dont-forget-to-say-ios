@@ -9,6 +9,7 @@
 import UIKit
 import Swinject
 import PasscodeLock
+import RealmSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -17,7 +18,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 Router(container: c)
             }
             .inObjectScope(.Container)
-        c.register(DataStoreProtocol.self) { r in RealmDataStore() }
+        c.register(DataStoreProtocol.self) { r in
+                RealmDataStore(realmProvider: r.resolve(RealmProvider.self)!)
+            }
             .inObjectScope(.Container)
         c.register(ContactStoreProtocol.self) { r in
                 if #available(iOS 9.0, *) {
@@ -34,6 +37,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
             .inObjectScope(.Container)
         c.register(SettingsProvider.self) { r in UserDefaultsSettingsProvider() }
+        c.register(RealmProvider.self) { r in
+                RealmProvider(getRealm: {
+                    return try! Realm()
+                })
+            }
+            .inObjectScope(.Container)
         
         c.register(BuddyListViewInterface.self) { r in BuddyListViewController() }
             .initCompleted() { r, c in

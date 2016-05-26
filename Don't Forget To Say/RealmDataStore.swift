@@ -10,10 +10,14 @@ import Foundation
 import RealmSwift
 
 class RealmDataStore: DataStoreProtocol {
-    let realm = try! Realm()
+    private let realmProvider: RealmProvider
+    
+    init(realmProvider: RealmProvider) {
+        self.realmProvider = realmProvider
+    }
     
     func fetchBuddies(completionHandler: (buddies: [Buddy]?, error: CrudStoreError?) -> Void) {
-        let realmBuddies = realm.objects(RealmBuddy)
+        let realmBuddies = realm().objects(RealmBuddy)
         let buddies = realmBuddies.map { (realmBuddy) -> Buddy in
             convertBuddy(realmBuddy)
         }
@@ -21,7 +25,7 @@ class RealmDataStore: DataStoreProtocol {
     }
     
     func fetchBuddy(id: Int, completionHandler: (buddy: Buddy?, error: CrudStoreError?) -> Void) {
-        let realmBuddy = realm.objectForPrimaryKey(RealmBuddy.self, key: id)
+        let realmBuddy = realm().objectForPrimaryKey(RealmBuddy.self, key: id)
         if let realmBuddy = realmBuddy {
             let buddy = convertBuddy(realmBuddy)
             completionHandler(buddy: buddy, error: nil)
@@ -31,13 +35,14 @@ class RealmDataStore: DataStoreProtocol {
     }
     
     func addBuddy(name: String, contactId: String?, completionHandler: (buddy: Buddy?, error: CrudStoreError?) -> Void) {
+        let realmInstance = realm()
         let newBuddy = RealmBuddy()
-        newBuddy.id = entityPrimaryKey(RealmBuddy)
+        newBuddy.id = entityPrimaryKey(realmInstance, type: RealmBuddy.self)
         newBuddy.contactId = contactId
         newBuddy.name = name
         do {
-            try realm.write({
-                realm.add(newBuddy)
+            try realmInstance.write({
+                realmInstance.add(newBuddy)
             })
             completionHandler(buddy: convertBuddy(newBuddy), error: nil)
         } catch {
@@ -47,11 +52,12 @@ class RealmDataStore: DataStoreProtocol {
     
     func deleteBuddy(id: Int, completionHandler: (error: CrudStoreError?) -> Void) {
         do {
-            try realm.write {
+            let realmInstance = realm()
+            try realmInstance.write {
                 // delete buddy
-                realm.delete(realm.objectForPrimaryKey(RealmBuddy.self, key: id)!)
+                realmInstance.delete(realmInstance.objectForPrimaryKey(RealmBuddy.self, key: id)!)
                 // clean unowned topics
-                realm.delete(realm.objects(RealmTopic.self).filter("buddies.@count = 0"))
+                realmInstance.delete(realmInstance.objects(RealmTopic.self).filter("buddies.@count = 0"))
             }
             completionHandler(error: nil)
         } catch {
@@ -60,7 +66,7 @@ class RealmDataStore: DataStoreProtocol {
     }
     
     func fetchTopicsForBuddy(buddyId: Int, completionHandler: (topics: [Topic]?, error: CrudStoreError?) -> Void) {
-        let realmBuddy = realm.objectForPrimaryKey(RealmBuddy.self, key: buddyId)
+        let realmBuddy = realm().objectForPrimaryKey(RealmBuddy.self, key: buddyId)
         if let realmBuddy = realmBuddy {
             let topics = realmBuddy.topics.map({ (realmTopic) -> Topic in
                 convertTopic(realmTopic)
@@ -73,16 +79,17 @@ class RealmDataStore: DataStoreProtocol {
     
     func addTopic(text: String, buddyIds: [Int], completionHandler: (topic: Topic?, error: CrudStoreError?) -> Void) {
         do {
-            try realm.write({
+            let realmInstance = realm()
+            try realmInstance.write({
                 let newTopic = RealmTopic()
-                newTopic.id = entityPrimaryKey(RealmTopic)
+                newTopic.id = entityPrimaryKey(realmInstance, type: RealmTopic.self)
                 newTopic.text = text
                 buddyIds.forEach { (buddyId) in
-                    if let buddy = realm.objectForPrimaryKey(RealmBuddy.self, key: buddyId) {
+                    if let buddy = realmInstance.objectForPrimaryKey(RealmBuddy.self, key: buddyId) {
                         buddy.topics.append(newTopic)
                     }
                 }
-                realm.add(newTopic)
+                realmInstance.add(newTopic)
                 completionHandler(topic: convertTopic(newTopic), error: nil)
             })
         } catch {
@@ -92,8 +99,9 @@ class RealmDataStore: DataStoreProtocol {
     
     func deleteTopic(id: Int, completionHandler: (error: CrudStoreError?) -> Void) {
         do {
-            try realm.write {
-                realm.delete(realm.objectForPrimaryKey(RealmTopic.self, key: id)!)
+            let realmInstance = realm()
+            try realmInstance.write {
+                realmInstance.delete(realmInstance.objectForPrimaryKey(RealmTopic.self, key: id)!)
             }
             completionHandler(error: nil)
         } catch {
@@ -103,8 +111,9 @@ class RealmDataStore: DataStoreProtocol {
     
     func deleteTopicFromBuddy(buddyId: Int, topicId: Int, completionHandler: (error: CrudStoreError?) -> Void) {
         do {
-            try realm.write {
-                if let buddy = realm.objectForPrimaryKey(RealmBuddy.self, key: buddyId) {
+            let realmInstance = realm()
+            try realmInstance.write {
+                if let buddy = realmInstance.objectForPrimaryKey(RealmBuddy.self, key: buddyId) {
                     if let index = buddy.topics.indexOf({ (topic) -> Bool in
                         topic.id == topicId
                     }) {
@@ -122,7 +131,11 @@ class RealmDataStore: DataStoreProtocol {
         }
     }
     
-    private func entityPrimaryKey(type: Object.Type) -> Int {
+    private func realm() -> Realm {
+        return realmProvider.getRealm()
+    }
+    
+    private func entityPrimaryKey(realm: Realm, type: Object.Type) -> Int {
         var result = 1
         if let last = realm.objects(type).sorted("id").last {
             result = last.valueForKey("id") as! Int + 1
