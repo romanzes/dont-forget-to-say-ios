@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Async
 
 private struct TopicRelation {
     let id: Int
@@ -44,11 +45,65 @@ class MemDataStore: DataStoreProtocol {
         TopicRelation(id: 4, topicId: 2, buddyId: 2)
     ]
     
+    private let simulatedDelay = 1.0
+    
+    // MARK: Protocol methods
+    
     func fetchBuddies(completionHandler: (buddies: [Buddy]?, error: CrudStoreError?) -> Void) {
-        completionHandler(buddies: buddies, error: nil)
+        Async.background(after: simulatedDelay) {
+            self.fetchBuddiesImpl(completionHandler)
+        }
     }
     
     func fetchBuddy(id: Int, completionHandler: (buddy: Buddy?, error: CrudStoreError?) -> Void) {
+        Async.background(after: simulatedDelay) {
+            self.fetchBuddyImpl(id, completionHandler)
+        }
+    }
+    
+    func addBuddy(name: String, contactId: String?, completionHandler: (buddy: Buddy?, error: CrudStoreError?) -> Void) {
+        Async.background(after: simulatedDelay) {
+            self.addBuddyImpl(name, contactId, completionHandler)
+        }
+    }
+    
+    func deleteBuddy(id: Int, completionHandler: (error: CrudStoreError?) -> Void) {
+        Async.background(after: simulatedDelay) {
+            self.deleteBuddyImpl(id, completionHandler)
+        }
+    }
+    
+    func fetchTopicsForBuddy(buddyId: Int, completionHandler: (topics: [Topic]?, error: CrudStoreError?) -> Void) {
+        Async.background(after: simulatedDelay) {
+            self.fetchTopicsForBuddyImpl(buddyId, completionHandler)
+        }
+    }
+    
+    func addTopic(text: String, buddyIds: [Int], completionHandler: (topic: Topic?, error: CrudStoreError?) -> Void) {
+        Async.background(after: simulatedDelay) {
+            self.addTopicImpl(text, buddyIds, completionHandler)
+        }
+    }
+    
+    func deleteTopic(id: Int, completionHandler: (error: CrudStoreError?) -> Void) {
+        Async.background(after: simulatedDelay) {
+            self.deleteTopicImpl(id, completionHandler)
+        }
+    }
+    
+    func deleteTopicFromBuddy(buddyId: Int, topicId: Int, completionHandler: (error: CrudStoreError?) -> Void) {
+        Async.background(after: simulatedDelay) {
+            self.deleteTopicFromBuddyImpl(buddyId, topicId, completionHandler)
+        }
+    }
+    
+    // MARK: implementation
+    
+    private func fetchBuddiesImpl(completionHandler: (buddies: [Buddy]?, error: CrudStoreError?) -> Void) {
+        completionHandler(buddies: self.buddies, error: nil)
+    }
+    
+    private func fetchBuddyImpl(id: Int, _ completionHandler: (buddy: Buddy?, error: CrudStoreError?) -> Void) {
         let buddy = buddies.filter { (buddy: Buddy) -> Bool in
             return buddy.id == id
             }.first
@@ -59,14 +114,14 @@ class MemDataStore: DataStoreProtocol {
         }
     }
     
-    func addBuddy(name: String, contactId: String?, completionHandler: (buddy: Buddy?, error: CrudStoreError?) -> Void) {
+    private func addBuddyImpl(name: String, _ contactId: String?, _ completionHandler: (buddy: Buddy?, error: CrudStoreError?) -> Void) {
         let newBuddy = Buddy(id: freeBuddyId, contactId: contactId, name: name)
         buddies += [newBuddy]
         freeBuddyId += 1
         completionHandler(buddy: newBuddy, error: nil)
     }
     
-    func deleteBuddy(id: Int, completionHandler: (error: CrudStoreError?) -> Void) {
+    private func deleteBuddyImpl(id: Int, _ completionHandler: (error: CrudStoreError?) -> Void) {
         relations = relations.filter({ (relation) -> Bool in
             relation.buddyId != id
         })
@@ -81,7 +136,7 @@ class MemDataStore: DataStoreProtocol {
         }
     }
     
-    func fetchTopicsForBuddy(buddyId: Int, completionHandler: (topics: [Topic]?, error: CrudStoreError?) -> Void) {
+    private func fetchTopicsForBuddyImpl(buddyId: Int, _ completionHandler: (topics: [Topic]?, error: CrudStoreError?) -> Void) {
         let relations = self.relations.filter { (relation) -> Bool in
             return relation.buddyId == buddyId
         }
@@ -94,7 +149,7 @@ class MemDataStore: DataStoreProtocol {
         completionHandler(topics: topics, error: nil)
     }
     
-    func addTopic(text: String, buddyIds: [Int], completionHandler: (topic: Topic?, error: CrudStoreError?) -> Void) {
+    private func addTopicImpl(text: String, _ buddyIds: [Int], _ completionHandler: (topic: Topic?, error: CrudStoreError?) -> Void) {
         let newTopic = Topic(id: freeTopicId, text: text, buddyCount: buddyIds.count)
         topics += [newTopic]
         freeTopicId += 1
@@ -104,7 +159,7 @@ class MemDataStore: DataStoreProtocol {
         completionHandler(topic: newTopic, error: nil)
     }
     
-    func deleteTopic(id: Int, completionHandler: (error: CrudStoreError?) -> Void) {
+    private func deleteTopicImpl(id: Int, _ completionHandler: (error: CrudStoreError?) -> Void) {
         relations = self.relations.filter({ (relation) -> Bool in
             return relation.topicId != id
         })
@@ -118,7 +173,7 @@ class MemDataStore: DataStoreProtocol {
         }
     }
     
-    func deleteTopicFromBuddy(buddyId: Int, topicId: Int, completionHandler: (error: CrudStoreError?) -> Void) {
+    private func deleteTopicFromBuddyImpl(buddyId: Int, _ topicId: Int, _ completionHandler: (error: CrudStoreError?) -> Void) {
         if let index = (relations.indexOf { (relation) -> Bool in
             return relation.buddyId == buddyId && relation.topicId == topicId
         }) {
@@ -129,6 +184,8 @@ class MemDataStore: DataStoreProtocol {
             completionHandler(error: CrudStoreError.CannotDelete("Cannot remove topic with id \(topicId) for buddy id \(buddyId)"))
         }
     }
+    
+    // MARK: Helper functions
     
     private func addRelation(buddyId: Int, topicId: Int) {
         let newRelation = TopicRelation(id: freeRelationId, topicId: topicId, buddyId: buddyId)

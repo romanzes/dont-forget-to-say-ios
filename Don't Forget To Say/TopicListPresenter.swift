@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Async
 
 protocol TopicListPresenterInterface {
     func fetchData(buddyId: Int)
@@ -53,7 +54,9 @@ class TopicListPresenter: TopicListPresenterInterface {
     private func obtainTitle() {
         dataStore.fetchBuddy(buddyId, completionHandler: { (buddy, error) in
             if let buddy = buddy {
-                self.userInterface?.showBuddyName(buddy.name)
+                Async.main {
+                    self.userInterface?.showBuddyName(buddy.name)
+                }
             }
         })
     }
@@ -70,10 +73,16 @@ class TopicListPresenter: TopicListPresenterInterface {
         let displayData = topics.map { (topic) -> TopicListItemDisplayData in
             return TopicListItemDisplayData(id: topic.id, text: topic.text, isSingle: topic.buddyCount == 1)
         }
-        if displayData.count == 0 {
-            userInterface?.showNoContentMessage()
-        } else {
-            userInterface?.updateTopics(displayData)
+        onDisplayDataGenerated(displayData)
+    }
+    
+    private func onDisplayDataGenerated(displayData: [TopicListItemDisplayData]) {
+        Async.main {
+            if displayData.count == 0 {
+                self.userInterface?.showNoContentMessage()
+            } else {
+                self.userInterface?.updateTopics(displayData)
+            }
         }
     }
 }

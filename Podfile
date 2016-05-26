@@ -9,5 +9,6 @@ target 'Dont Forget To Say' do
     pod 'PasscodeLock', '~> 1.0.1'
     pod 'FXForms', '~> 1.2.14'
     pod 'SwiftAddressBook', '~> 0.6.2'
+    pod 'AsyncSwift', '~> 1.7.2'
 end
 

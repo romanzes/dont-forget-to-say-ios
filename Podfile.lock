@@ -1,4 +1,5 @@
 PODS:
+  - AsyncSwift (1.7.2)
   - FXForms (1.2.14)
   - PasscodeLock (1.0.2)
   - Realm (0.103.2):
@@ -11,6 +12,7 @@ PODS:
   - THContactPicker (2.0)
 
 DEPENDENCIES:
+  - AsyncSwift (~> 1.7.2)
   - FXForms (~> 1.2.14)
   - PasscodeLock (~> 1.0.1)
   - RealmSwift (~> 0.103.2)
@@ -19,6 +21,7 @@ DEPENDENCIES:
   - THContactPicker (~> 2.0)
 
 SPEC CHECKSUMS:
+  AsyncSwift: 46a78bceb11f0e5bb52747f740d9692ec78d2d7c
   FXForms: 724500c0c3f3eb3ba1004b3b83abcee55d3daf18
   PasscodeLock: 4ae42c094224a01de3773fcd69ae33886394d959
   Realm: 448f0416079fe5b0ed947e7d86f3c4e1c75826cb

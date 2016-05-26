@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Async
 
 protocol BuddyListPresenterInterface {
     func obtainBuddies()
@@ -58,10 +59,12 @@ class BuddyListPresenter: BuddyListPresenterInterface {
     }
     
     func onDisplayDataGenerated(displayData: [BuddyListItemDisplayData]) {
-        if displayData.count == 0 {
-            userInterface?.showNoContentMessage()
-        } else {
-            userInterface?.updateBuddies(displayData)
+        Async.main {
+            if displayData.count == 0 {
+                self.userInterface?.showNoContentMessage()
+            } else {
+                self.userInterface?.updateBuddies(displayData)
+            }
         }
     }
 }
