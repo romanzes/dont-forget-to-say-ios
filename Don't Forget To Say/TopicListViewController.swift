@@ -51,6 +51,10 @@ class TopicListViewController: UIViewController, UITableViewDataSource, TopicLis
         let loadingView = CommonLoadingView.instanceFromNib()
         self.loadingView = loadingView
         loadingView.showMessage(NSLocalizedString("topic_list_loading_progress", comment: "Topic list loading progress"))
+        
+        let emptyView = CommonEmptyView.instanceFromNib()
+        self.emptyView = emptyView
+        emptyView.setMessage(NSLocalizedString("topic_list_empty", comment: "Topic list empty message"))
     }
     
     override func viewWillAppear(animated: Bool) {
