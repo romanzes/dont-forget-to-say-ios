@@ -17,10 +17,21 @@ DEPENDENCIES:
   - FXForms (~> 1.2.14)
   - PasscodeLock (~> 1.0.1)
   - RealmSwift (~> 0.103.2)
-  - StatefulViewController (~> 1.1)
+  - StatefulViewController (from `https://github.com/aschuch/StatefulViewController.git`,
+    commit `e23246e097`)
   - SwiftAddressBook (~> 0.6.2)
   - Swinject (~> 1.1.0)
   - THContactPicker (~> 2.0)
+
+EXTERNAL SOURCES:
+  StatefulViewController:
+    :commit: e23246e097
+    :git: https://github.com/aschuch/StatefulViewController.git
+
+CHECKOUT OPTIONS:
+  StatefulViewController:
+    :commit: e23246e097
+    :git: https://github.com/aschuch/StatefulViewController.git
 
 SPEC CHECKSUMS:
   AsyncSwift: 46a78bceb11f0e5bb52747f740d9692ec78d2d7c

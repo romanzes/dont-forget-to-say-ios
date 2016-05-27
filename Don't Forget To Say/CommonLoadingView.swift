@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CommonLoadingView: UIView {
+class CommonLoadingView: CommonStateView {
     // MARK: Outlets
     @IBOutlet weak var loadingLabel: UILabel!
     @IBOutlet weak var progressIndicator: UIActivityIndicatorView!

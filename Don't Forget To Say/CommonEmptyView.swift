@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CommonEmptyView: UIView {
+class CommonEmptyView: CommonStateView {
     // MARK: Outlets
     @IBOutlet weak var emptyMessageLabel: UILabel!
     
@@ -16,7 +16,7 @@ class CommonEmptyView: UIView {
         return UINib(nibName: "\(CommonEmptyView.self)", bundle: nil).instantiateWithOwner(nil, options: nil).first as! CommonEmptyView
     }
     
-    func showMessage(message: String) {
+    func setMessage(message: String) {
         emptyMessageLabel.text = message
     }
 }

@@ -56,7 +56,7 @@ class BuddyListViewController: UIViewController, UITableViewDataSource, UITableV
         
         let emptyView = CommonEmptyView.instanceFromNib()
         self.emptyView = emptyView
-        emptyView.showMessage(NSLocalizedString("buddy_list_empty", comment: "Buddy list empty message"))
+        emptyView.setMessage(NSLocalizedString("buddy_list_empty", comment: "Buddy list empty message"))
     }
     
     func settingsButtonClicked() {
@@ -71,6 +71,10 @@ class BuddyListViewController: UIViewController, UITableViewDataSource, UITableV
     override func viewDidAppear(animated: Bool) {
         startLoading()
         presenter.obtainBuddies()
+    }
+    
+    override func viewDidLayoutSubviews() {
+        (emptyView as! CommonStateView).adjustInsetsInController(self, place: buddiesTableView)
     }
     
     func updateBuddies(buddies: [BuddyListItemDisplayData]) {

@@ -10,6 +10,6 @@ target 'Dont Forget To Say' do
     pod 'FXForms', '~> 1.2.14'
     pod 'SwiftAddressBook', '~> 0.6.2'
     pod 'AsyncSwift', '~> 1.7.2'
-    pod 'StatefulViewController', '~> 1.1'
+    pod 'StatefulViewController', :git => 'https://github.com/aschuch/StatefulViewController.git', :commit => 'e23246e097'
 end
 
