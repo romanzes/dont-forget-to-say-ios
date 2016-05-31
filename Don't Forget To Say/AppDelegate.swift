@@ -38,6 +38,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
             .inObjectScope(.Container)
         c.register(SettingsProvider.self) { r in UserDefaultsSettingsProvider() }
+            .inObjectScope(.Container)
         c.register(AuthProvider.self) { r in FirebaseAuthProvider() }
             .inObjectScope(.Container)
         c.register(RealmProvider.self) { r in
