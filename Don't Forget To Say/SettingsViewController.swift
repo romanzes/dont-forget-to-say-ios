@@ -25,12 +25,11 @@ class SettingsViewController: FXFormViewController, SettingsViewInterface {
         presenter.loadForm()
     }
     
-    func loadedForm(form: SettingsForm) {
+    func setForm(form: SettingsForm) {
         self.form = form
-        reloadForm()
     }
     
-    func reloadForm() {
+    func refreshForm() {
         formController.form = form as! FXForm
         tableView.reloadData()
     }
@@ -44,6 +43,14 @@ class SettingsViewController: FXFormViewController, SettingsViewInterface {
     }
     
     func enablePasscodeToggled() {
-        performSelector(#selector(reloadForm), withObject: self, afterDelay: 0.2)
+        performSelector(#selector(refreshForm), withObject: self, afterDelay: 0.2)
+    }
+    
+    func signInClicked() {
+        presenter.signIn()
+    }
+    
+    func signOutClicked() {
+        presenter.signOut()
     }
 }

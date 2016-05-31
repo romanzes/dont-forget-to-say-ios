@@ -58,8 +58,12 @@
 		07DEAFEC1CECBD97009070F3 /* ContactStoreProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07DEAFEB1CECBD97009070F3 /* ContactStoreProtocol.swift */; };
 		07DEAFEE1CECBDA6009070F3 /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07DEAFED1CECBDA6009070F3 /* Contact.swift */; };
 		07DEAFF01CECBEA8009070F3 /* AddressBookContactStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07DEAFEF1CECBEA8009070F3 /* AddressBookContactStore.swift */; };
+		07E5D7191CFC3F8900C2DEAC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 07E5D7181CFC3F8900C2DEAC /* GoogleService-Info.plist */; };
+		07F149A71CFD8E8F00C63CC7 /* MockAuthProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07F149A61CFD8E8F00C63CC7 /* MockAuthProvider.swift */; };
+		07F388A31CFC74B7009B1475 /* AuthProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07F388A21CFC74B7009B1475 /* AuthProvider.swift */; };
+		07F388A51CFC7579009B1475 /* FirebaseAuthProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07F388A41CFC7579009B1475 /* FirebaseAuthProvider.swift */; };
 		07FA2E491CE4CB4100BE1EFE /* RealmDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07FA2E481CE4CB4100BE1EFE /* RealmDataStore.swift */; };
-		A696A73453BB37069C88A8D4 /* Pods_Dont_Forget_To_Say.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B083263A613CCFAC1491EFB /* Pods_Dont_Forget_To_Say.framework */; };
+		46651E4CC1102D15D96019B0 /* Pods_Dont_Forget_To_Say.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CB6ADEAB575DA82DA7C0E22 /* Pods_Dont_Forget_To_Say.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,7 +77,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		04F2BC6FC058D554BD1CCD33 /* Pods-Don't Forget To Say.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Don't Forget To Say.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Don't Forget To Say/Pods-Don't Forget To Say.debug.xcconfig"; sourceTree = "<group>"; };
 		070246D41CF6D23E00DF03B1 /* RealmProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmProvider.swift; sourceTree = "<group>"; };
 		073876721CEDD1B600D927E7 /* ModernContactStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModernContactStore.swift; sourceTree = "<group>"; };
 		073876741CEDDF5700D927E7 /* RealmMigration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmMigration.swift; sourceTree = "<group>"; };
@@ -130,11 +133,14 @@
 		07DEAFEB1CECBD97009070F3 /* ContactStoreProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactStoreProtocol.swift; sourceTree = "<group>"; };
 		07DEAFED1CECBDA6009070F3 /* Contact.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
 		07DEAFEF1CECBEA8009070F3 /* AddressBookContactStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddressBookContactStore.swift; sourceTree = "<group>"; };
+		07E5D7181CFC3F8900C2DEAC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		07F149A61CFD8E8F00C63CC7 /* MockAuthProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockAuthProvider.swift; sourceTree = "<group>"; };
+		07F388A21CFC74B7009B1475 /* AuthProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthProvider.swift; sourceTree = "<group>"; };
+		07F388A41CFC7579009B1475 /* FirebaseAuthProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseAuthProvider.swift; sourceTree = "<group>"; };
 		07FA2E481CE4CB4100BE1EFE /* RealmDataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmDataStore.swift; sourceTree = "<group>"; };
-		3B083263A613CCFAC1491EFB /* Pods_Dont_Forget_To_Say.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Dont_Forget_To_Say.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		4D83AD0985B1E8B15187665E /* Pods-Dont Forget To Say.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dont Forget To Say.release.xcconfig"; path = "Pods/Target Support Files/Pods-Dont Forget To Say/Pods-Dont Forget To Say.release.xcconfig"; sourceTree = "<group>"; };
-		62E66115C2B6CC6CF40AD647 /* Pods-Don't Forget To Say.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Don't Forget To Say.release.xcconfig"; path = "Pods/Target Support Files/Pods-Don't Forget To Say/Pods-Don't Forget To Say.release.xcconfig"; sourceTree = "<group>"; };
-		9601B4FB42775BDB1671D842 /* Pods-Dont Forget To Say.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dont Forget To Say.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Dont Forget To Say/Pods-Dont Forget To Say.debug.xcconfig"; sourceTree = "<group>"; };
+		1C2332DCF9F344BD6E19AD59 /* Pods-Dont Forget To Say.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dont Forget To Say.release.xcconfig"; path = "Pods/Target Support Files/Pods-Dont Forget To Say/Pods-Dont Forget To Say.release.xcconfig"; sourceTree = "<group>"; };
+		48D24B20ABBC0F8C671AA39A /* Pods-Dont Forget To Say.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dont Forget To Say.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Dont Forget To Say/Pods-Dont Forget To Say.debug.xcconfig"; sourceTree = "<group>"; };
+		6CB6ADEAB575DA82DA7C0E22 /* Pods_Dont_Forget_To_Say.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Dont_Forget_To_Say.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,7 +148,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A696A73453BB37069C88A8D4 /* Pods_Dont_Forget_To_Say.framework in Frameworks */,
+				46651E4CC1102D15D96019B0 /* Pods_Dont_Forget_To_Say.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -156,6 +162,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		050817C495245D35D8368142 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				48D24B20ABBC0F8C671AA39A /* Pods-Dont Forget To Say.debug.xcconfig */,
+				1C2332DCF9F344BD6E19AD59 /* Pods-Dont Forget To Say.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		0746566E1CEA1869008E5F45 /* Passcode */ = {
 			isa = PBXGroup;
 			children = (
@@ -202,6 +217,7 @@
 			children = (
 				0746566E1CEA1869008E5F45 /* Passcode */,
 				07612FB61CDA1CC3009E1600 /* Store */,
+				07F388A01CFC7416009B1475 /* Network */,
 				075B0AD81CD8E4DF00464EBC /* Model */,
 				07D637AE1CE47B69000D637A /* Notifications */,
 				079B996D1CF6F84A008E0045 /* View */,
@@ -246,8 +262,8 @@
 				07796C9A1CD8CE5900CD6FDA /* Dont Forget To Say */,
 				07DC535D1CEEF63D00DF8C6D /* Dont Forget To Say Tests */,
 				07796C991CD8CE5900CD6FDA /* Products */,
-				CE37903F6D0C0E87028D8BBA /* Pods */,
-				C95B42C782346CDA62D7F874 /* Frameworks */,
+				050817C495245D35D8368142 /* Pods */,
+				F1B571BEDD03D6832256509D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -392,6 +408,7 @@
 				07796CA21CD8CE5900CD6FDA /* Assets.xcassets */,
 				07796CA41CD8CE5900CD6FDA /* LaunchScreen.storyboard */,
 				07796CA71CD8CE5900CD6FDA /* Info.plist */,
+				07E5D7181CFC3F8900C2DEAC /* GoogleService-Info.plist */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -434,6 +451,24 @@
 			name = Contacts;
 			sourceTree = "<group>";
 		};
+		07F388A01CFC7416009B1475 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				07F388A11CFC7452009B1475 /* Auth */,
+			);
+			name = Network;
+			sourceTree = "<group>";
+		};
+		07F388A11CFC7452009B1475 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				07F388A21CFC74B7009B1475 /* AuthProvider.swift */,
+				07F388A41CFC7579009B1475 /* FirebaseAuthProvider.swift */,
+				07F149A61CFD8E8F00C63CC7 /* MockAuthProvider.swift */,
+			);
+			name = Auth;
+			sourceTree = "<group>";
+		};
 		07FA2E4D1CE4D41200BE1EFE /* Realm */ = {
 			isa = PBXGroup;
 			children = (
@@ -453,23 +488,12 @@
 			name = Memory;
 			sourceTree = "<group>";
 		};
-		C95B42C782346CDA62D7F874 /* Frameworks */ = {
+		F1B571BEDD03D6832256509D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				3B083263A613CCFAC1491EFB /* Pods_Dont_Forget_To_Say.framework */,
+				6CB6ADEAB575DA82DA7C0E22 /* Pods_Dont_Forget_To_Say.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		CE37903F6D0C0E87028D8BBA /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				04F2BC6FC058D554BD1CCD33 /* Pods-Don't Forget To Say.debug.xcconfig */,
-				62E66115C2B6CC6CF40AD647 /* Pods-Don't Forget To Say.release.xcconfig */,
-				9601B4FB42775BDB1671D842 /* Pods-Dont Forget To Say.debug.xcconfig */,
-				4D83AD0985B1E8B15187665E /* Pods-Dont Forget To Say.release.xcconfig */,
-			);
-			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -479,12 +503,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 07796CAA1CD8CE5900CD6FDA /* Build configuration list for PBXNativeTarget "Dont Forget To Say" */;
 			buildPhases = (
-				86949414B36ABDD91F4367A0 /* Check Pods Manifest.lock */,
+				71236D14F22DEF235767C347 /* 📦 Check Pods Manifest.lock */,
 				07796C941CD8CE5900CD6FDA /* Sources */,
 				07796C951CD8CE5900CD6FDA /* Frameworks */,
 				07796C961CD8CE5900CD6FDA /* Resources */,
-				B1EBD295562E971CED2C1CCB /* Embed Pods Frameworks */,
-				002DDAED4D868055F56B599B /* Copy Pods Resources */,
+				B39FA2AAD7C54A9965EF1DB4 /* 📦 Embed Pods Frameworks */,
+				6E345E230161C2E37892CD35 /* 📦 Copy Pods Resources */,
+				0708A6796760B83B9103A5F7 /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -562,6 +587,7 @@
 				079F19761CDB440900D2AE2E /* Localizable.strings in Resources */,
 				075F8B681CF5D83200808933 /* CommonLoadingView.xib in Resources */,
 				079F198F1CDB90D400D2AE2E /* AddTopicViewController.xib in Resources */,
+				07E5D7191CFC3F8900C2DEAC /* GoogleService-Info.plist in Resources */,
 				07DEAFD61CEC83F3009070F3 /* PasscodeLock.strings in Resources */,
 				079F19841CDB573F00D2AE2E /* TopicListViewController.xib in Resources */,
 				07796CA61CD8CE5900CD6FDA /* LaunchScreen.storyboard in Resources */,
@@ -582,37 +608,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		002DDAED4D868055F56B599B /* Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Dont Forget To Say/Pods-Dont Forget To Say-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		86949414B36ABDD91F4367A0 /* Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		B1EBD295562E971CED2C1CCB /* Embed Pods Frameworks */ = {
+		0708A6796760B83B9103A5F7 /* Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -620,6 +616,51 @@
 			inputPaths = (
 			);
 			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Dont Forget To Say/Pods-Dont Forget To Say-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6E345E230161C2E37892CD35 /* 📦 Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Dont Forget To Say/Pods-Dont Forget To Say-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		71236D14F22DEF235767C347 /* 📦 Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		B39FA2AAD7C54A9965EF1DB4 /* 📦 Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -652,6 +693,8 @@
 				079F19861CDB58F200D2AE2E /* TopicListItemDisplayData.swift in Sources */,
 				079F19881CDB596100D2AE2E /* TopicListPresenter.swift in Sources */,
 				075B0ADF1CD8EDFB00464EBC /* BuddyListPresenter.swift in Sources */,
+				07F388A31CFC74B7009B1475 /* AuthProvider.swift in Sources */,
+				07F388A51CFC7579009B1475 /* FirebaseAuthProvider.swift in Sources */,
 				07BA09DE1CDCE8F100E075B5 /* ContactListItemDisplayData.swift in Sources */,
 				07612FB81CDA1D07009E1600 /* DataStoreProtocol.swift in Sources */,
 				075B0ADC1CD8E51000464EBC /* Topic.swift in Sources */,
@@ -662,6 +705,7 @@
 				07AF68491CDA02230082A68A /* Router.swift in Sources */,
 				070246D51CF6D23E00DF03B1 /* RealmProvider.swift in Sources */,
 				075B0ADA1CD8E4F700464EBC /* Buddy.swift in Sources */,
+				07F149A71CFD8E8F00C63CC7 /* MockAuthProvider.swift in Sources */,
 				07612FBF1CDA1D64009E1600 /* MemDataStore.swift in Sources */,
 				079B996F1CF70691008E0045 /* CommonEmptyView.swift in Sources */,
 				07BDE08B1CEB347A004CE5EC /* SettingsViewController.swift in Sources */,
@@ -810,7 +854,7 @@
 		};
 		07796CAB1CD8CE5900CD6FDA /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9601B4FB42775BDB1671D842 /* Pods-Dont Forget To Say.debug.xcconfig */;
+			baseConfigurationReference = 48D24B20ABBC0F8C671AA39A /* Pods-Dont Forget To Say.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -825,7 +869,7 @@
 		};
 		07796CAC1CD8CE5900CD6FDA /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4D83AD0985B1E8B15187665E /* Pods-Dont Forget To Say.release.xcconfig */;
+			baseConfigurationReference = 1C2332DCF9F344BD6E19AD59 /* Pods-Dont Forget To Say.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";

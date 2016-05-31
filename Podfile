@@ -11,5 +11,6 @@ target 'Dont Forget To Say' do
     pod 'SwiftAddressBook', '~> 0.6.2'
     pod 'AsyncSwift', '~> 1.7.2'
     pod 'StatefulViewController', :git => 'https://github.com/aschuch/StatefulViewController.git', :commit => 'e23246e097'
+    pod 'FirebaseUI', '~> 0.4.0'
 end
 

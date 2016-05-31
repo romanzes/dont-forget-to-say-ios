@@ -84,11 +84,23 @@
 /* Settings screen title */
 "settings_screen_title" = "Settings";
 
+/* Privacy group title */
+"privacy_group_title" = "Privacy";
+
 /* Passcode enabled label */
 "passcode_enabled" = "Pin Lock";
 
 /* Change passcode label */
 "сhange_passcode" = "Change Pin";
+
+/* Synchronization group title */
+"sync_group_title" = "Synchronization";
+
+/* 'Sign In' label */
+"settings_sign_in" = "Sign In";
+
+/* 'Sign Out' label */
+"settings_sign_out" = "Sign Out";
 
 /* Passcode screen cancel button */
 "passcode_cancel_button" = "Cancel";

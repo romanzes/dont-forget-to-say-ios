@@ -10,6 +10,7 @@ import UIKit
 import Swinject
 import PasscodeLock
 import RealmSwift
+import Firebase
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -37,6 +38,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
             .inObjectScope(.Container)
         c.register(SettingsProvider.self) { r in UserDefaultsSettingsProvider() }
+        c.register(AuthProvider.self) { r in FirebaseAuthProvider() }
+            .inObjectScope(.Container)
         c.register(RealmProvider.self) { r in
                 RealmProvider(getRealm: {
                     return try! Realm()
@@ -93,6 +96,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             .initCompleted() { r, c in
                 let presenter = c as! SettingsPresenter
                 presenter.settingsProvider = r.resolve(SettingsProvider.self)
+                presenter.authProvider = r.resolve(AuthProvider.self)
                 presenter.settingsForm = SettingsFormImpl()
                 presenter.userInterface = r.resolve(SettingsViewInterface.self)
         }
@@ -108,6 +112,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+        FIRApp.configure()
         RealmMigration.defineMigrationLogic()
         window = UIWindow(frame: UIScreen.mainScreen().bounds)
         container.resolve(Router.self)?.presentMainControllerFromWindow(window!)
