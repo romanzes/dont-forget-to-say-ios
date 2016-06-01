@@ -11,4 +11,5 @@ import Foundation
 struct Contact {
     let id: String
     let name: String
+    let phones: [Phone]
 }

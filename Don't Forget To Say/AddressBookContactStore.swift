@@ -16,8 +16,15 @@ class AddressBookContactStore: ContactStoreProtocol {
                 var contacts = [Contact]()
                 if let people = swiftAddressBook?.allPeople {
                     for person in people {
-                        if let name = person.compositeName {
-                            contacts += [Contact(id: "\(person.recordID)", name: name)]
+                        if let name = person.compositeName, let numbers = person.phoneNumbers {
+                            let phones = numbers.map({ (phone) -> Phone in
+                                var localizedLabel: String? = nil
+                                if let label = phone.label {
+                                    localizedLabel = ABAddressBookCopyLocalizedLabel(label).takeRetainedValue() as String
+                                }
+                                return Phone(title: localizedLabel, number: phone.value)
+                            })
+                            contacts += [Contact(id: "\(person.recordID)", name: name, phones: phones)]
                         }
                     }
                 }

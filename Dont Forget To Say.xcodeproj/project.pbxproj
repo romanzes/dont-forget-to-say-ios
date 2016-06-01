@@ -49,6 +49,7 @@
 		07BDE08E1CEB35CE004CE5EC /* SettingsForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BDE08D1CEB35CE004CE5EC /* SettingsForm.swift */; };
 		07BDE0921CEB480E004CE5EC /* SettingsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BDE0911CEB480E004CE5EC /* SettingsPresenter.swift */; };
 		07BDE0971CEB52D7004CE5EC /* SettingsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BDE0961CEB52D7004CE5EC /* SettingsProvider.swift */; };
+		07CAB4491CFEC6E00053F5BF /* Phone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07CAB4481CFEC6E00053F5BF /* Phone.swift */; };
 		07D637B01CE47B89000D637A /* NotificationManagerLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D637AF1CE47B89000D637A /* NotificationManagerLogic.swift */; };
 		07D637B21CE49D3D000D637A /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D637B11CE49D3D000D637A /* NotificationManager.swift */; };
 		07DC536A1CEEF70700DF8C6D /* default-v0.realm in Resources */ = {isa = PBXBuildFile; fileRef = 07DC53691CEEF70700DF8C6D /* default-v0.realm */; };
@@ -122,6 +123,7 @@
 		07BDE08D1CEB35CE004CE5EC /* SettingsForm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsForm.swift; sourceTree = "<group>"; };
 		07BDE0911CEB480E004CE5EC /* SettingsPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsPresenter.swift; sourceTree = "<group>"; };
 		07BDE0961CEB52D7004CE5EC /* SettingsProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsProvider.swift; sourceTree = "<group>"; };
+		07CAB4481CFEC6E00053F5BF /* Phone.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Phone.swift; sourceTree = "<group>"; };
 		07D637AF1CE47B89000D637A /* NotificationManagerLogic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationManagerLogic.swift; sourceTree = "<group>"; };
 		07D637B11CE49D3D000D637A /* NotificationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
 		07DC535C1CEEF63D00DF8C6D /* Dont Forget To Say Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Dont Forget To Say Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -233,6 +235,7 @@
 				075B0AD91CD8E4F700464EBC /* Buddy.swift */,
 				075B0ADB1CD8E51000464EBC /* Topic.swift */,
 				07DEAFED1CECBDA6009070F3 /* Contact.swift */,
+				07CAB4481CFEC6E00053F5BF /* Phone.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -679,6 +682,7 @@
 				07FA2E491CE4CB4100BE1EFE /* RealmDataStore.swift in Sources */,
 				07DEAFF01CECBEA8009070F3 /* AddressBookContactStore.swift in Sources */,
 				079F19911CDB91A300D2AE2E /* AddTopicPresenter.swift in Sources */,
+				07CAB4491CFEC6E00053F5BF /* Phone.swift in Sources */,
 				079F197F1CDB56FD00D2AE2E /* TopicTableCell.swift in Sources */,
 				07D637B01CE47B89000D637A /* NotificationManagerLogic.swift in Sources */,
 				079F198E1CDB90D400D2AE2E /* AddTopicViewController.swift in Sources */,

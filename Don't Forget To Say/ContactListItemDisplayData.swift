@@ -12,12 +12,14 @@ class ContactListItemDisplayData: Hashable {
     var buddyId: Int?
     var contactId: String?
     var name: String
+    var phones: [Phone]
     var isNew: Bool
     
-    init(buddyId: Int? = nil, contactId: String? = nil, name: String, isNew: Bool) {
+    init(buddyId: Int? = nil, contactId: String? = nil, name: String, phones: [Phone] = [], isNew: Bool) {
         self.buddyId = buddyId
         self.contactId = contactId
         self.name = name
+        self.phones = phones
         self.isNew = isNew
     }
     

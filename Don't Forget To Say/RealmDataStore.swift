@@ -31,9 +31,9 @@ class RealmDataStore: DataStoreProtocol {
         }
     }
     
-    func addBuddy(name: String, contactId: String?, completionHandler: (buddy: Buddy?, error: CrudStoreError?) -> Void) {
+    func addBuddy(name: String, contactId: String?, phones: [Phone], completionHandler: (buddy: Buddy?, error: CrudStoreError?) -> Void) {
         Async.background {
-            self.addBuddyImpl(name, contactId, completionHandler)
+            self.addBuddyImpl(name, contactId, phones, completionHandler)
         }
     }
     
@@ -87,12 +87,13 @@ class RealmDataStore: DataStoreProtocol {
         }
     }
     
-    private func addBuddyImpl(name: String, _ contactId: String?, _ completionHandler: (buddy: Buddy?, error: CrudStoreError?) -> Void) {
+    private func addBuddyImpl(name: String, _ contactId: String?, _ phones: [Phone], _ completionHandler: (buddy: Buddy?, error: CrudStoreError?) -> Void) {
         let realmInstance = realm()
         let newBuddy = RealmBuddy()
         newBuddy.id = entityPrimaryKey(realmInstance, type: RealmBuddy.self)
         newBuddy.contactId = contactId
         newBuddy.name = name
+        phones.forEach { (phone) in newBuddy.phones.append(RealmPhone(title: phone.title, number: phone.number)) }
         do {
             try realmInstance.write({
                 realmInstance.add(newBuddy)
@@ -199,7 +200,10 @@ class RealmDataStore: DataStoreProtocol {
     }
     
     private func convertBuddy(buddy: RealmBuddy) -> Buddy {
-        return Buddy(id: buddy.id, contactId: buddy.contactId, name: buddy.name)
+        let phones = buddy.phones.map { (phone) -> Phone in
+            Phone(title: phone.title, number: phone.number)
+        }
+        return Buddy(id: buddy.id, contactId: buddy.contactId, name: buddy.name, phones: phones)
     }
     
     private func convertTopic(topic: RealmTopic) -> Topic {
