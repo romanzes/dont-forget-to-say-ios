@@ -23,7 +23,7 @@ class ModernContactStore: ContactStoreProtocol {
     }
     
     private func loadContactsImpl(contactStore: CNContactStore) -> [Contact] {
-        let keysToFetch = [ CNContactFormatter.descriptorForRequiredKeysForStyle(.FullName) ]
+        let keysToFetch = [ CNContactFormatter.descriptorForRequiredKeysForStyle(.FullName), CNContactPhoneNumbersKey ]
         
         // Get all the containers
         var allContainers: [CNContainer] = []
@@ -50,7 +50,14 @@ class ModernContactStore: ContactStoreProtocol {
         var result = [Contact]()
         for contact in contacts {
             if let name = CNContactFormatter.stringFromContact(contact, style: CNContactFormatterStyle.FullName) {
-                result.append(Contact(id: contact.identifier, name: name))
+                let phones = contact.phoneNumbers
+                    .filter({ (phone) -> Bool in
+                        phone.value is CNPhoneNumber
+                    })
+                    .map({ (phone) -> Phone in
+                        Phone(title: CNLabeledValue.localizedStringForLabel(phone.label), number: (phone.value as! CNPhoneNumber).stringValue)
+                    })
+                result.append(Contact(id: contact.identifier, name: name, phones: phones))
             }
         }
         return result

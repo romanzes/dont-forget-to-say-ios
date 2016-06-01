@@ -30,7 +30,7 @@ class AddTopicPresenter: AddTopicPresenterInterface {
         dataStore.fetchBuddies { (buddies, error) in
             if let buddies = buddies {
                 self.contacts = buddies.map({ (buddy) -> ContactListItemDisplayData in
-                    ContactListItemDisplayData(buddyId: buddy.id, contactId: buddy.contactId, name: buddy.name, isNew: false)
+                    ContactListItemDisplayData(buddyId: buddy.id, contactId: buddy.contactId, name: buddy.name, phones: buddy.phones, isNew: false)
                 })
                 completionHandler()
             }
@@ -46,7 +46,7 @@ class AddTopicPresenter: AddTopicPresenterInterface {
                     }) == nil
                 })
                 .map({ (contact) -> ContactListItemDisplayData in
-                    ContactListItemDisplayData(contactId: contact.id, name: contact.name, isNew: false)
+                    ContactListItemDisplayData(contactId: contact.id, name: contact.name, phones: contact.phones, isNew: false)
                 })
             self.contacts! += contactsFromPhone
             completionHandler()
@@ -106,7 +106,7 @@ class AddTopicPresenter: AddTopicPresenterInterface {
         var addNextBuddy: (() -> Void)!
         addNextBuddy = {
             if let buddy = buddyQueue.first {
-                self.dataStore.addBuddy(buddy.name, contactId: buddy.contactId) { (buddy, error) in
+                self.dataStore.addBuddy(buddy.name, contactId: buddy.contactId, phones: buddy.phones) { (buddy, error) in
                     if let buddy = buddy {
                         buddies.append(buddy)
                     }

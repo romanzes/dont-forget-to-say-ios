@@ -61,9 +61,9 @@ class MemDataStore: DataStoreProtocol {
         }
     }
     
-    func addBuddy(name: String, contactId: String?, completionHandler: (buddy: Buddy?, error: CrudStoreError?) -> Void) {
+    func addBuddy(name: String, contactId: String?, phones: [Phone], completionHandler: (buddy: Buddy?, error: CrudStoreError?) -> Void) {
         Async.background(after: simulatedDelay) {
-            self.addBuddyImpl(name, contactId, completionHandler)
+            self.addBuddyImpl(name, contactId, phones, completionHandler)
         }
     }
     
@@ -114,8 +114,8 @@ class MemDataStore: DataStoreProtocol {
         }
     }
     
-    private func addBuddyImpl(name: String, _ contactId: String?, _ completionHandler: (buddy: Buddy?, error: CrudStoreError?) -> Void) {
-        let newBuddy = Buddy(id: freeBuddyId, contactId: contactId, name: name)
+    private func addBuddyImpl(name: String, _ contactId: String?, _ phones: [Phone], _ completionHandler: (buddy: Buddy?, error: CrudStoreError?) -> Void) {
+        let newBuddy = Buddy(id: freeBuddyId, contactId: contactId, name: name, phones: phones)
         buddies += [newBuddy]
         freeBuddyId += 1
         completionHandler(buddy: newBuddy, error: nil)

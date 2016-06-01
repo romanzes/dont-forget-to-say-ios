@@ -21,11 +21,24 @@ public class RealmBuddy: Object {
     }
 }*/
 
-// v1
+/* v1
 public class RealmBuddy: Object {
     dynamic var id = 0
     dynamic var contactId: String? = nil
     dynamic var name = ""
+    let topics = List<RealmTopic>()
+    
+    override public static func primaryKey() -> String? {
+        return "id"
+    }
+}*/
+
+// v2
+public class RealmBuddy: Object {
+    dynamic var id = 0
+    dynamic var contactId: String? = nil
+    dynamic var name = ""
+    let phones = List<RealmPhone>()
     let topics = List<RealmTopic>()
     
     override public static func primaryKey() -> String? {
@@ -41,5 +54,17 @@ public class RealmTopic: Object {
     
     override public static func primaryKey() -> String? {
         return "id"
+    }
+}
+
+// v2
+public class RealmPhone: Object {
+    dynamic var title: String? = nil
+    dynamic var number = ""
+    
+    convenience init(title: String?, number: String) {
+        self.init()
+        self.title = title
+        self.number = number
     }
 }

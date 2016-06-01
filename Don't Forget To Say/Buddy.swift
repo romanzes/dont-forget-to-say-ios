@@ -12,10 +12,12 @@ struct Buddy {
     let id: Int
     let contactId: String?
     let name: String
+    let phones: [Phone]
     
-    init(id: Int, contactId: String? = nil, name: String) {
+    init(id: Int, contactId: String? = nil, name: String, phones: [Phone] = []) {
         self.id = id
         self.contactId = contactId
         self.name = name
+        self.phones = phones
     }
 }
