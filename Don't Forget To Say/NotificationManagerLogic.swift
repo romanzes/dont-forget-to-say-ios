@@ -10,17 +10,17 @@ import Foundation
 import NotificationCenter
 
 protocol NotificationManagerInterface {
-    func showNotificationsForBuddy(buddyId: Int)
+    func showNotificationsForBuddy(buddyId: String)
 }
 
 extension NotificationManager: NotificationManagerInterface {
-    func showNotificationsForBuddy(buddyId: Int) {
+    func showNotificationsForBuddy(buddyId: String) {
         runWithCheck {
             self.showNotificationsForBuddyImpl(buddyId)
         }
     }
     
-    func showNotificationsForBuddyImpl(buddyId: Int) {
+    func showNotificationsForBuddyImpl(buddyId: String) {
         dataStore.fetchTopicsForBuddy(buddyId) { (topics, error) in
             UIApplication.sharedApplication().cancelAllLocalNotifications()
             topics?.reverse().forEach({ (topic) in

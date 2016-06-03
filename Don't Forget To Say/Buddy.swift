@@ -9,12 +9,16 @@
 import Foundation
 
 struct Buddy {
-    let id: Int
+    let id: String
     let contactId: String?
     let name: String
     let phones: [Phone]
     
     init(id: Int, contactId: String? = nil, name: String, phones: [Phone] = []) {
+        self.init(id: "\(id)", contactId: contactId, name: name, phones: phones)
+    }
+    
+    init(id: String, contactId: String? = nil, name: String, phones: [Phone] = []) {
         self.id = id
         self.contactId = contactId
         self.name = name

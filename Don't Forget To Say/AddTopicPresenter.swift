@@ -80,7 +80,7 @@ class AddTopicPresenter: AddTopicPresenterInterface {
     
     func saveTopicWithText(text: String, contacts: Set<ContactListItemDisplayData>) {
         var newBuddies = [ContactListItemDisplayData]()
-        var buddyIds = [Int]()
+        var buddyIds = [String]()
         contacts.forEach({ (contact) in
             if let buddyId = contact.buddyId {
                 buddyIds.append(buddyId)

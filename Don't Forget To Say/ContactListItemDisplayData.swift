@@ -9,13 +9,13 @@
 import Foundation
 
 class ContactListItemDisplayData: Hashable {
-    var buddyId: Int?
+    var buddyId: String?
     var contactId: String?
     var name: String
     var phones: [Phone]
     var isNew: Bool
     
-    init(buddyId: Int? = nil, contactId: String? = nil, name: String, phones: [Phone] = [], isNew: Bool) {
+    init(buddyId: String? = nil, contactId: String? = nil, name: String, phones: [Phone] = [], isNew: Bool) {
         self.buddyId = buddyId
         self.contactId = contactId
         self.name = name
@@ -25,11 +25,14 @@ class ContactListItemDisplayData: Hashable {
     
     var hashValue: Int {
         get {
-            var result = name.hashValue
+            var hashString = name
             if let buddyId = buddyId {
-                result += buddyId
+                hashString += buddyId
             }
-            return result
+            if let contactId = contactId {
+                hashString += contactId
+            }
+            return hashString.hashValue
         }
     }
 }

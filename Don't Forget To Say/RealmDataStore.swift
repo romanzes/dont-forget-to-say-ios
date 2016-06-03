@@ -25,7 +25,7 @@ class RealmDataStore: DataStoreProtocol {
         }
     }
     
-    func fetchBuddy(id: Int, completionHandler: (buddy: Buddy?, error: CrudStoreError?) -> Void) {
+    func fetchBuddy(id: String, completionHandler: (buddy: Buddy?, error: CrudStoreError?) -> Void) {
         Async.background {
             self.fetchBuddyImpl(id, completionHandler)
         }
@@ -37,31 +37,31 @@ class RealmDataStore: DataStoreProtocol {
         }
     }
     
-    func deleteBuddy(id: Int, completionHandler: (error: CrudStoreError?) -> Void) {
+    func deleteBuddy(id: String, completionHandler: (error: CrudStoreError?) -> Void) {
         Async.background {
             self.deleteBuddyImpl(id, completionHandler)
         }
     }
     
-    func fetchTopicsForBuddy(buddyId: Int, completionHandler: (topics: [Topic]?, error: CrudStoreError?) -> Void) {
+    func fetchTopicsForBuddy(buddyId: String, completionHandler: (topics: [Topic]?, error: CrudStoreError?) -> Void) {
         Async.background {
             self.fetchTopicsForBuddyImpl(buddyId, completionHandler)
         }
     }
     
-    func addTopic(text: String, buddyIds: [Int], completionHandler: (topic: Topic?, error: CrudStoreError?) -> Void) {
+    func addTopic(text: String, buddyIds: [String], completionHandler: (topic: Topic?, error: CrudStoreError?) -> Void) {
         Async.background {
             self.addTopicImpl(text, buddyIds, completionHandler)
         }
     }
     
-    func deleteTopic(id: Int, completionHandler: (error: CrudStoreError?) -> Void) {
+    func deleteTopic(id: String, completionHandler: (error: CrudStoreError?) -> Void) {
         Async.background {
             self.deleteTopicImpl(id, completionHandler)
         }
     }
     
-    func deleteTopicFromBuddy(buddyId: Int, topicId: Int, completionHandler: (error: CrudStoreError?) -> Void) {
+    func deleteTopicFromBuddy(buddyId: String, topicId: String, completionHandler: (error: CrudStoreError?) -> Void) {
         Async.background {
             self.deleteTopicFromBuddyImpl(buddyId, topicId, completionHandler)
         }
@@ -77,7 +77,7 @@ class RealmDataStore: DataStoreProtocol {
         completionHandler(buddies: buddies, error: nil)
     }
     
-    private func fetchBuddyImpl(id: Int, _ completionHandler: (buddy: Buddy?, error: CrudStoreError?) -> Void) {
+    private func fetchBuddyImpl(id: String, _ completionHandler: (buddy: Buddy?, error: CrudStoreError?) -> Void) {
         let realmBuddy = realm().objectForPrimaryKey(RealmBuddy.self, key: id)
         if let realmBuddy = realmBuddy {
             let buddy = convertBuddy(realmBuddy)
@@ -104,7 +104,7 @@ class RealmDataStore: DataStoreProtocol {
         }
     }
     
-    private func deleteBuddyImpl(id: Int, _ completionHandler: (error: CrudStoreError?) -> Void) {
+    private func deleteBuddyImpl(id: String, _ completionHandler: (error: CrudStoreError?) -> Void) {
         do {
             let realmInstance = realm()
             try realmInstance.write {
@@ -119,7 +119,7 @@ class RealmDataStore: DataStoreProtocol {
         }
     }
     
-    private func fetchTopicsForBuddyImpl(buddyId: Int, _ completionHandler: (topics: [Topic]?, error: CrudStoreError?) -> Void) {
+    private func fetchTopicsForBuddyImpl(buddyId: String, _ completionHandler: (topics: [Topic]?, error: CrudStoreError?) -> Void) {
         let realmBuddy = realm().objectForPrimaryKey(RealmBuddy.self, key: buddyId)
         if let realmBuddy = realmBuddy {
             let topics = realmBuddy.topics.map({ (realmTopic) -> Topic in
@@ -131,7 +131,7 @@ class RealmDataStore: DataStoreProtocol {
         }
     }
     
-    private func addTopicImpl(text: String, _ buddyIds: [Int], _ completionHandler: (topic: Topic?, error: CrudStoreError?) -> Void) {
+    private func addTopicImpl(text: String, _ buddyIds: [String], _ completionHandler: (topic: Topic?, error: CrudStoreError?) -> Void) {
         do {
             let realmInstance = realm()
             try realmInstance.write({
@@ -151,7 +151,7 @@ class RealmDataStore: DataStoreProtocol {
         }
     }
     
-    private func deleteTopicImpl(id: Int, _ completionHandler: (error: CrudStoreError?) -> Void) {
+    private func deleteTopicImpl(id: String, _ completionHandler: (error: CrudStoreError?) -> Void) {
         do {
             let realmInstance = realm()
             try realmInstance.write {
@@ -163,13 +163,13 @@ class RealmDataStore: DataStoreProtocol {
         }
     }
     
-    private func deleteTopicFromBuddyImpl(buddyId: Int, _ topicId: Int, _ completionHandler: (error: CrudStoreError?) -> Void) {
+    private func deleteTopicFromBuddyImpl(buddyId: String, _ topicId: String, _ completionHandler: (error: CrudStoreError?) -> Void) {
         do {
             let realmInstance = realm()
             try realmInstance.write {
                 if let buddy = realmInstance.objectForPrimaryKey(RealmBuddy.self, key: buddyId) {
                     if let index = buddy.topics.indexOf({ (topic) -> Bool in
-                        topic.id == topicId
+                        "\(topic.id)" == topicId
                     }) {
                         buddy.topics.removeAtIndex(index)
                         completionHandler(error: nil)
@@ -203,10 +203,10 @@ class RealmDataStore: DataStoreProtocol {
         let phones = buddy.phones.map { (phone) -> Phone in
             Phone(title: phone.title, number: phone.number)
         }
-        return Buddy(id: buddy.id, contactId: buddy.contactId, name: buddy.name, phones: phones)
+        return Buddy(id: "\(buddy.id)", contactId: buddy.contactId, name: buddy.name, phones: phones)
     }
     
     private func convertTopic(topic: RealmTopic) -> Topic {
-        return Topic(id: topic.id, text: topic.text, buddyCount: topic.buddies.count)
+        return Topic(id: "\(topic.id)", text: topic.text, buddyCount: topic.buddies.count)
     }
 }

@@ -19,7 +19,7 @@ struct Router {
         window.makeKeyAndVisible()
     }
     
-    func showTopicListFromViewController(viewController: UIViewController, buddyId: Int) {
+    func showTopicListFromViewController(viewController: UIViewController, buddyId: String) {
         let topicListViewController = container.resolve(TopicListViewInterface) as! TopicListViewController
         topicListViewController.buddyId = buddyId
         viewController.navigationController?.pushViewController(topicListViewController, animated: true)

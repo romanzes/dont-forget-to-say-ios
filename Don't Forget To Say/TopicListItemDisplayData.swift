@@ -9,7 +9,7 @@
 import Foundation
 
 struct TopicListItemDisplayData {
-    let id: Int
+    let id: String
     let text: String
     let isSingle: Bool
 }

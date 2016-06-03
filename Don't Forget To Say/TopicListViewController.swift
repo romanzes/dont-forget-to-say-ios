@@ -16,7 +16,7 @@ class TopicListViewController: UIViewController, UITableViewDataSource, TopicLis
     var presenter: TopicListPresenterInterface!
     
     // MARK: Properties
-    var buddyId: Int!
+    var buddyId: String!
     var buddyName: String?
     var displayData: [TopicListItemDisplayData]?
     

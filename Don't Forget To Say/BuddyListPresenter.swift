@@ -11,7 +11,7 @@ import Async
 
 protocol BuddyListPresenterInterface {
     func obtainBuddies()
-    func deleteBuddy(buddyId: Int)
+    func deleteBuddy(buddyId: String)
 }
 
 protocol BuddyListViewInterface: class {
@@ -31,7 +31,7 @@ class BuddyListPresenter: BuddyListPresenterInterface {
         }
     }
     
-    func deleteBuddy(buddyId: Int) {
+    func deleteBuddy(buddyId: String) {
         dataStore.deleteBuddy(buddyId, completionHandler: { (error) in
             self.obtainBuddies()
         })
@@ -39,16 +39,18 @@ class BuddyListPresenter: BuddyListPresenterInterface {
     
     func generateDisplayData(buddies: [Buddy]) {
         var displayData = [BuddyListItemDisplayData]()
+        var processingIndex = 0
         var generateNextItem: (() -> Void)!
         generateNextItem = {
-            if displayData.count < buddies.count {
-                let buddy = buddies[displayData.count]
+            if processingIndex < buddies.count {
+                let buddy = buddies[processingIndex]
                 self.dataStore.fetchTopicsForBuddy(buddy.id) { (topics, error) in
                     if let topics = topics {
                         let item = BuddyListItemDisplayData(id: buddy.id, name: buddy.name, topicCount: topics.count)
                         displayData += [item]
-                        generateNextItem()
                     }
+                    processingIndex += 1
+                    generateNextItem()
                 }
             } else {
                 self.onDisplayDataGenerated(displayData)

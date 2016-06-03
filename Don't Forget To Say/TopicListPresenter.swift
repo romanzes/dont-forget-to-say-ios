@@ -10,9 +10,9 @@ import Foundation
 import Async
 
 protocol TopicListPresenterInterface {
-    func fetchData(buddyId: Int)
+    func fetchData(buddyId: String)
     func showNotifications()
-    func deleteTopic(topicId: Int, deleteAll: Bool)
+    func deleteTopic(topicId: String, deleteAll: Bool)
 }
 
 protocol TopicListViewInterface: class {
@@ -28,9 +28,9 @@ class TopicListPresenter: TopicListPresenterInterface {
     weak var userInterface: TopicListViewInterface?
     
     // MARK: Properties
-    var buddyId: Int!
+    var buddyId: String!
     
-    func fetchData(buddyId: Int) {
+    func fetchData(buddyId: String) {
         self.buddyId = buddyId
         obtainTitle()
         obtainTopics()
@@ -40,7 +40,7 @@ class TopicListPresenter: TopicListPresenterInterface {
         notificationManager.showNotificationsForBuddy(buddyId)
     }
     
-    func deleteTopic(topicId: Int, deleteAll: Bool) {
+    func deleteTopic(topicId: String, deleteAll: Bool) {
         let onDelete: (CrudStoreError?) -> Void = { (error) in
             self.obtainTopics()
         }

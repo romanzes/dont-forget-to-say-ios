@@ -28,6 +28,7 @@
 		07796C9C1CD8CE5900CD6FDA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07796C9B1CD8CE5900CD6FDA /* AppDelegate.swift */; };
 		07796CA31CD8CE5900CD6FDA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 07796CA21CD8CE5900CD6FDA /* Assets.xcassets */; };
 		07796CA61CD8CE5900CD6FDA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 07796CA41CD8CE5900CD6FDA /* LaunchScreen.storyboard */; };
+		077DA01B1CFF1DBD00929C46 /* FirebaseDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077DA01A1CFF1DBD00929C46 /* FirebaseDataStore.swift */; };
 		079B996F1CF70691008E0045 /* CommonEmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079B996E1CF70691008E0045 /* CommonEmptyView.swift */; };
 		079B99711CF706A0008E0045 /* CommonEmptyView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 079B99701CF706A0008E0045 /* CommonEmptyView.xib */; };
 		079F19761CDB440900D2AE2E /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 079F19781CDB440900D2AE2E /* Localizable.strings */; };
@@ -101,6 +102,7 @@
 		07796CA21CD8CE5900CD6FDA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		07796CA51CD8CE5900CD6FDA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		07796CA71CD8CE5900CD6FDA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		077DA01A1CFF1DBD00929C46 /* FirebaseDataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseDataStore.swift; sourceTree = "<group>"; };
 		079B996E1CF70691008E0045 /* CommonEmptyView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonEmptyView.swift; sourceTree = "<group>"; };
 		079B99701CF706A0008E0045 /* CommonEmptyView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CommonEmptyView.xib; sourceTree = "<group>"; };
 		079F19771CDB440900D2AE2E /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -281,6 +283,14 @@
 			path = "Don't Forget To Say";
 			sourceTree = "<group>";
 		};
+		077DA0191CFF1D3C00929C46 /* Firebase */ = {
+			isa = PBXGroup;
+			children = (
+				077DA01A1CFF1DBD00929C46 /* FirebaseDataStore.swift */,
+			);
+			name = Firebase;
+			sourceTree = "<group>";
+		};
 		079B996D1CF6F84A008E0045 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -421,6 +431,7 @@
 			children = (
 				07FA2E4E1CE4D41C00BE1EFE /* Memory */,
 				07FA2E4D1CE4D41200BE1EFE /* Realm */,
+				077DA0191CFF1D3C00929C46 /* Firebase */,
 				07612FB71CDA1D07009E1600 /* DataStoreProtocol.swift */,
 				07612FB91CDA1D1B009E1600 /* CrudStoreError.swift */,
 			);
@@ -690,6 +701,7 @@
 				0746566C1CEA17E2008E5F45 /* UserDefaultsPasscodeRepository.swift in Sources */,
 				07B758E41CE5B52600C8726B /* RealmModels.swift in Sources */,
 				07612FBA1CDA1D1B009E1600 /* CrudStoreError.swift in Sources */,
+				077DA01B1CFF1DBD00929C46 /* FirebaseDataStore.swift in Sources */,
 				07AF68491CDA02230082A68A /* Router.swift in Sources */,
 				070246D51CF6D23E00DF03B1 /* RealmProvider.swift in Sources */,
 				075B0ADA1CD8E4F700464EBC /* Buddy.swift in Sources */,

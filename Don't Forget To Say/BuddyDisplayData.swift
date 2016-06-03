@@ -9,7 +9,7 @@
 import Foundation
 
 struct BuddyListItemDisplayData {
-    let id: Int
+    let id: String
     let name: String
     let topicCount: Int
 }
