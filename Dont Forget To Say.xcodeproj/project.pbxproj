@@ -64,7 +64,7 @@
 		07F388A31CFC74B7009B1475 /* AuthProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07F388A21CFC74B7009B1475 /* AuthProvider.swift */; };
 		07F388A51CFC7579009B1475 /* FirebaseAuthProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07F388A41CFC7579009B1475 /* FirebaseAuthProvider.swift */; };
 		07FA2E491CE4CB4100BE1EFE /* RealmDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07FA2E481CE4CB4100BE1EFE /* RealmDataStore.swift */; };
-		46651E4CC1102D15D96019B0 /* Pods_Dont_Forget_To_Say.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CB6ADEAB575DA82DA7C0E22 /* Pods_Dont_Forget_To_Say.framework */; };
+		C070D32B018BF18F6287BA68 /* Pods_Dont_Forget_To_Say.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 305C0C6D2905E7A76D6B26AB /* Pods_Dont_Forget_To_Say.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -140,9 +140,9 @@
 		07F388A21CFC74B7009B1475 /* AuthProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthProvider.swift; sourceTree = "<group>"; };
 		07F388A41CFC7579009B1475 /* FirebaseAuthProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseAuthProvider.swift; sourceTree = "<group>"; };
 		07FA2E481CE4CB4100BE1EFE /* RealmDataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmDataStore.swift; sourceTree = "<group>"; };
-		1C2332DCF9F344BD6E19AD59 /* Pods-Dont Forget To Say.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dont Forget To Say.release.xcconfig"; path = "Pods/Target Support Files/Pods-Dont Forget To Say/Pods-Dont Forget To Say.release.xcconfig"; sourceTree = "<group>"; };
-		48D24B20ABBC0F8C671AA39A /* Pods-Dont Forget To Say.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dont Forget To Say.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Dont Forget To Say/Pods-Dont Forget To Say.debug.xcconfig"; sourceTree = "<group>"; };
-		6CB6ADEAB575DA82DA7C0E22 /* Pods_Dont_Forget_To_Say.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Dont_Forget_To_Say.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		216842B3D0E2CD3CCB6D6D26 /* Pods-Dont Forget To Say.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dont Forget To Say.release.xcconfig"; path = "Pods/Target Support Files/Pods-Dont Forget To Say/Pods-Dont Forget To Say.release.xcconfig"; sourceTree = "<group>"; };
+		305C0C6D2905E7A76D6B26AB /* Pods_Dont_Forget_To_Say.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Dont_Forget_To_Say.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5B65320B8D2B1E9946BE32E8 /* Pods-Dont Forget To Say.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dont Forget To Say.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Dont Forget To Say/Pods-Dont Forget To Say.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,7 +150,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				46651E4CC1102D15D96019B0 /* Pods_Dont_Forget_To_Say.framework in Frameworks */,
+				C070D32B018BF18F6287BA68 /* Pods_Dont_Forget_To_Say.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -164,15 +164,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		050817C495245D35D8368142 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				48D24B20ABBC0F8C671AA39A /* Pods-Dont Forget To Say.debug.xcconfig */,
-				1C2332DCF9F344BD6E19AD59 /* Pods-Dont Forget To Say.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 		0746566E1CEA1869008E5F45 /* Passcode */ = {
 			isa = PBXGroup;
 			children = (
@@ -265,8 +256,8 @@
 				07796C9A1CD8CE5900CD6FDA /* Dont Forget To Say */,
 				07DC535D1CEEF63D00DF8C6D /* Dont Forget To Say Tests */,
 				07796C991CD8CE5900CD6FDA /* Products */,
-				050817C495245D35D8368142 /* Pods */,
-				F1B571BEDD03D6832256509D /* Frameworks */,
+				700F08EA274B5D6A04B42BBB /* Pods */,
+				16D2E758CDC1274C059CEAF5 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -491,12 +482,21 @@
 			name = Memory;
 			sourceTree = "<group>";
 		};
-		F1B571BEDD03D6832256509D /* Frameworks */ = {
+		16D2E758CDC1274C059CEAF5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				6CB6ADEAB575DA82DA7C0E22 /* Pods_Dont_Forget_To_Say.framework */,
+				305C0C6D2905E7A76D6B26AB /* Pods_Dont_Forget_To_Say.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		700F08EA274B5D6A04B42BBB /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				5B65320B8D2B1E9946BE32E8 /* Pods-Dont Forget To Say.debug.xcconfig */,
+				216842B3D0E2CD3CCB6D6D26 /* Pods-Dont Forget To Say.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -506,13 +506,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 07796CAA1CD8CE5900CD6FDA /* Build configuration list for PBXNativeTarget "Dont Forget To Say" */;
 			buildPhases = (
-				71236D14F22DEF235767C347 /* 📦 Check Pods Manifest.lock */,
+				F09A4F902121059162F3A8A9 /* [CP] Check Pods Manifest.lock */,
 				07796C941CD8CE5900CD6FDA /* Sources */,
 				07796C951CD8CE5900CD6FDA /* Frameworks */,
 				07796C961CD8CE5900CD6FDA /* Resources */,
-				B39FA2AAD7C54A9965EF1DB4 /* 📦 Embed Pods Frameworks */,
-				6E345E230161C2E37892CD35 /* 📦 Copy Pods Resources */,
-				0708A6796760B83B9103A5F7 /* Embed Pods Frameworks */,
+				3225BB24D54431977B94CCC8 /* [CP] Embed Pods Frameworks */,
+				CC84EB60D58D215BD0BC415B /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -611,14 +610,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		0708A6796760B83B9103A5F7 /* Embed Pods Frameworks */ = {
+		3225BB24D54431977B94CCC8 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Embed Pods Frameworks";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -626,14 +625,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Dont Forget To Say/Pods-Dont Forget To Say-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		6E345E230161C2E37892CD35 /* 📦 Copy Pods Resources */ = {
+		CC84EB60D58D215BD0BC415B /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -641,34 +640,19 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Dont Forget To Say/Pods-Dont Forget To Say-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		71236D14F22DEF235767C347 /* 📦 Check Pods Manifest.lock */ = {
+		F09A4F902121059162F3A8A9 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		B39FA2AAD7C54A9965EF1DB4 /* 📦 Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "📦 Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Dont Forget To Say/Pods-Dont Forget To Say-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -858,7 +842,7 @@
 		};
 		07796CAB1CD8CE5900CD6FDA /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 48D24B20ABBC0F8C671AA39A /* Pods-Dont Forget To Say.debug.xcconfig */;
+			baseConfigurationReference = 5B65320B8D2B1E9946BE32E8 /* Pods-Dont Forget To Say.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -873,7 +857,7 @@
 		};
 		07796CAC1CD8CE5900CD6FDA /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1C2332DCF9F344BD6E19AD59 /* Pods-Dont Forget To Say.release.xcconfig */;
+			baseConfigurationReference = 216842B3D0E2CD3CCB6D6D26 /* Pods-Dont Forget To Say.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
