@@ -9,7 +9,7 @@
 import Foundation
 
 struct Topic {
-    let id: Int
+    let id: String
     let text: String
     let buddyCount: Int
 }

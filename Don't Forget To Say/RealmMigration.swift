@@ -19,11 +19,14 @@ class RealmMigration {
     
     class func configuration() -> Realm.Configuration {
         return Realm.Configuration(
-            schemaVersion: 2,
+            schemaVersion: 3,
             
             migrationBlock: { migration, oldSchemaVersion in
                 if (oldSchemaVersion < 1) {
                     self.migrateToV1(migration)
+                }
+                if (oldSchemaVersion < 3) {
+                    self.migrateToV3(migration)
                 }
             }
         )
@@ -33,6 +36,19 @@ class RealmMigration {
         migration.enumerate(RealmBuddy.className()) { oldObject, newObject in
             if let contactId = oldObject!["contactId"] as? Int {
                 newObject!["contactId"] = "\(contactId)"
+            }
+        }
+    }
+    
+    class private func migrateToV3(migration: Migration) {
+        migration.enumerate(RealmBuddy.className()) { oldObject, newObject in
+            if let id = oldObject!["id"] as? Int {
+                newObject!["id"] = "\(id)"
+            }
+        }
+        migration.enumerate(RealmTopic.className()) { oldObject, newObject in
+            if let id = oldObject!["id"] as? Int {
+                newObject!["id"] = "\(id)"
             }
         }
     }

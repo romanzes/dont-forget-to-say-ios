@@ -33,7 +33,7 @@ public class RealmBuddy: Object {
     }
 }*/
 
-// v2
+/* v2
 public class RealmBuddy: Object {
     dynamic var id = 0
     dynamic var contactId: String? = nil
@@ -44,11 +44,35 @@ public class RealmBuddy: Object {
     override public static func primaryKey() -> String? {
         return "id"
     }
+}*/
+
+// v3
+public class RealmBuddy: Object {
+    dynamic var id = ""
+    dynamic var contactId: String? = nil
+    dynamic var name = ""
+    let phones = List<RealmPhone>()
+    let topics = List<RealmTopic>()
+    
+    override public static func primaryKey() -> String? {
+        return "id"
+    }
 }
 
-// v0
+/* v0
 public class RealmTopic: Object {
     dynamic var id = 0
+    dynamic var text = ""
+    let buddies = LinkingObjects(fromType: RealmBuddy.self, property: "topics")
+    
+    override public static func primaryKey() -> String? {
+        return "id"
+    }
+}*/
+
+// v3
+public class RealmTopic: Object {
+    dynamic var id = ""
     dynamic var text = ""
     let buddies = LinkingObjects(fromType: RealmBuddy.self, property: "topics")
     

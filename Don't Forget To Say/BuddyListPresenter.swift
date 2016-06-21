@@ -11,7 +11,7 @@ import Async
 
 protocol BuddyListPresenterInterface {
     func obtainBuddies()
-    func deleteBuddy(buddyId: Int)
+    func deleteBuddy(buddyId: String)
 }
 
 protocol BuddyListViewInterface: class {
@@ -31,7 +31,7 @@ class BuddyListPresenter: BuddyListPresenterInterface {
         }
     }
     
-    func deleteBuddy(buddyId: Int) {
+    func deleteBuddy(buddyId: String) {
         dataStore.deleteBuddy(buddyId, completionHandler: { (error) in
             self.obtainBuddies()
         })
