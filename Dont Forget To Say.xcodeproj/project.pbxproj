@@ -52,6 +52,8 @@
 		07CAB4491CFEC6E00053F5BF /* Phone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07CAB4481CFEC6E00053F5BF /* Phone.swift */; };
 		07D637B01CE47B89000D637A /* NotificationManagerLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D637AF1CE47B89000D637A /* NotificationManagerLogic.swift */; };
 		07D637B21CE49D3D000D637A /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D637B11CE49D3D000D637A /* NotificationManager.swift */; };
+		07DB90191D181A2600FE1079 /* CouchbaseDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07DB90181D181A2600FE1079 /* CouchbaseDataStore.swift */; };
+		07DB901E1D1839DB00FE1079 /* CouchbaseModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07DB901D1D1839DB00FE1079 /* CouchbaseModels.swift */; };
 		07DC536A1CEEF70700DF8C6D /* default-v0.realm in Resources */ = {isa = PBXBuildFile; fileRef = 07DC53691CEEF70700DF8C6D /* default-v0.realm */; };
 		07DC536C1CEEF77A00DF8C6D /* MigrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07DC536B1CEEF77A00DF8C6D /* MigrationTests.swift */; };
 		07DEAFD61CEC83F3009070F3 /* PasscodeLock.strings in Resources */ = {isa = PBXBuildFile; fileRef = 07DEAFD81CEC83F3009070F3 /* PasscodeLock.strings */; };
@@ -60,9 +62,6 @@
 		07DEAFEE1CECBDA6009070F3 /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07DEAFED1CECBDA6009070F3 /* Contact.swift */; };
 		07DEAFF01CECBEA8009070F3 /* AddressBookContactStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07DEAFEF1CECBEA8009070F3 /* AddressBookContactStore.swift */; };
 		07E5D7191CFC3F8900C2DEAC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 07E5D7181CFC3F8900C2DEAC /* GoogleService-Info.plist */; };
-		07F149A71CFD8E8F00C63CC7 /* MockAuthProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07F149A61CFD8E8F00C63CC7 /* MockAuthProvider.swift */; };
-		07F388A31CFC74B7009B1475 /* AuthProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07F388A21CFC74B7009B1475 /* AuthProvider.swift */; };
-		07F388A51CFC7579009B1475 /* FirebaseAuthProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07F388A41CFC7579009B1475 /* FirebaseAuthProvider.swift */; };
 		07FA2E491CE4CB4100BE1EFE /* RealmDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07FA2E481CE4CB4100BE1EFE /* RealmDataStore.swift */; };
 		C070D32B018BF18F6287BA68 /* Pods_Dont_Forget_To_Say.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 305C0C6D2905E7A76D6B26AB /* Pods_Dont_Forget_To_Say.framework */; };
 /* End PBXBuildFile section */
@@ -126,6 +125,9 @@
 		07CAB4481CFEC6E00053F5BF /* Phone.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Phone.swift; sourceTree = "<group>"; };
 		07D637AF1CE47B89000D637A /* NotificationManagerLogic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationManagerLogic.swift; sourceTree = "<group>"; };
 		07D637B11CE49D3D000D637A /* NotificationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
+		07DB90181D181A2600FE1079 /* CouchbaseDataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CouchbaseDataStore.swift; sourceTree = "<group>"; };
+		07DB901A1D18248600FE1079 /* Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
+		07DB901D1D1839DB00FE1079 /* CouchbaseModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CouchbaseModels.swift; sourceTree = "<group>"; };
 		07DC535C1CEEF63D00DF8C6D /* Dont Forget To Say Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Dont Forget To Say Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		07DC53601CEEF63D00DF8C6D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		07DC53691CEEF70700DF8C6D /* default-v0.realm */ = {isa = PBXFileReference; lastKnownFileType = file; path = "default-v0.realm"; sourceTree = "<group>"; };
@@ -136,9 +138,6 @@
 		07DEAFED1CECBDA6009070F3 /* Contact.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
 		07DEAFEF1CECBEA8009070F3 /* AddressBookContactStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddressBookContactStore.swift; sourceTree = "<group>"; };
 		07E5D7181CFC3F8900C2DEAC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		07F149A61CFD8E8F00C63CC7 /* MockAuthProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockAuthProvider.swift; sourceTree = "<group>"; };
-		07F388A21CFC74B7009B1475 /* AuthProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthProvider.swift; sourceTree = "<group>"; };
-		07F388A41CFC7579009B1475 /* FirebaseAuthProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseAuthProvider.swift; sourceTree = "<group>"; };
 		07FA2E481CE4CB4100BE1EFE /* RealmDataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmDataStore.swift; sourceTree = "<group>"; };
 		216842B3D0E2CD3CCB6D6D26 /* Pods-Dont Forget To Say.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dont Forget To Say.release.xcconfig"; path = "Pods/Target Support Files/Pods-Dont Forget To Say/Pods-Dont Forget To Say.release.xcconfig"; sourceTree = "<group>"; };
 		305C0C6D2905E7A76D6B26AB /* Pods_Dont_Forget_To_Say.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Dont_Forget_To_Say.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -210,12 +209,12 @@
 			children = (
 				0746566E1CEA1869008E5F45 /* Passcode */,
 				07612FB61CDA1CC3009E1600 /* Store */,
-				07F388A01CFC7416009B1475 /* Network */,
 				075B0AD81CD8E4DF00464EBC /* Model */,
 				07D637AE1CE47B69000D637A /* Notifications */,
 				079B996D1CF6F84A008E0045 /* View */,
 				07AF68481CDA02230082A68A /* Router.swift */,
 				07796C9B1CD8CE5900CD6FDA /* AppDelegate.swift */,
+				07DB901A1D18248600FE1079 /* Bridging-Header.h */,
 			);
 			name = Common;
 			sourceTree = "<group>";
@@ -376,6 +375,15 @@
 			name = Notifications;
 			sourceTree = "<group>";
 		};
+		07DB90171D1819C100FE1079 /* Couchbase */ = {
+			isa = PBXGroup;
+			children = (
+				07DB90181D181A2600FE1079 /* CouchbaseDataStore.swift */,
+				07DB901D1D1839DB00FE1079 /* CouchbaseModels.swift */,
+			);
+			name = Couchbase;
+			sourceTree = "<group>";
+		};
 		07DC535D1CEEF63D00DF8C6D /* Dont Forget To Say Tests */ = {
 			isa = PBXGroup;
 			children = (
@@ -421,6 +429,7 @@
 			children = (
 				07FA2E4E1CE4D41C00BE1EFE /* Memory */,
 				07FA2E4D1CE4D41200BE1EFE /* Realm */,
+				07DB90171D1819C100FE1079 /* Couchbase */,
 				07612FB71CDA1D07009E1600 /* DataStoreProtocol.swift */,
 				07612FB91CDA1D1B009E1600 /* CrudStoreError.swift */,
 			);
@@ -443,24 +452,6 @@
 				073876721CEDD1B600D927E7 /* ModernContactStore.swift */,
 			);
 			name = Contacts;
-			sourceTree = "<group>";
-		};
-		07F388A01CFC7416009B1475 /* Network */ = {
-			isa = PBXGroup;
-			children = (
-				07F388A11CFC7452009B1475 /* Auth */,
-			);
-			name = Network;
-			sourceTree = "<group>";
-		};
-		07F388A11CFC7452009B1475 /* Auth */ = {
-			isa = PBXGroup;
-			children = (
-				07F388A21CFC74B7009B1475 /* AuthProvider.swift */,
-				07F388A41CFC7579009B1475 /* FirebaseAuthProvider.swift */,
-				07F149A61CFD8E8F00C63CC7 /* MockAuthProvider.swift */,
-			);
-			name = Auth;
 			sourceTree = "<group>";
 		};
 		07FA2E4D1CE4D41200BE1EFE /* Realm */ = {
@@ -676,15 +667,15 @@
 				07612FC11CDA24B7009E1600 /* BuddyDisplayData.swift in Sources */,
 				07DEAFDD1CEC8A90009070F3 /* LocalizedPasscodeViewController.swift in Sources */,
 				07BDE08E1CEB35CE004CE5EC /* SettingsForm.swift in Sources */,
+				07DB90191D181A2600FE1079 /* CouchbaseDataStore.swift in Sources */,
 				07796C9C1CD8CE5900CD6FDA /* AppDelegate.swift in Sources */,
 				07DEAFEE1CECBDA6009070F3 /* Contact.swift in Sources */,
 				079F19861CDB58F200D2AE2E /* TopicListItemDisplayData.swift in Sources */,
 				079F19881CDB596100D2AE2E /* TopicListPresenter.swift in Sources */,
 				075B0ADF1CD8EDFB00464EBC /* BuddyListPresenter.swift in Sources */,
-				07F388A31CFC74B7009B1475 /* AuthProvider.swift in Sources */,
-				07F388A51CFC7579009B1475 /* FirebaseAuthProvider.swift in Sources */,
 				07BA09DE1CDCE8F100E075B5 /* ContactListItemDisplayData.swift in Sources */,
 				07612FB81CDA1D07009E1600 /* DataStoreProtocol.swift in Sources */,
+				07DB901E1D1839DB00FE1079 /* CouchbaseModels.swift in Sources */,
 				075B0ADC1CD8E51000464EBC /* Topic.swift in Sources */,
 				079F19831CDB573F00D2AE2E /* TopicListViewController.swift in Sources */,
 				0746566C1CEA17E2008E5F45 /* UserDefaultsPasscodeRepository.swift in Sources */,
@@ -693,7 +684,6 @@
 				07AF68491CDA02230082A68A /* Router.swift in Sources */,
 				070246D51CF6D23E00DF03B1 /* RealmProvider.swift in Sources */,
 				075B0ADA1CD8E4F700464EBC /* Buddy.swift in Sources */,
-				07F149A71CFD8E8F00C63CC7 /* MockAuthProvider.swift in Sources */,
 				07612FBF1CDA1D64009E1600 /* MemDataStore.swift in Sources */,
 				079B996F1CF70691008E0045 /* CommonEmptyView.swift in Sources */,
 				07BDE08B1CEB347A004CE5EC /* SettingsViewController.swift in Sources */,
@@ -796,6 +786,7 @@
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
+				SWIFT_OBJC_BRIDGING_HEADER = "$(PROJECT_DIR)/Don't Forget To Say/Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -835,6 +826,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OBJC_BRIDGING_HEADER = "$(PROJECT_DIR)/Don't Forget To Say/Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -847,6 +839,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = "Don't Forget To Say/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.romanzes.Don-t-Forget-To-Say";
@@ -862,6 +858,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = "Don't Forget To Say/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.romanzes.Don-t-Forget-To-Say";
@@ -874,11 +874,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/CrashReporter.framework/Headers";
 				INFOPLIST_FILE = "Dont Forget To Say Tests/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.romanzes.Dont-Forget-To-Say-Tests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Dont Forget To Say.app/Dont Forget To Say";
 			};
 			name = Debug;
@@ -887,11 +889,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/CrashReporter.framework/Headers";
 				INFOPLIST_FILE = "Dont Forget To Say Tests/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.romanzes.Dont-Forget-To-Say-Tests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Dont Forget To Say.app/Dont Forget To Say";
 			};
 			name = Release;

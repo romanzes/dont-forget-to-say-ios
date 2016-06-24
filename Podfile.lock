@@ -1,5 +1,8 @@
 PODS:
   - AsyncSwift (1.7.2)
+  - couchbase-lite-ios (1.2.1):
+    - couchbase-lite-ios/SQLite (= 1.2.1)
+  - couchbase-lite-ios/SQLite (1.2.1)
   - FXForms (1.2.14)
   - PasscodeLock (1.0.2)
   - Realm (0.103.2):
@@ -14,6 +17,7 @@ PODS:
 
 DEPENDENCIES:
   - AsyncSwift (~> 1.7.2)
+  - couchbase-lite-ios (~> 1.2.1)
   - FXForms (~> 1.2.14)
   - PasscodeLock (~> 1.0.1)
   - RealmSwift (~> 0.103.2)
@@ -34,6 +38,7 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   AsyncSwift: 46a78bceb11f0e5bb52747f740d9692ec78d2d7c
+  couchbase-lite-ios: f9018465586b69eb7b06b8f0af77911a47f572e8
   FXForms: 724500c0c3f3eb3ba1004b3b83abcee55d3daf18
   PasscodeLock: 4ae42c094224a01de3773fcd69ae33886394d959
   Realm: 448f0416079fe5b0ed947e7d86f3c4e1c75826cb
@@ -43,6 +48,6 @@ SPEC CHECKSUMS:
   Swinject: 8c1b46e49c604f8c5c1f45f92ef314d3736bbef4
   THContactPicker: 4345c81a407af534e5f618d495e8fb422a911c10
 
-PODFILE CHECKSUM: d621dcdbd180ed2e3ce7b2e02e202cbcee33a627
+PODFILE CHECKSUM: e07b8847efce83e7004c387b84551e5bf709c851
 
 COCOAPODS: 1.0.1

@@ -19,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
             .inObjectScope(.Container)
         c.register(DataStoreProtocol.self) { r in
-                RealmDataStore(realmProvider: r.resolve(RealmProvider.self)!)
+                CouchbaseDataStore()
             }
             .inObjectScope(.Container)
         c.register(ContactStoreProtocol.self) { r in
