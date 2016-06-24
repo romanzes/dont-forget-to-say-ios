@@ -52,6 +52,8 @@
 		07CAB4491CFEC6E00053F5BF /* Phone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07CAB4481CFEC6E00053F5BF /* Phone.swift */; };
 		07D637B01CE47B89000D637A /* NotificationManagerLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D637AF1CE47B89000D637A /* NotificationManagerLogic.swift */; };
 		07D637B21CE49D3D000D637A /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D637B11CE49D3D000D637A /* NotificationManager.swift */; };
+		07DADEDC1D1D7FB30096D0D7 /* AuthProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07DADEDB1D1D7FB30096D0D7 /* AuthProvider.swift */; };
+		07DADEDF1D1D7FFC0096D0D7 /* MockAuthProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07DADEDE1D1D7FFC0096D0D7 /* MockAuthProvider.swift */; };
 		07DB90191D181A2600FE1079 /* CouchbaseDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07DB90181D181A2600FE1079 /* CouchbaseDataStore.swift */; };
 		07DB901E1D1839DB00FE1079 /* CouchbaseModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07DB901D1D1839DB00FE1079 /* CouchbaseModels.swift */; };
 		07DC536A1CEEF70700DF8C6D /* default-v0.realm in Resources */ = {isa = PBXBuildFile; fileRef = 07DC53691CEEF70700DF8C6D /* default-v0.realm */; };
@@ -125,6 +127,8 @@
 		07CAB4481CFEC6E00053F5BF /* Phone.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Phone.swift; sourceTree = "<group>"; };
 		07D637AF1CE47B89000D637A /* NotificationManagerLogic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationManagerLogic.swift; sourceTree = "<group>"; };
 		07D637B11CE49D3D000D637A /* NotificationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
+		07DADEDB1D1D7FB30096D0D7 /* AuthProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthProvider.swift; sourceTree = "<group>"; };
+		07DADEDE1D1D7FFC0096D0D7 /* MockAuthProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockAuthProvider.swift; sourceTree = "<group>"; };
 		07DB90181D181A2600FE1079 /* CouchbaseDataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CouchbaseDataStore.swift; sourceTree = "<group>"; };
 		07DB901A1D18248600FE1079 /* Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
 		07DB901D1D1839DB00FE1079 /* CouchbaseModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CouchbaseModels.swift; sourceTree = "<group>"; };
@@ -207,11 +211,12 @@
 		075B0AD71CD8E46500464EBC /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				0746566E1CEA1869008E5F45 /* Passcode */,
 				07612FB61CDA1CC3009E1600 /* Store */,
+				0746566E1CEA1869008E5F45 /* Passcode */,
 				075B0AD81CD8E4DF00464EBC /* Model */,
 				07D637AE1CE47B69000D637A /* Notifications */,
 				079B996D1CF6F84A008E0045 /* View */,
+				07DADED91D1D7F6D0096D0D7 /* Network */,
 				07AF68481CDA02230082A68A /* Router.swift */,
 				07796C9B1CD8CE5900CD6FDA /* AppDelegate.swift */,
 				07DB901A1D18248600FE1079 /* Bridging-Header.h */,
@@ -373,6 +378,23 @@
 				07D637B11CE49D3D000D637A /* NotificationManager.swift */,
 			);
 			name = Notifications;
+			sourceTree = "<group>";
+		};
+		07DADED91D1D7F6D0096D0D7 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				07DADEDA1D1D7FA50096D0D7 /* Auth */,
+			);
+			name = Network;
+			sourceTree = "<group>";
+		};
+		07DADEDA1D1D7FA50096D0D7 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				07DADEDB1D1D7FB30096D0D7 /* AuthProvider.swift */,
+				07DADEDE1D1D7FFC0096D0D7 /* MockAuthProvider.swift */,
+			);
+			name = Auth;
 			sourceTree = "<group>";
 		};
 		07DB90171D1819C100FE1079 /* Couchbase */ = {
@@ -664,6 +686,7 @@
 				07BDE0921CEB480E004CE5EC /* SettingsPresenter.swift in Sources */,
 				07612FC61CDA2F6E009E1600 /* BuddyTableCell.swift in Sources */,
 				0746566A1CEA17C2008E5F45 /* PasscodeLockConfiguration.swift in Sources */,
+				07DADEDF1D1D7FFC0096D0D7 /* MockAuthProvider.swift in Sources */,
 				07612FC11CDA24B7009E1600 /* BuddyDisplayData.swift in Sources */,
 				07DEAFDD1CEC8A90009070F3 /* LocalizedPasscodeViewController.swift in Sources */,
 				07BDE08E1CEB35CE004CE5EC /* SettingsForm.swift in Sources */,
@@ -671,6 +694,7 @@
 				07796C9C1CD8CE5900CD6FDA /* AppDelegate.swift in Sources */,
 				07DEAFEE1CECBDA6009070F3 /* Contact.swift in Sources */,
 				079F19861CDB58F200D2AE2E /* TopicListItemDisplayData.swift in Sources */,
+				07DADEDC1D1D7FB30096D0D7 /* AuthProvider.swift in Sources */,
 				079F19881CDB596100D2AE2E /* TopicListPresenter.swift in Sources */,
 				075B0ADF1CD8EDFB00464EBC /* BuddyListPresenter.swift in Sources */,
 				07BA09DE1CDCE8F100E075B5 /* ContactListItemDisplayData.swift in Sources */,
