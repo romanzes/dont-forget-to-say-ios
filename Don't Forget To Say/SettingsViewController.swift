@@ -45,12 +45,4 @@ class SettingsViewController: FXFormViewController, SettingsViewInterface {
     func enablePasscodeToggled() {
         performSelector(#selector(refreshForm), withObject: self, afterDelay: 0.2)
     }
-    
-    func signInClicked() {
-        presenter.signIn()
-    }
-    
-    func signOutClicked() {
-        presenter.signOut()
-    }
 }

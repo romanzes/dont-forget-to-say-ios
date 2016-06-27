@@ -96,12 +96,6 @@
 /* Synchronization group title */
 "sync_group_title" = "Синхронизация";
 
-/* 'Sign In' label */
-"settings_sign_in" = "Войти";
-
-/* 'Sign Out' label */
-"settings_sign_out" = "Выйти";
-
 /* Passcode screen cancel button */
 "passcode_cancel_button" = "Отмена";
 

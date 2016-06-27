@@ -10,6 +10,7 @@ import UIKit
 import Swinject
 import PasscodeLock
 import RealmSwift
+import FBSDKLoginKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -37,8 +38,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
             .inObjectScope(.Container)
         c.register(SettingsProvider.self) { r in UserDefaultsSettingsProvider() }
-            .inObjectScope(.Container)
-        c.register(AuthProvider.self) { r in MockAuthProvider() }
             .inObjectScope(.Container)
         c.register(RealmProvider.self) { r in
                 RealmProvider(getRealm: {
@@ -96,7 +95,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             .initCompleted() { r, c in
                 let presenter = c as! SettingsPresenter
                 presenter.settingsProvider = r.resolve(SettingsProvider.self)
-                presenter.authProvider = r.resolve(AuthProvider.self)
                 presenter.settingsForm = SettingsFormImpl()
                 presenter.userInterface = r.resolve(SettingsViewInterface.self)
         }
@@ -116,7 +114,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow(frame: UIScreen.mainScreen().bounds)
         container.resolve(Router.self)?.presentMainControllerFromWindow(window!)
         showPasscode()
-        return true
+        FBSDKButton.classForCoder()
+        return FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
     }
     
     func showPasscode() {
@@ -133,6 +132,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didRegisterUserNotificationSettings notificationSettings: UIUserNotificationSettings) {
         let notificationManager = container.resolve(NotificationManagerInterface.self) as! NotificationManager
         notificationManager.continueAfterRegistration()
+    }
+    
+    func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject) -> Bool {
+        return FBSDKApplicationDelegate.sharedInstance().application(application, openURL: url, sourceApplication: sourceApplication, annotation: annotation)
     }
 }
 

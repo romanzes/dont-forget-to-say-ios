@@ -50,10 +50,10 @@
 		07BDE0921CEB480E004CE5EC /* SettingsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BDE0911CEB480E004CE5EC /* SettingsPresenter.swift */; };
 		07BDE0971CEB52D7004CE5EC /* SettingsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BDE0961CEB52D7004CE5EC /* SettingsProvider.swift */; };
 		07CAB4491CFEC6E00053F5BF /* Phone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07CAB4481CFEC6E00053F5BF /* Phone.swift */; };
+		07D0B8541D21604100255CC4 /* FacebookButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D0B8531D21604100255CC4 /* FacebookButtonCell.swift */; };
+		07D0B8561D21692400255CC4 /* FacebookButtonCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 07D0B8551D21692400255CC4 /* FacebookButtonCell.xib */; };
 		07D637B01CE47B89000D637A /* NotificationManagerLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D637AF1CE47B89000D637A /* NotificationManagerLogic.swift */; };
 		07D637B21CE49D3D000D637A /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D637B11CE49D3D000D637A /* NotificationManager.swift */; };
-		07DADEDC1D1D7FB30096D0D7 /* AuthProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07DADEDB1D1D7FB30096D0D7 /* AuthProvider.swift */; };
-		07DADEDF1D1D7FFC0096D0D7 /* MockAuthProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07DADEDE1D1D7FFC0096D0D7 /* MockAuthProvider.swift */; };
 		07DB90191D181A2600FE1079 /* CouchbaseDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07DB90181D181A2600FE1079 /* CouchbaseDataStore.swift */; };
 		07DB901E1D1839DB00FE1079 /* CouchbaseModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07DB901D1D1839DB00FE1079 /* CouchbaseModels.swift */; };
 		07DC536A1CEEF70700DF8C6D /* default-v0.realm in Resources */ = {isa = PBXBuildFile; fileRef = 07DC53691CEEF70700DF8C6D /* default-v0.realm */; };
@@ -63,7 +63,6 @@
 		07DEAFEC1CECBD97009070F3 /* ContactStoreProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07DEAFEB1CECBD97009070F3 /* ContactStoreProtocol.swift */; };
 		07DEAFEE1CECBDA6009070F3 /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07DEAFED1CECBDA6009070F3 /* Contact.swift */; };
 		07DEAFF01CECBEA8009070F3 /* AddressBookContactStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07DEAFEF1CECBEA8009070F3 /* AddressBookContactStore.swift */; };
-		07E5D7191CFC3F8900C2DEAC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 07E5D7181CFC3F8900C2DEAC /* GoogleService-Info.plist */; };
 		07FA2E491CE4CB4100BE1EFE /* RealmDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07FA2E481CE4CB4100BE1EFE /* RealmDataStore.swift */; };
 		C070D32B018BF18F6287BA68 /* Pods_Dont_Forget_To_Say.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 305C0C6D2905E7A76D6B26AB /* Pods_Dont_Forget_To_Say.framework */; };
 /* End PBXBuildFile section */
@@ -125,10 +124,10 @@
 		07BDE0911CEB480E004CE5EC /* SettingsPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsPresenter.swift; sourceTree = "<group>"; };
 		07BDE0961CEB52D7004CE5EC /* SettingsProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsProvider.swift; sourceTree = "<group>"; };
 		07CAB4481CFEC6E00053F5BF /* Phone.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Phone.swift; sourceTree = "<group>"; };
+		07D0B8531D21604100255CC4 /* FacebookButtonCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacebookButtonCell.swift; sourceTree = "<group>"; };
+		07D0B8551D21692400255CC4 /* FacebookButtonCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FacebookButtonCell.xib; sourceTree = "<group>"; };
 		07D637AF1CE47B89000D637A /* NotificationManagerLogic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationManagerLogic.swift; sourceTree = "<group>"; };
 		07D637B11CE49D3D000D637A /* NotificationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
-		07DADEDB1D1D7FB30096D0D7 /* AuthProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthProvider.swift; sourceTree = "<group>"; };
-		07DADEDE1D1D7FFC0096D0D7 /* MockAuthProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockAuthProvider.swift; sourceTree = "<group>"; };
 		07DB90181D181A2600FE1079 /* CouchbaseDataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CouchbaseDataStore.swift; sourceTree = "<group>"; };
 		07DB901A1D18248600FE1079 /* Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
 		07DB901D1D1839DB00FE1079 /* CouchbaseModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CouchbaseModels.swift; sourceTree = "<group>"; };
@@ -141,7 +140,6 @@
 		07DEAFEB1CECBD97009070F3 /* ContactStoreProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactStoreProtocol.swift; sourceTree = "<group>"; };
 		07DEAFED1CECBDA6009070F3 /* Contact.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
 		07DEAFEF1CECBEA8009070F3 /* AddressBookContactStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddressBookContactStore.swift; sourceTree = "<group>"; };
-		07E5D7181CFC3F8900C2DEAC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		07FA2E481CE4CB4100BE1EFE /* RealmDataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmDataStore.swift; sourceTree = "<group>"; };
 		216842B3D0E2CD3CCB6D6D26 /* Pods-Dont Forget To Say.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dont Forget To Say.release.xcconfig"; path = "Pods/Target Support Files/Pods-Dont Forget To Say/Pods-Dont Forget To Say.release.xcconfig"; sourceTree = "<group>"; };
 		305C0C6D2905E7A76D6B26AB /* Pods_Dont_Forget_To_Say.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Dont_Forget_To_Say.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -216,7 +214,6 @@
 				075B0AD81CD8E4DF00464EBC /* Model */,
 				07D637AE1CE47B69000D637A /* Notifications */,
 				079B996D1CF6F84A008E0045 /* View */,
-				07DADED91D1D7F6D0096D0D7 /* Network */,
 				07AF68481CDA02230082A68A /* Router.swift */,
 				07796C9B1CD8CE5900CD6FDA /* AppDelegate.swift */,
 				07DB901A1D18248600FE1079 /* Bridging-Header.h */,
@@ -367,6 +364,8 @@
 			children = (
 				07BDE08A1CEB347A004CE5EC /* SettingsViewController.swift */,
 				07BDE08D1CEB35CE004CE5EC /* SettingsForm.swift */,
+				07D0B8531D21604100255CC4 /* FacebookButtonCell.swift */,
+				07D0B8551D21692400255CC4 /* FacebookButtonCell.xib */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -378,23 +377,6 @@
 				07D637B11CE49D3D000D637A /* NotificationManager.swift */,
 			);
 			name = Notifications;
-			sourceTree = "<group>";
-		};
-		07DADED91D1D7F6D0096D0D7 /* Network */ = {
-			isa = PBXGroup;
-			children = (
-				07DADEDA1D1D7FA50096D0D7 /* Auth */,
-			);
-			name = Network;
-			sourceTree = "<group>";
-		};
-		07DADEDA1D1D7FA50096D0D7 /* Auth */ = {
-			isa = PBXGroup;
-			children = (
-				07DADEDB1D1D7FB30096D0D7 /* AuthProvider.swift */,
-				07DADEDE1D1D7FFC0096D0D7 /* MockAuthProvider.swift */,
-			);
-			name = Auth;
 			sourceTree = "<group>";
 		};
 		07DB90171D1819C100FE1079 /* Couchbase */ = {
@@ -432,7 +414,6 @@
 				07796CA21CD8CE5900CD6FDA /* Assets.xcassets */,
 				07796CA41CD8CE5900CD6FDA /* LaunchScreen.storyboard */,
 				07796CA71CD8CE5900CD6FDA /* Info.plist */,
-				07E5D7181CFC3F8900C2DEAC /* GoogleService-Info.plist */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -602,7 +583,7 @@
 				079F19761CDB440900D2AE2E /* Localizable.strings in Resources */,
 				075F8B681CF5D83200808933 /* CommonLoadingView.xib in Resources */,
 				079F198F1CDB90D400D2AE2E /* AddTopicViewController.xib in Resources */,
-				07E5D7191CFC3F8900C2DEAC /* GoogleService-Info.plist in Resources */,
+				07D0B8561D21692400255CC4 /* FacebookButtonCell.xib in Resources */,
 				07DEAFD61CEC83F3009070F3 /* PasscodeLock.strings in Resources */,
 				079F19841CDB573F00D2AE2E /* TopicListViewController.xib in Resources */,
 				07796CA61CD8CE5900CD6FDA /* LaunchScreen.storyboard in Resources */,
@@ -678,6 +659,7 @@
 				07DEAFEC1CECBD97009070F3 /* ContactStoreProtocol.swift in Sources */,
 				07FA2E491CE4CB4100BE1EFE /* RealmDataStore.swift in Sources */,
 				07DEAFF01CECBEA8009070F3 /* AddressBookContactStore.swift in Sources */,
+				07D0B8541D21604100255CC4 /* FacebookButtonCell.swift in Sources */,
 				079F19911CDB91A300D2AE2E /* AddTopicPresenter.swift in Sources */,
 				07CAB4491CFEC6E00053F5BF /* Phone.swift in Sources */,
 				079F197F1CDB56FD00D2AE2E /* TopicTableCell.swift in Sources */,
@@ -686,7 +668,6 @@
 				07BDE0921CEB480E004CE5EC /* SettingsPresenter.swift in Sources */,
 				07612FC61CDA2F6E009E1600 /* BuddyTableCell.swift in Sources */,
 				0746566A1CEA17C2008E5F45 /* PasscodeLockConfiguration.swift in Sources */,
-				07DADEDF1D1D7FFC0096D0D7 /* MockAuthProvider.swift in Sources */,
 				07612FC11CDA24B7009E1600 /* BuddyDisplayData.swift in Sources */,
 				07DEAFDD1CEC8A90009070F3 /* LocalizedPasscodeViewController.swift in Sources */,
 				07BDE08E1CEB35CE004CE5EC /* SettingsForm.swift in Sources */,
@@ -694,7 +675,6 @@
 				07796C9C1CD8CE5900CD6FDA /* AppDelegate.swift in Sources */,
 				07DEAFEE1CECBDA6009070F3 /* Contact.swift in Sources */,
 				079F19861CDB58F200D2AE2E /* TopicListItemDisplayData.swift in Sources */,
-				07DADEDC1D1D7FB30096D0D7 /* AuthProvider.swift in Sources */,
 				079F19881CDB596100D2AE2E /* TopicListPresenter.swift in Sources */,
 				075B0ADF1CD8EDFB00464EBC /* BuddyListPresenter.swift in Sources */,
 				07BA09DE1CDCE8F100E075B5 /* ContactListItemDisplayData.swift in Sources */,

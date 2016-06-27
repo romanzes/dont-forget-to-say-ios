@@ -96,14 +96,11 @@
 /* Synchronization group title */
 "sync_group_title" = "Synchronization";
 
-/* 'Sign In' label */
-"settings_sign_in" = "Sign In";
-
-/* 'Sign Out' label */
-"settings_sign_out" = "Sign Out";
-
 /* Passcode screen cancel button */
 "passcode_cancel_button" = "Cancel";
 
 /* Passcode screen delete button */
 "passcode_delete_button" = "Delete";
+
+/* Authentication screen title */
+"auth_screen_title" = "Authentication";
