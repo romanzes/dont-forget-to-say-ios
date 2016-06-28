@@ -7,6 +7,7 @@
 //
 
 import Async
+import FBSDKLoginKit
 
 var DatabaseName = "dont_forget"
 
@@ -14,49 +15,49 @@ class CouchbaseDataStore: DataStoreProtocol {
     // MARK: Protocol methods
     
     func fetchBuddies(completionHandler: (buddies: [Buddy]?, error: CrudStoreError?) -> Void) {
-        CBLManager.sharedInstance().backgroundTellDatabaseNamed(DatabaseName) { database in
+        CBLManager.sharedInstance().backgroundTellDatabaseNamed(databaseName()) { database in
             self.fetchBuddiesImpl(database, completionHandler)
         }
     }
     
     func fetchBuddy(id: String, completionHandler: (buddy: Buddy?, error: CrudStoreError?) -> Void) {
-        CBLManager.sharedInstance().backgroundTellDatabaseNamed(DatabaseName) { database in
+        CBLManager.sharedInstance().backgroundTellDatabaseNamed(databaseName()) { database in
             self.fetchBuddyImpl(database, id, completionHandler)
         }
     }
     
     func addBuddy(name: String, contactId: String?, phones: [Phone], completionHandler: (buddy: Buddy?, error: CrudStoreError?) -> Void) {
-        CBLManager.sharedInstance().backgroundTellDatabaseNamed(DatabaseName) { database in
+        CBLManager.sharedInstance().backgroundTellDatabaseNamed(databaseName()) { database in
             self.addBuddyImpl(database, name, contactId, phones, completionHandler)
         }
     }
     
     func deleteBuddy(id: String, completionHandler: (error: CrudStoreError?) -> Void) {
-        CBLManager.sharedInstance().backgroundTellDatabaseNamed(DatabaseName) { database in
+        CBLManager.sharedInstance().backgroundTellDatabaseNamed(databaseName()) { database in
             self.deleteBuddyImpl(database, id, completionHandler)
         }
     }
     
     func fetchTopicsForBuddy(buddyId: String, completionHandler: (topics: [Topic]?, error: CrudStoreError?) -> Void) {
-        CBLManager.sharedInstance().backgroundTellDatabaseNamed(DatabaseName) { database in
+        CBLManager.sharedInstance().backgroundTellDatabaseNamed(databaseName()) { database in
             self.fetchTopicsForBuddyImpl(database, buddyId, completionHandler)
         }
     }
     
     func addTopic(text: String, buddyIds: [String], completionHandler: (topic: Topic?, error: CrudStoreError?) -> Void) {
-        CBLManager.sharedInstance().backgroundTellDatabaseNamed(DatabaseName) { database in
+        CBLManager.sharedInstance().backgroundTellDatabaseNamed(databaseName()) { database in
             self.addTopicImpl(database, text, buddyIds, completionHandler)
         }
     }
     
     func deleteTopic(id: String, completionHandler: (error: CrudStoreError?) -> Void) {
-        CBLManager.sharedInstance().backgroundTellDatabaseNamed(DatabaseName) { database in
+        CBLManager.sharedInstance().backgroundTellDatabaseNamed(databaseName()) { database in
             self.deleteTopicImpl(database, id, completionHandler)
         }
     }
     
     func deleteTopicFromBuddy(buddyId: String, topicId: String, completionHandler: (error: CrudStoreError?) -> Void) {
-        CBLManager.sharedInstance().backgroundTellDatabaseNamed(DatabaseName) { database in
+        CBLManager.sharedInstance().backgroundTellDatabaseNamed(databaseName()) { database in
             self.deleteTopicFromBuddyImpl(database, buddyId, topicId, completionHandler)
         }
     }
@@ -211,6 +212,14 @@ class CouchbaseDataStore: DataStoreProtocol {
     }
     
     // MARK: Helper functions
+    
+    private func databaseName() -> String {
+        if let token = FBSDKAccessToken.currentAccessToken() {
+            return "\(DatabaseName)_\(token.userID)"
+        } else {
+            return DatabaseName
+        }
+    }
     
     private func convertBuddy(document: CouchbaseBuddy) -> Buddy {
         let phones = document.phones.map { phone -> Phone in
